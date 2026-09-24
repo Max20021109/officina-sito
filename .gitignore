@@ -1,0 +1,8 @@
+# Log e dati locali generati dal form di contatto (non vanno su un repo pubblico)
+php/richieste.log
+*.log
+
+# File temporanei/di scarto
+_to_delete/
+.DS_Store
+Thumbs.db

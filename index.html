@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Autocar Service - Officina meccanica e gommista a Saint-Marcel, Valle d'Aosta</title>
+<meta name="description" content="Autocar Service: officina meccanica, elettrauto, gommista e preparazioni sportive a Saint-Marcel (AO), Valle d'Aosta. Preventivo chiaro prima di iniziare.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="canonical" href="https://www.tuodominio.it/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Autocar Service - Officina meccanica e gommista a Saint-Marcel, Valle d'Aosta">
+<meta property="og:description" content="Officina meccanica, elettrauto, gommista e preparazioni sportive per ogni marca. Preventivo chiaro prima di iniziare.">
+<meta property="og:image" content="assets/img/hero-poster.jpg">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://www.tuodominio.it/">
+
+<!-- Favicon: sostituisci con il logo reale -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0d10'/%3E%3Cpath d='M50 18 65 27v18l-15 9-15-9V27z' fill='none' stroke='%23e6332a' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e6332a'/%3E%3C/svg%3E">
+
+<!-- Font auto-ospitati (Manrope per titoli e corpo testo, JetBrains Mono per numeri/orari):
+     nessuna richiesta a Google Fonts, il sito funziona anche senza connessione al CDN esterno. -->
+<link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
+
+<!-- Font Awesome auto-ospitato (libreria icone, niente SVG disegnate a mano) -->
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css?v=20260924b">
+
+<!-- Dati struttura per Google: aiuta l'indicizzazione locale. Sostituisci ogni valore con quello reale. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Autocar Service",
+  "foundingDate": "1986",
+  "image": "https://www.tuodominio.it/assets/img/hero-poster.jpg",
+  "telephone": "+39-0165-768675",
+  "email": "autocar-service@libero.it",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Zona Industriale, 9",
+    "addressLocality": "Saint-Marcel",
+    "addressRegion": "Valle d'Aosta",
+    "postalCode": "11020",
+    "addressCountry": "IT"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "13:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:30" }
+  ],
+  "priceRange": "€€"
+}
+</script>
+</head>
+<body>
+
+<!-- ============ PRELOADER: l'auto rossa che sfreccia all'apertura ============
+     Foto vera (scontornata, senza sfondo), non un disegno. Solo CSS: entra da
+     sinistra sfocata con le scie, rallenta un attimo al centro, riparte e esce
+     a destra; poi il velo scuro sparisce (animation-fill-mode forwards,
+     pointer-events:none: non blocca mai il sito sotto). Con
+     prefers-reduced-motion e' nascosto di scatto. -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__track">
+    <div class="preloader__scie" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="preloader__auto">
+      <picture>
+        <source srcset="assets/img/auto-preloader.webp" type="image/webp">
+        <img class="preloader__foto" src="assets/img/auto-preloader.png" alt="" width="1400" height="487" decoding="async" fetchpriority="high">
+      </picture>
+      <span class="preloader__ombra"></span>
+    </div>
+  </div>
+</div>
+
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <div class="topbar__info">
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+    <a href="#contatti" class="topbar__cta">Richiedi preventivo <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand" aria-label="Autocar Service, torna alla home">
+      <img class="nav__mark" src="assets/img/logo-mark.png?v=20260921o" alt="" width="120" height="38" aria-hidden="true">
+      <span class="nav__brand-text">Autocar<br>Service</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sezioni del sito">
+      <a href="#storia">Chi siamo</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#lavori">Lavori</a>
+      <a href="#offerte">Offerte</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="tel:+390165768675" class="nav__phone"><i class="fa-solid fa-phone"></i><span>0165 768675</span></a>
+      <a href="#contatti" class="btn btn--primary btn--sm">Richiedi preventivo</a>
+      <button class="nav__burger" id="navBurger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__mobile" id="navMobile">
+    <a href="#storia">Chi siamo</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#lavori">Lavori</a>
+    <a href="#offerte">Offerte</a>
+    <a href="#recensioni">Recensioni</a>
+    <a href="#contatti">Contatti</a>
+    <a href="tel:+390165768675" class="nav__mobile-phone"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+    <a href="#contatti" class="btn btn--primary nav__mobile-cta">Richiedi preventivo</a>
+  </div>
+</header>
+
+<main id="contenuto">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__media">
+    <!-- Video di sfondo: una clip generica (componenti meccanici, non filmata in officina),
+         auto-ospitata come file mp4 (assets/video/hero.mp4), non un video girato da Autocar
+         Service. Il giorno in cui arrivera' un video reale dell'officina, basta sostituire
+         quel file (e l'immagine di poster): markup, scrim, testo e animazioni restano
+         identici. Un solo formato mp4/H.264 basta: e' supportato nativamente da tutti i
+         browser moderni (Chrome, Edge, Firefox, Safari), quindi niente webm aggiuntivo da
+         mantenere/pesare in piu'. Lo sfondo statico sotto (griglia + bagliore) resta sempre
+         presente: se il video non parte per qualsiasi motivo (rete lenta, autoplay bloccato)
+         il video resta semplicemente trasparente e si vede quello, mai una sezione vuota. -->
+    <div class="hero__fallback" id="heroFallback" aria-hidden="true">
+      <div class="hero__grid"></div>
+      <div class="hero__glow"></div>
+    </div>
+    <video class="hero__video" autoplay muted loop playsinline
+           poster="assets/img/hero-poster.jpg" aria-hidden="true">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="hero__content">
+    <h1 class="hero__title">
+      <span class="reveal-line"><span>La tua auto,</span></span>
+      <span class="reveal-line"><span>in mani <em>esperte</em>.</span></span>
+    </h1>
+    <p class="hero__subtitle">Tagliandi, diagnosi e riparazioni per ogni marca in Valle d'Aosta. Preventivo chiaro, prima di iniziare.</p>
+    <div class="hero__cta">
+      <a href="#contatti" class="btn btn--primary btn--lg">Richiedi preventivo</a>
+      <a href="tel:+390165768675" class="btn btn--ghost btn--lg"><i class="fa-solid fa-phone"></i> Chiama ora</a>
+    </div>
+  </div>
+
+  <span class="hero__scorri" aria-hidden="true">Scorri</span>
+  <a href="#storia" class="hero__badge" aria-label="Scopri la nostra storia, dal 1986 a oggi">
+    <svg class="hero__badge-ring" viewBox="0 0 200 200" aria-hidden="true">
+      <defs><path id="badgePath" d="M 100,100 m -84,0 a 84,84 0 1,1 168,0 a 84,84 0 1,1 -168,0"/></defs>
+      <text><textPath href="#badgePath" startOffset="0">AUTOCAR SERVICE &#8226; DAL 1986 &#8226; AUTOCAR SERVICE &#8226; DAL 1986 &#8226; </textPath></text>
+    </svg>
+    <span class="hero__badge-icon"><i class="fa-solid fa-arrow-down"></i></span>
+  </a>
+</section>
+
+<!-- ============ STRISCIA NUMERI (contachilometri) ============ -->
+<!-- Stile "cruscotto": ogni numero e' un quadrante da contachilometri, ma stavolta
+     un vero semicerchio aperto in basso (arco SVG a 180 gradi, non un cerchio
+     pieno), fill:none, nessun glow che copre il numero. Lancetta e riempimento
+     partono sempre da 0 e arrivano sempre a fondo scala (non a una percentuale
+     "realistica" del numero), sincronizzati col conteggio, uno dopo l'altro. -->
+<section class="stats" aria-label="Numeri dell'officina">
+  <div class="stats__inner">
+    <div class="stat">
+      <div class="gauge" data-count-to="40" data-suffix="+">
+        <svg class="gauge__svg" viewBox="0 0 100 100" aria-hidden="true">
+          <path class="gauge__track" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <path class="gauge__fill" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <g class="gauge__ticks">
+            <line x1="23.2" y1="71.5" x2="16.2" y2="75.5" class="g-big"/>
+            <line x1="15.5" y1="62.1" x2="11.6" y2="62.8"/>
+            <line x1="15.5" y1="49.9" x2="11.6" y2="49.2"/>
+            <line x1="23.2" y1="40.5" x2="16.2" y2="36.5" class="g-big"/>
+            <line x1="27.5" y1="29.2" x2="24.9" y2="26.1"/>
+            <line x1="38.0" y1="23.1" x2="36.7" y2="19.4"/>
+            <line x1="50.0" y1="25.0" x2="50.0" y2="17.0" class="g-big"/>
+            <line x1="62.0" y1="23.1" x2="63.3" y2="19.4"/>
+            <line x1="72.5" y1="29.2" x2="75.1" y2="26.1"/>
+            <line x1="76.8" y1="40.5" x2="83.8" y2="36.5" class="g-big"/>
+            <line x1="84.5" y1="49.9" x2="88.4" y2="49.2"/>
+            <line x1="84.5" y1="62.1" x2="88.4" y2="62.8"/>
+            <line x1="76.8" y1="71.5" x2="83.8" y2="75.5" class="g-big"/>
+          </g>
+        </svg>
+        <div class="gauge__needle"></div>
+        <div class="gauge__hub"></div>
+        <span class="gauge__num font-mono">0</span>
+      </div>
+      <span class="stat__label"><i class="fa-solid fa-calendar" aria-hidden="true"></i> Anni di attivit&agrave;</span>
+    </div>
+    <div class="stat">
+      <div class="gauge" data-count-to="87" data-suffix="">
+        <svg class="gauge__svg" viewBox="0 0 100 100" aria-hidden="true">
+          <path class="gauge__track" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <path class="gauge__fill" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <g class="gauge__ticks">
+            <line x1="23.2" y1="71.5" x2="16.2" y2="75.5" class="g-big"/>
+            <line x1="15.5" y1="62.1" x2="11.6" y2="62.8"/>
+            <line x1="15.5" y1="49.9" x2="11.6" y2="49.2"/>
+            <line x1="23.2" y1="40.5" x2="16.2" y2="36.5" class="g-big"/>
+            <line x1="27.5" y1="29.2" x2="24.9" y2="26.1"/>
+            <line x1="38.0" y1="23.1" x2="36.7" y2="19.4"/>
+            <line x1="50.0" y1="25.0" x2="50.0" y2="17.0" class="g-big"/>
+            <line x1="62.0" y1="23.1" x2="63.3" y2="19.4"/>
+            <line x1="72.5" y1="29.2" x2="75.1" y2="26.1"/>
+            <line x1="76.8" y1="40.5" x2="83.8" y2="36.5" class="g-big"/>
+            <line x1="84.5" y1="49.9" x2="88.4" y2="49.2"/>
+            <line x1="84.5" y1="62.1" x2="88.4" y2="62.8"/>
+            <line x1="76.8" y1="71.5" x2="83.8" y2="75.5" class="g-big"/>
+          </g>
+        </svg>
+        <div class="gauge__needle"></div>
+        <div class="gauge__hub"></div>
+        <span class="gauge__num font-mono">0</span>
+      </div>
+      <span class="stat__label"><i class="fa-solid fa-star" aria-hidden="true"></i> Recensioni Google</span>
+    </div>
+    <div class="stat">
+      <div class="gauge" data-count-to="6" data-suffix="">
+        <svg class="gauge__svg" viewBox="0 0 100 100" aria-hidden="true">
+          <path class="gauge__track" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <path class="gauge__fill" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <g class="gauge__ticks">
+            <line x1="23.2" y1="71.5" x2="16.2" y2="75.5" class="g-big"/>
+            <line x1="15.5" y1="62.1" x2="11.6" y2="62.8"/>
+            <line x1="15.5" y1="49.9" x2="11.6" y2="49.2"/>
+            <line x1="23.2" y1="40.5" x2="16.2" y2="36.5" class="g-big"/>
+            <line x1="27.5" y1="29.2" x2="24.9" y2="26.1"/>
+            <line x1="38.0" y1="23.1" x2="36.7" y2="19.4"/>
+            <line x1="50.0" y1="25.0" x2="50.0" y2="17.0" class="g-big"/>
+            <line x1="62.0" y1="23.1" x2="63.3" y2="19.4"/>
+            <line x1="72.5" y1="29.2" x2="75.1" y2="26.1"/>
+            <line x1="76.8" y1="40.5" x2="83.8" y2="36.5" class="g-big"/>
+            <line x1="84.5" y1="49.9" x2="88.4" y2="49.2"/>
+            <line x1="84.5" y1="62.1" x2="88.4" y2="62.8"/>
+            <line x1="76.8" y1="71.5" x2="83.8" y2="75.5" class="g-big"/>
+          </g>
+        </svg>
+        <div class="gauge__needle"></div>
+        <div class="gauge__hub"></div>
+        <span class="gauge__num font-mono">0</span>
+      </div>
+      <span class="stat__label"><i class="fa-solid fa-wrench" aria-hidden="true"></i> Settori d'intervento</span>
+    </div>
+    <div class="stat">
+      <div class="gauge" data-count-to="24" data-suffix="h">
+        <svg class="gauge__svg" viewBox="0 0 100 100" aria-hidden="true">
+          <path class="gauge__track" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <path class="gauge__fill" d="M15.36 76.00 A40 40 0 1 1 84.64 76.00"/>
+          <g class="gauge__ticks">
+            <line x1="23.2" y1="71.5" x2="16.2" y2="75.5" class="g-big"/>
+            <line x1="15.5" y1="62.1" x2="11.6" y2="62.8"/>
+            <line x1="15.5" y1="49.9" x2="11.6" y2="49.2"/>
+            <line x1="23.2" y1="40.5" x2="16.2" y2="36.5" class="g-big"/>
+            <line x1="27.5" y1="29.2" x2="24.9" y2="26.1"/>
+            <line x1="38.0" y1="23.1" x2="36.7" y2="19.4"/>
+            <line x1="50.0" y1="25.0" x2="50.0" y2="17.0" class="g-big"/>
+            <line x1="62.0" y1="23.1" x2="63.3" y2="19.4"/>
+            <line x1="72.5" y1="29.2" x2="75.1" y2="26.1"/>
+            <line x1="76.8" y1="40.5" x2="83.8" y2="36.5" class="g-big"/>
+            <line x1="84.5" y1="49.9" x2="88.4" y2="49.2"/>
+            <line x1="84.5" y1="62.1" x2="88.4" y2="62.8"/>
+            <line x1="76.8" y1="71.5" x2="83.8" y2="75.5" class="g-big"/>
+          </g>
+        </svg>
+        <div class="gauge__needle"></div>
+        <div class="gauge__hub"></div>
+        <span class="gauge__num font-mono">0</span>
+      </div>
+      <span class="stat__label"><i class="fa-solid fa-clock" aria-hidden="true"></i> Risposta al preventivo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NASTRO SERVIZI (scorre da solo, si ferma al passaggio del mouse) ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>Tagliandi</span><span>Diagnosi computerizzata</span><span>Freni e sospensioni</span><span>Cambio gomme</span><span>Elettrauto</span><span>Preparazioni sportive</span><span>Scarichi su misura</span><span>Climatizzazione</span><span>Revisioni</span><span>Dal 1986</span>
+    <span>Tagliandi</span><span>Diagnosi computerizzata</span><span>Freni e sospensioni</span><span>Cambio gomme</span><span>Elettrauto</span><span>Preparazioni sportive</span><span>Scarichi su misura</span><span>Climatizzazione</span><span>Revisioni</span><span>Dal 1986</span>
+  </div>
+</div>
+
+<!-- ============ STORIA (versione breve, il dettaglio a tappe e' su storia.html) ============ -->
+<section class="storia" id="storia">
+  <div class="storia__split">
+    <div class="atelier__media will-reveal">
+      <img src="assets/img/storia-officina-porsche.webp" alt="Porsche 911 Turbo Cabriolet sollevata sul ponte in officina durante un intervento" loading="lazy">
+      <span class="atelier__tag">Scatto reale, dalla nostra officina</span>
+    </div>
+    <div class="storia__intro storia__intro--compact will-reveal">
+      <h2>40 anni di lavoro, raccontati in breve.</h2>
+      <p>Autocar Service nasce dalla passione per i motori e dalla convinzione che un buon meccanico si giudica dalla chiarezza, non dalle sorprese in fattura. Lavoriamo su ogni marca e modello, con strumenti di diagnosi aggiornati e ricambi tracciabili, spiegando sempre cosa serve davvero e cosa puo' aspettare.</p>
+      <ul class="storia__values">
+        <li><i class="fa-solid fa-file-invoice"></i> Preventivo scritto prima di ogni intervento</li>
+        <li><i class="fa-solid fa-shield-halved"></i> Garanzia su ricambi e manodopera</li>
+        <li><i class="fa-solid fa-car-side"></i> Auto di cortesia su richiesta</li>
+      </ul>
+      <a href="storia.html" class="btn btn--outline storia__link">
+        Scopri la nostra storia completa <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVIZI ============ -->
+<section class="servizi" id="servizi">
+  <div class="section-head will-reveal">
+    <h2>Cosa facciamo, senza girarci intorno.</h2>
+    <p>Sei aree di intervento, spiegate in una riga.</p>
+  </div>
+
+  <!-- Lista ad accordion (stile OMEM): la freccia apre la descrizione del lavoro
+       migliore svolto in quel settore. I testi delle descrizioni sono ancora
+       generici (una riga onesta su cosa fa l'officina in quel settore, non un
+       caso inventato): appena il cliente fornisce un caso vero per settore
+       (vedi BRIEF-CLIENTE.md), si sostituisce solo il testo del singolo <p>,
+       cosi' come le foto altrove sul sito. Prima erano segnaposto tra parentesi
+       quadre visibili live sul sito: rimossi perche' un cliente reale non deve
+       mai vedere istruzioni interne al posto del testo. -->
+  <ul class="settori">
+    <li class="settore will-reveal">
+      <button class="settore__row" aria-expanded="false" aria-controls="settore-panel-1" id="settore-btn-1">
+        <span class="settore__left">
+          <span class="settore__icon" aria-hidden="true"><i class="fa-solid fa-gauge-high"></i></span>
+          <span class="settore__text">
+            <span class="settore__eyebrow">Settore</span>
+            <span class="settore__name">Preparazioni sportive</span>
+          </span>
+        </span>
+        <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <div class="settore__panel-wrap">
+        <div class="settore__panel-inner">
+          <div class="settore__desc" id="settore-panel-1" role="region" aria-labelledby="settore-btn-1">
+            <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
+            <p>Elaborazioni su misura, dalla messa a punto del motore agli scarichi personalizzati, seguite dalla progettazione al collaudo finale.</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="settore will-reveal">
+      <button class="settore__row" aria-expanded="false" aria-controls="settore-panel-2" id="settore-btn-2">
+        <span class="settore__left">
+          <span class="settore__icon" aria-hidden="true"><i class="fa-solid fa-wrench"></i></span>
+          <span class="settore__text">
+            <span class="settore__eyebrow">Settore</span>
+            <span class="settore__name">Officina meccanica</span>
+          </span>
+        </span>
+        <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <div class="settore__panel-wrap">
+        <div class="settore__panel-inner">
+          <div class="settore__desc" id="settore-panel-2" role="region" aria-labelledby="settore-btn-2">
+            <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
+            <p>Diagnosi elettronica, tagliandi e riparazioni su ogni marca, con ricambi tracciabili e un preventivo chiaro prima di iniziare.</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="settore will-reveal">
+      <button class="settore__row" aria-expanded="false" aria-controls="settore-panel-3" id="settore-btn-3">
+        <span class="settore__left">
+          <span class="settore__icon" aria-hidden="true"><i class="fa-solid fa-record-vinyl"></i></span>
+          <span class="settore__text">
+            <span class="settore__eyebrow">Settore</span>
+            <span class="settore__name">Gommista</span>
+          </span>
+        </span>
+        <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <div class="settore__panel-wrap">
+        <div class="settore__panel-inner">
+          <div class="settore__desc" id="settore-panel-3" role="region" aria-labelledby="settore-btn-3">
+            <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
+            <p>Cambio stagionale, equilibratura e riparazione gomme, con i pneumatici tenuti in deposito da noi tra un cambio e l'altro.</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="settore will-reveal">
+      <button class="settore__row" aria-expanded="false" aria-controls="settore-panel-4" id="settore-btn-4">
+        <span class="settore__left">
+          <span class="settore__icon" aria-hidden="true"><i class="fa-solid fa-car-battery"></i></span>
+          <span class="settore__text">
+            <span class="settore__eyebrow">Settore</span>
+            <span class="settore__name">Elettrauto</span>
+          </span>
+        </span>
+        <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <div class="settore__panel-wrap">
+        <div class="settore__panel-inner">
+          <div class="settore__desc" id="settore-panel-4" role="region" aria-labelledby="settore-btn-4">
+            <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
+            <p>Diagnosi e riparazione di impianti elettrici, centraline e climatizzazione, anche sui guasti piu' difficili da individuare.</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="settore will-reveal">
+      <button class="settore__row" aria-expanded="false" aria-controls="settore-panel-5" id="settore-btn-5">
+        <span class="settore__left">
+          <span class="settore__icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+          <span class="settore__text">
+            <span class="settore__eyebrow">Settore</span>
+            <span class="settore__name">Tuning e montaggio</span>
+          </span>
+        </span>
+        <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <div class="settore__panel-wrap">
+        <div class="settore__panel-inner">
+          <div class="settore__desc" id="settore-panel-5" role="region" aria-labelledby="settore-btn-5">
+            <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
+            <p>Allestimenti e montaggi su misura, dagli accessori agli assetti, con la stessa cura riservata alla manutenzione di ogni giorno.</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="settore will-reveal">
+      <button class="settore__row" aria-expanded="false" aria-controls="settore-panel-6" id="settore-btn-6">
+        <span class="settore__left">
+          <span class="settore__icon" aria-hidden="true"><i class="fa-solid fa-fire-flame-curved"></i></span>
+          <span class="settore__text">
+            <span class="settore__eyebrow">Settore</span>
+            <span class="settore__name">Scarichi personalizzati</span>
+          </span>
+        </span>
+        <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+      </button>
+      <div class="settore__panel-wrap">
+        <div class="settore__panel-inner">
+          <div class="settore__desc" id="settore-panel-6" role="region" aria-labelledby="settore-btn-6">
+            <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
+            <p>Scarichi realizzati su misura per ogni vettura, dal progetto del suono al montaggio, per un risultato pensato per la tua auto.</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+
+<!-- ============ VETRINA PREPARAZIONI SPORTIVE ============ -->
+<!-- Foto segnaposto: da sostituire con una foto vera di un'auto preparata da Autocar Service
+     appena disponibile (vedi BRIEF-CLIENTE.md, punto 5). -->
+<section class="showcase will-reveal">
+  <img src="https://picsum.photos/seed/autocar-preparazioni-2026/1600/900" alt="Auto preparata da Autocar Service" loading="lazy">
+  <div class="showcase__scrim"></div>
+  <div class="showcase__content">
+    <span class="showcase__eyebrow">Il nostro segno distintivo</span>
+    <h2>Non solo tagliandi: qui le auto si preparano davvero.</h2>
+    <p>Elaborazioni sportive, scarichi su misura e tuning seguiti dalla progettazione al collaudo, nella stessa officina che si occupa della tua manutenzione di ogni giorno.</p>
+    <a href="#contatti" class="btn btn--primary">Parliamo del tuo progetto</a>
+  </div>
+</section>
+
+<!-- ============ LAVORI (CAROUSEL) ============ -->
+<section class="lavori" id="lavori">
+  <div class="section-head section-head--row will-reveal">
+    <div>
+      <h2>Gli ultimi interventi in officina.</h2>
+      <p>Una selezione dei lavori seguiti nelle ultime settimane.</p>
+    </div>
+    <div class="lavori__nav">
+      <button class="carousel-btn" id="lavoriPrev" aria-label="Lavoro precedente"><i class="fa-solid fa-arrow-left"></i></button>
+      <button class="carousel-btn" id="lavoriNext" aria-label="Lavoro successivo"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+
+  <div class="carousel" id="lavoriCarousel">
+    <ul class="carousel__track" id="lavoriTrack">
+      <li class="carousel__slide will-reveal">
+        <img src="assets/img/lavoro-officina-interno.webp" alt="Interno dell'officina Autocar Service, con auto sul ponte sollevatore e magazzino cerchi e gomme" loading="lazy">
+        <div class="carousel__caption"><span>La nostra officina:</span> ponte sollevatore e magazzino cerchi e gomme sempre pronto</div>
+      </li>
+      <li class="carousel__slide will-reveal">
+        <img src="https://picsum.photos/seed/lavoro-freni-2026/800/900" alt="Sostituzione impianto frenante" loading="lazy">
+        <div class="carousel__caption"><span>Impianto frenante:</span> dischi e pastiglie sostituiti in giornata</div>
+      </li>
+      <li class="carousel__slide will-reveal">
+        <img src="assets/img/lavoro-gommista-officina.webp" alt="Zona gommista dell'officina, con attrezzatura per cambio ed equilibratura gomme" loading="lazy">
+        <div class="carousel__caption"><span>Cambio gomme:</span> set stagionale con equilibratura</div>
+      </li>
+      <li class="carousel__slide will-reveal">
+        <img src="https://picsum.photos/seed/lavoro-diagnosi-2026/800/900" alt="Diagnosi computerizzata su centralina" loading="lazy">
+        <div class="carousel__caption"><span>Diagnosi centralina:</span> spia motore risolta con lettura errori</div>
+      </li>
+      <li class="carousel__slide will-reveal">
+        <img src="https://picsum.photos/seed/lavoro-clima-2026/800/900" alt="Ricarica impianto climatizzazione" loading="lazy">
+        <div class="carousel__caption"><span>Climatizzazione:</span> ricarica gas e sanificazione impianto</div>
+      </li>
+    </ul>
+    <div class="carosello-progresso" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+
+<!-- ============ OFFERTE DEL MESE ============ -->
+<section class="offerte" id="offerte">
+  <div class="section-head will-reveal">
+    <h2>Le offerte di questo mese.</h2>
+    <p>Valide questo mese, non cumulabili con altre promozioni.</p>
+  </div>
+
+  <div class="offerte__grid">
+    <article class="offerta offerta--big will-reveal">
+      <span class="offerta__badge">Offerta del mese</span>
+      <h3>Tagliando completo</h3>
+      <p>Olio, filtro olio, filtro aria e controllo dei 40 punti di sicurezza.</p>
+      <div class="offerta__prezzo">
+        <span class="offerta__prezzo-old font-mono">€89</span>
+        <span class="offerta__prezzo-new font-mono">€69</span>
+      </div>
+      <a href="#contatti" class="btn btn--primary">Richiedi preventivo</a>
+    </article>
+
+    <article class="offerta will-reveal">
+      <h3>Controllo freni gratuito</h3>
+      <p>Verifica dischi, pastiglie e liquido freni, senza impegno.</p>
+      <div class="offerta__prezzo"><span class="offerta__prezzo-new font-mono">Gratis</span></div>
+      <a href="#contatti" class="btn btn--outline btn--sm">Richiedi preventivo</a>
+    </article>
+
+    <article class="offerta will-reveal">
+      <h3>Cambio gomme + equilibratura</h3>
+      <p>Montaggio, equilibratura e smaltimento delle gomme usate incluso.</p>
+      <div class="offerta__prezzo"><span class="offerta__prezzo-new font-mono">da €15</span><span class="offerta__prezzo-unit">/ gomma</span></div>
+      <a href="#contatti" class="btn btn--outline btn--sm">Richiedi preventivo</a>
+    </article>
+  </div>
+</section>
+
+<!-- ============ RECENSIONI ============ -->
+<!-- Card di riepilogo Google a sinistra + carosello (scroll automatico + frecce, come il
+     carosello "lavori" sopra) a destra. Aggiornato dal pannello Google Business corretto
+     del cliente (4,9 su 87 recensioni): Simone Tredesini, Luca Forno, Luca Moroni, Melina
+     Romeo, Angela Martino. Niente foto profilo reale incollata (non disponibile/da non
+     riprodurre): avatar a cerchio con iniziale, come fa Google stesso quando l'utente non
+     ha una foto. Manca ancora una 6a recensione vera (2026, "6 anni fa", 5 stelle) di cui
+     nello screenshot inviato dal cliente non si vedeva il nome: da aggiungere appena
+     confermato, copiando il markup di una card esistente. -->
+<section class="recensioni" id="recensioni">
+  <div class="section-head will-reveal">
+    <h2>Cosa dicono i clienti.</h2>
+    <p>Le recensioni vere, direttamente dalla nostra scheda Google.</p>
+  </div>
+
+  <div class="recensioni__inner">
+    <div class="recensioni__summary will-reveal">
+      <span class="recensioni__google-badge"><i class="fa-brands fa-google" aria-hidden="true"></i> Google</span>
+      <div class="recensioni__rating-row">
+        <span class="recensioni__score">4,9</span>
+        <div class="recensioni__stars-big" aria-hidden="true">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+      <p class="recensioni__label">Recensioni verificate dei nostri clienti</p>
+      <p class="recensioni__count">Media reale su 87 recensioni sulla nostra scheda Google. Guarda tutte le recensioni o lasciane una anche tu.</p>
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJj9B3YNzdiEcR0xJorXFNBa4" class="btn btn--primary" target="_blank" rel="noopener">
+        <i class="fa-brands fa-google"></i> Vai a Google
+      </a>
+    </div>
+
+    <div class="recensioni__carousel">
+      <div class="recensioni__track" id="recensioniTrack">
+
+        <article class="recensione-card will-reveal">
+          <div class="recensione-card__head">
+            <span class="recensione-card__avatar" style="--av:#0d9488">S</span>
+            <div class="recensione-card__who">
+              <strong>Simone Tredesini</strong>
+              <span>2 mesi fa</span>
+            </div>
+            <i class="fa-brands fa-google recensione-card__mark" aria-hidden="true"></i>
+          </div>
+          <div class="recensione-card__stars" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="recensione-card__text">"In villeggiatura nella localita' di Fenis, ho avuto un problema proprio il giorno prima di tornare a casa. Rivolgendomi a loro ho trovato personale onestissimo e soprattutto molto cordiale. Un grande grazie"</p>
+          <span class="recensione-card__verified"><i class="fa-solid fa-circle-check"></i> Recensione verificata su Google</span>
+        </article>
+
+        <article class="recensione-card will-reveal">
+          <div class="recensione-card__head">
+            <span class="recensione-card__avatar" style="--av:#2563eb">L</span>
+            <div class="recensione-card__who">
+              <strong>Luca Forno</strong>
+              <span>2 mesi fa</span>
+            </div>
+            <i class="fa-brands fa-google recensione-card__mark" aria-hidden="true"></i>
+          </div>
+          <div class="recensione-card__stars" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <span class="recensione-card__tag">Prezzo vantaggioso</span>
+          <p class="recensione-card__text">"Fermato per una diagnosi di emergenza, sono stati veloci e professionali, spiegando e risolvendo il problema. Consigliati."</p>
+          <span class="recensione-card__verified"><i class="fa-solid fa-circle-check"></i> Recensione verificata su Google</span>
+        </article>
+
+        <article class="recensione-card will-reveal">
+          <div class="recensione-card__head">
+            <span class="recensione-card__avatar" style="--av:#16a34a">L</span>
+            <div class="recensione-card__who">
+              <strong>Luca Moroni</strong>
+              <span>3 mesi fa</span>
+            </div>
+            <i class="fa-brands fa-google recensione-card__mark" aria-hidden="true"></i>
+          </div>
+          <div class="recensione-card__stars" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="recensione-card__text">"Rino in assoluto il miglior meccanico che abbia mai conosciuto!!! Oltretutto onestissimo e disponibile in tutto!!!"</p>
+          <span class="recensione-card__verified"><i class="fa-solid fa-circle-check"></i> Recensione verificata su Google</span>
+        </article>
+
+        <article class="recensione-card will-reveal">
+          <div class="recensione-card__head">
+            <span class="recensione-card__avatar" style="--av:#ea580c">M</span>
+            <div class="recensione-card__who">
+              <strong>Melina Romeo</strong>
+              <span>1 anno fa</span>
+            </div>
+            <i class="fa-brands fa-google recensione-card__mark" aria-hidden="true"></i>
+          </div>
+          <div class="recensione-card__stars" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="recensione-card__text">"Sono di Saint-Marcel per cui ho la comodita' a portata di mano oltre a questo nell'officina Rean sono Disponibili affidabili prezzi onesti e cortesia da parte di tutto lo staff. Consiglio vivamente"</p>
+          <span class="recensione-card__verified"><i class="fa-solid fa-circle-check"></i> Recensione verificata su Google</span>
+        </article>
+
+        <article class="recensione-card will-reveal">
+          <div class="recensione-card__head">
+            <span class="recensione-card__avatar" style="--av:#e11d48">A</span>
+            <div class="recensione-card__who">
+              <strong>Angela Martino</strong>
+              <span>5 anni fa</span>
+            </div>
+            <i class="fa-brands fa-google recensione-card__mark" aria-hidden="true"></i>
+          </div>
+          <div class="recensione-card__stars" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="recensione-card__text">"Due volte l'anno veniamo qui per il cambio gomme, da quasi un decennio. Sono competenti, seri, puntuali. Tengono anche i pneumatici in deposito tra un cambio e l'altro. Sempre gentili. Prezzi ottimi."</p>
+          <span class="recensione-card__verified"><i class="fa-solid fa-circle-check"></i> Recensione verificata su Google</span>
+        </article>
+
+        <article class="recensione-card recensione-card--cta will-reveal">
+          <i class="fa-brands fa-google recensione-card--cta__icon" aria-hidden="true"></i>
+          <p>Leggi tutte le recensioni, o lascia la tua, sulla scheda Google di Autocar Service.</p>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJj9B3YNzdiEcR0xJorXFNBa4" class="btn btn--outline" target="_blank" rel="noopener">
+            Vai su Google <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </article>
+
+      </div>
+      <div class="recensioni__nav">
+        <button class="carousel-btn" id="recensioniPrev" aria-label="Recensione precedente"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="carousel-btn" id="recensioniNext" aria-label="Recensione successiva"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATTI + MAPPA ============ -->
+<section class="contatti" id="contatti">
+  <div class="contatti__inner">
+    <div class="contatti__form-wrap will-reveal">
+      <span class="contatti__badge"><i class="fa-solid fa-circle-check"></i> Preventivo gratuito, senza impegno</span>
+      <h2>Richiedi un preventivo</h2>
+      <p>Rispondiamo entro 24 ore lavorative. Per urgenze, chiama direttamente.</p>
+
+      <form class="form" id="contactForm" action="php/contattaci.php" method="POST" novalidate>
+        <!-- Campo civetta anti-spam: invisibile per una persona, un bot lo compila.
+             Il PHP scarta silenziosamente le richieste dove arriva pieno. -->
+        <div class="form__honeypot" aria-hidden="true">
+          <label for="sito_web">Non compilare questo campo</label>
+          <input type="text" id="sito_web" name="sito_web" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form__row">
+          <div class="form__field">
+            <label for="nome">Nome e cognome</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name">
+            <span class="form__error" data-error-for="nome"></span>
+          </div>
+          <div class="form__field">
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+            <span class="form__error" data-error-for="telefono"></span>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <span class="form__error" data-error-for="email"></span>
+          </div>
+          <div class="form__field">
+            <label for="servizio">Tipo di servizio</label>
+            <select id="servizio" name="servizio" required>
+              <option value="" selected disabled>Seleziona...</option>
+              <option value="Tagliando">Tagliando / cambio olio</option>
+              <option value="Diagnosi">Diagnosi computerizzata</option>
+              <option value="Freni">Freni e sospensioni</option>
+              <option value="Gomme">Cambio gomme</option>
+              <option value="Revisione">Revisione / pre-revisione</option>
+              <option value="Altro">Altro</option>
+            </select>
+            <span class="form__error" data-error-for="servizio"></span>
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label for="messaggio">Messaggio <span class="form__optional">(facoltativo)</span></label>
+          <textarea id="messaggio" name="messaggio" rows="4" placeholder="Modello dell'auto, sintomi, disponibilita' oraria..."></textarea>
+        </div>
+
+        <label class="form__checkbox">
+          <input type="checkbox" id="privacy" name="privacy" required>
+          <span>Ho letto l'<a href="#">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato.</span>
+        </label>
+        <span class="form__error" data-error-for="privacy"></span>
+
+        <button type="submit" class="btn btn--primary btn--lg" id="formSubmit">
+          <span>Richiedi preventivo</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="contatti__side will-reveal">
+      <div class="contatti__map">
+        <iframe
+          title="Mappa: come raggiungerci"
+          src="https://www.google.com/maps?q=Autocar+Service%2C+Zona+Industriale+9%2C+11020+Saint-Marcel+AO&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <ul class="contatti__info">
+        <li><i class="fa-solid fa-location-dot"></i><span>Zona Industriale, 9, Saint-Marcel (AO)</span></li>
+        <li><i class="fa-solid fa-phone"></i><a href="tel:+390165768675">0165 768675</a></li>
+        <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/393478567108" target="_blank" rel="noopener">Scrivici su WhatsApp</a></li>
+        <li><i class="fa-solid fa-envelope"></i><a href="mailto:autocar-service@libero.it">autocar-service@libero.it</a></li>
+        <li><i class="fa-solid fa-clock"></i><span>Lun-Ven 8:00-13:00 e 15:00-19:00<br>Sab 8:00-12:30</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <span class="footer__watermark" aria-hidden="true">Autocar</span>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img class="footer__logo" src="assets/img/logo.png" alt="Autocar Service" width="220" height="115">
+      <p class="footer__tagline">Officina meccanica, elettrauto e gommista a Saint-Marcel, dal 1986. Preventivo chiaro prima di iniziare.</p>
+      <a href="https://wa.me/393478567108" class="footer__social" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <nav class="footer__col" aria-label="Link del sito">
+      <h3 class="footer__heading">Sezioni</h3>
+      <a href="#storia">Chi siamo</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#lavori">Lavori</a>
+      <a href="#offerte">Offerte</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+
+    <div class="footer__col">
+      <h3 class="footer__heading">Contatti</h3>
+      <a href="tel:+390165768675"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp</a>
+      <a href="mailto:autocar-service@libero.it"><i class="fa-solid fa-envelope"></i> autocar-service@libero.it</a>
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>Autocar Service di Barcellona Calogero &middot; P.IVA/C.F. 01130660077</p>
+    <p>&copy; <span id="year"></span> Autocar Service. Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<!-- barra fissa in basso, solo telefono: le tre cose che uno fa da un cellulare -->
+<nav class="barra-mobile" aria-label="Contatti rapidi">
+  <a href="tel:+390165768675"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiama</span></a>
+  <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
+  <a href="#contatti" class="barra-mobile__cta"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i><span>Preventivo</span></a>
+</nav>
+
+<a href="https://wa.me/393478567108" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- GSAP auto-ospitato: se per qualsiasi motivo non si carica, il sito resta comunque
+     visibile e funzionante (vedi js/main.js, le animazioni sono un "di piu'", mai un requisito). -->
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=20260924b"></script>
+</body>
+</html>

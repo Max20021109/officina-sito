@@ -1,0 +1,5 @@
+# Sostituisci "tuodominio.it" con il dominio vero prima di pubblicare online.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.tuodominio.it/sitemap.xml
