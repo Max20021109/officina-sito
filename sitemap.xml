@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sostituisci "tuodominio.it" con il dominio vero prima di pubblicare online. -->
+<!-- Autocar Service - indirizzo ufficiale: https://www.autocar-service.it -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tuodominio.it/</loc>
+    <loc>https://www.autocar-service.it/</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.tuodominio.it/storia.html</loc>
+    <loc>https://www.autocar-service.it/storia.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.tuodominio.it/settore-preparazioni-sportive.html</loc>
+    <loc>https://www.autocar-service.it/settore-preparazioni-sportive.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tuodominio.it/settore-officina-meccanica.html</loc>
+    <loc>https://www.autocar-service.it/settore-officina-meccanica.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tuodominio.it/settore-gommista.html</loc>
+    <loc>https://www.autocar-service.it/settore-gommista.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tuodominio.it/settore-elettrauto.html</loc>
+    <loc>https://www.autocar-service.it/settore-elettrauto.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tuodominio.it/settore-tuning-montaggio.html</loc>
+    <loc>https://www.autocar-service.it/settore-tuning-montaggio.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.tuodominio.it/settore-scarichi.html</loc>
+    <loc>https://www.autocar-service.it/settore-scarichi.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
