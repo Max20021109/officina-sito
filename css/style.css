@@ -49,11 +49,14 @@
   --r-lg: 20px;
   --r-pill: 999px;
 
-  /* ritmo verticale */
-  --section-pad: clamp(4rem, 9vw, 7.5rem);
+  /* ritmo verticale: su desktop (>=1024px) sale ad almeno 7rem, vedi sotto */
+  --section-pad: clamp(5rem, 9vw, 7.5rem);
   --container: 1320px;
 
   --ease: cubic-bezier(.16,1,.3,1);
+}
+@media (min-width:1024px){
+  :root{--section-pad:clamp(7rem, 8vw, 8.5rem)}
 }
 
 /* Tre sezioni restano scaure di proposito (hero, vetrina preparazioni, footer):
@@ -64,7 +67,7 @@
    della pagina, staccata dalla hero. Il quadrante scuro dei tachimetri e'
    comunque scuro, ma con colori scritti a mano dentro .stats (vedi piu'
    sotto), non ereditati da qui. */
-.hero,.showcase,.footer{
+.hero,.showcase,.footer,.pagina-hero{
   --bg:#0b0d10; --bg-1:#121519; --bg-2:#191d22; --bg-3:#21262c;
   --border:rgba(255,255,255,.08); --border-strong:rgba(255,255,255,.16);
   --text:#f2f3f5; --text-muted:#a7adb6; --text-faint:#6d737b;
@@ -79,6 +82,7 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:8.5rem}
+@media (max-width:760px){html{scroll-padding-top:5.5rem}}
 body{
   background:var(--bg);
   color:var(--text);
@@ -240,12 +244,14 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 .topbar__cta i{font-size:.72rem;transition:transform .2s var(--ease)}
 .topbar__cta:hover i{transform:translateX(3px)}
-@media (max-width:720px){
+/* Su telefono la topbar non c'e' piu': indirizzo e orari stanno in Contatti e nel
+   footer, il preventivo nel menu. A schermo resta fissa solo la nav (piu' una
+   sola azione in basso, vedi .barra-mobile). */
+@media (max-width:1100px){
   .topbar__info span:last-child{display:none}
 }
-@media (max-width:560px){
-  .topbar__info{display:none}
-  .topbar__inner{justify-content:center}
+@media (max-width:760px){
+  .topbar{display:none}
 }
 
 /* ================= NAV =================
@@ -303,8 +309,9 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 @media (max-width:760px){
   /* Sotto i 760px il bottone e il telefono nella barra affollano troppo lo spazio
      accanto al logo (misurato: a 320-390px il testo del brand arriva a toccare/
-     finire sotto il bottone). La stessa azione "Richiedi preventivo" resta comunque
-     raggiungibile dalla topbar sempre fissa in alto e dal menu mobile qui sotto. */
+     finire sotto il bottone). "Richiedi preventivo" e il telefono restano nel menu
+     mobile qui sotto; la topbar su telefono non c'e' piu', quindi la nav sta in cima. */
+  .nav{top:0}
   .nav__phone{display:none}
   .nav__actions .btn--primary{display:none}
   .nav__actions{gap:.5rem}
@@ -327,11 +334,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   padding-top:8.4rem;
   isolation:isolate;
 }
-@media (max-width:560px){
-  /* La barra e' piu' bassa sotto i 760px (vedi .nav__inner): 7.2rem basta a non
-     far finire il contenuto sotto la barra, con margine sia agli 88px che ai
-     64px di altezza che puo' avere qui sotto. Misurato, non a occhio. */
-  .hero{padding-top:7.2rem}
+@media (max-width:760px){
+  /* Sotto i 760px c'e' solo la nav (72px, 64px sotto i 400px), niente topbar:
+     6rem basta a non far finire il contenuto sotto la barra. */
+  .hero{padding-top:6rem}
 }
 .hero__media{position:absolute;inset:0;z-index:-1;background:var(--bg)}
 .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
@@ -459,9 +465,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   max-width:var(--container);margin-inline:auto;
   display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,2vw,1.5rem);
   background:var(--bg-2);
-  border:1px solid var(--border);border-radius:var(--r-lg);
+  border-radius:var(--r-lg);
   padding:clamp(1.4rem,3vw,2.6rem) clamp(.8rem,2vw,2rem);
-  box-shadow:0 30px 60px -34px rgba(23,19,15,.3);
 }
 .stat{
   position:relative;
@@ -530,7 +535,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   background:var(--bg-1);border-bottom:1px solid var(--border);
 }
 .page-header__inner{max-width:var(--container);margin-inline:auto}
-.breadcrumb{display:flex;gap:.5rem;align-items:center;font-size:.85rem;color:var(--text-faint);margin-bottom:1.2rem}
+@media (max-width:760px){.page-header{padding-top:6.5rem}}
+.breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;font-size:.85rem;color:var(--text-faint);margin-bottom:1.2rem}
 .breadcrumb a{color:var(--text-muted)}
 .breadcrumb a:hover{color:var(--text)}
 .page-header h1{font-size:clamp(2.1rem,4.2vw,3rem);text-transform:uppercase;margin-bottom:.7rem;max-width:22ch}
@@ -624,12 +630,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .atelier__media img{
   width:100%;height:auto;max-height:640px;display:block;object-fit:cover;
   border-radius:var(--r-lg);
-  box-shadow:0 32px 70px -32px rgba(23,19,15,.4);
+  background:var(--bg-1);
 }
 .atelier__media::before,.atelier__media::after{
   content:'';position:absolute;width:32px;height:32px;
   border:3px solid var(--accent);pointer-events:none;
-  filter:drop-shadow(0 0 10px rgba(220,38,38,.35));
 }
 .atelier__media::before{top:-10px;left:-10px;border-right:0;border-bottom:0;border-radius:12px 0 0 0}
 .atelier__media::after{bottom:-10px;right:-10px;border-left:0;border-top:0;border-radius:0 0 12px 0}
@@ -693,7 +698,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 
 .settore__panel-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
 .settore__panel-wrap.is-open{grid-template-rows:1fr}
-.settore__panel-inner{overflow:hidden}
+.settore__panel-inner{overflow:hidden;visibility:hidden;transition:visibility 0s .4s}
+.settore__panel-wrap.is-open .settore__panel-inner{visibility:visible;transition-delay:0s}
 .settore__desc{
   padding:0 clamp(.25rem,2vw,1rem) clamp(1.5rem,3vw,2rem) calc(60px + 1.3rem + clamp(.25rem,2vw,1rem));
   max-width:64ch;
@@ -703,6 +709,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;
 }
 .settore__desc p{color:var(--text-muted);font-size:.98rem}
+.settore__desc .link-freccia{margin-top:1rem}
 @media (max-width:640px){
   .settore__icon{width:46px;height:46px;font-size:1.1rem}
   .settore__left{gap:.9rem}
@@ -759,11 +766,12 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   flex:0 0 auto;width:min(76vw,340px);
   scroll-snap-align:start;
   border-radius:var(--r-lg);overflow:hidden;
-  background:var(--bg-2);border:1px solid var(--border);
+  background:var(--bg-2);
 }
 .carousel__slide img{aspect-ratio:4/4.6;object-fit:cover;filter:grayscale(55%) sepia(8%) hue-rotate(-10deg) contrast(1.05)}
 .carousel__caption{padding:1rem 1.1rem;font-size:.92rem;color:var(--text-muted)}
 .carousel__caption span{color:var(--text);font-weight:600;font-family:var(--font-display);letter-spacing:.01em}
+.lavori__tutti{max-width:var(--container);margin:1.8rem auto 0;padding-inline:clamp(1.5rem,5vw,3rem);display:flex;justify-content:flex-end}
 
 /* ================= OFFERTE (bento 1+2) ================= */
 .offerte{padding:var(--section-pad) clamp(1.5rem,5vw,3rem);background:var(--bg-1)}
@@ -772,10 +780,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:1.2rem;
 }
 .offerta{
-  background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);
+  background:var(--bg-2);border-radius:var(--r-lg);
   padding:1.9rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start;
 }
-.offerta--big{grid-row:1/3;background:linear-gradient(150deg, var(--bg-3), var(--bg-2));border-color:var(--border-strong);padding:2.4rem}
+.offerta--big{grid-row:1/3;background:var(--bg-2);padding:2.4rem}
 .offerta--big h3{font-size:1.7rem}
 .offerta__badge{
   background:var(--accent);color:var(--accent-contrast);
@@ -806,7 +814,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 
 .recensioni__summary{
-  background:var(--bg-3);border:1px solid var(--border-strong);border-radius:var(--r-lg);
+  background:var(--bg-1);border-radius:var(--r-lg);
   padding:2.2rem;display:flex;flex-direction:column;align-items:flex-start;gap:.85rem;
 }
 .recensioni__google-badge{
@@ -833,8 +841,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .recensione-card{
   flex:0 0 auto;width:min(80vw,300px);scroll-snap-align:start;
   background:var(--bg-2);color:var(--text);
-  border:1px solid var(--border);border-radius:var(--r-lg);
-  box-shadow:0 16px 34px -22px rgba(23,19,15,.22);
+  border-radius:var(--r-lg);
   padding:1.5rem;display:flex;flex-direction:column;gap:.8rem;
 }
 .recensione-card__head{display:flex;align-items:center;gap:.7rem}
@@ -860,7 +867,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 .recensione-card__verified i{font-size:.85rem}
 
-.recensione-card--cta{background:var(--bg-3);align-items:flex-start;justify-content:center}
+.recensione-card--cta{background:var(--bg-1);align-items:flex-start;justify-content:center}
 .recensione-card--cta__icon{font-size:1.6rem;color:var(--accent);margin-bottom:.2rem}
 .recensione-card--cta p{font-size:.94rem;line-height:1.5;color:var(--text-muted)}
 .recensione-card--cta .btn{margin-top:.3rem}
@@ -889,12 +896,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   max-width:1800px;margin-inline:auto;
   display:grid;grid-template-columns:1.15fr 1fr;
   border-radius:var(--r-lg);
-  box-shadow:0 32px 70px -32px rgba(23,19,15,.3);
 }
 .contatti__inner::before,.contatti__inner::after{
   content:'';position:absolute;width:34px;height:34px;
   border:3px solid var(--accent);pointer-events:none;
-  filter:drop-shadow(0 0 10px rgba(220,38,38,.35));
 }
 .contatti__inner::before{top:-10px;left:-10px;border-right:0;border-bottom:0;border-radius:12px 0 0 0}
 .contatti__inner::after{bottom:-10px;right:-10px;border-left:0;border-top:0;border-radius:0 0 12px 0}
@@ -947,13 +952,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 .contatti__map{
   border-radius:var(--r-md);overflow:hidden;
-  border:1px solid var(--border);
   aspect-ratio:16/11;
-  box-shadow:0 12px 26px -18px rgba(23,19,15,.35);
 }
 .contatti__map iframe{width:100%;height:100%;border:0;display:block}
 .contatti__info{
-  background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-md);
+  background:var(--bg-2);border-radius:var(--r-md);
   padding:1.5rem;display:flex;flex-direction:column;gap:1rem;
 }
 .contatti__info li{display:flex;align-items:center;gap:.9rem;font-size:.94rem;color:var(--text-muted)}
@@ -994,7 +997,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .footer{background:var(--bg);border-top:1px solid var(--border);padding:clamp(3rem,6vw,4.5rem) clamp(1.5rem,5vw,3rem) 0}
 .footer__inner{
   max-width:var(--container);margin-inline:auto;
-  display:grid;grid-template-columns:1.3fr 1fr 1.1fr;gap:2.5rem;
+  display:grid;grid-template-columns:1.3fr .8fr 1fr 1.2fr;gap:2.5rem;
   padding-bottom:2.8rem;
 }
 .footer__brand{display:flex;flex-direction:column;align-items:flex-start;gap:1.15rem}
@@ -1026,8 +1029,12 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;justify-content:space-between;
   font-size:.85rem;color:var(--text-faint);
 }
+@media (max-width:1024px){
+  .footer__inner{grid-template-columns:1fr 1fr}
+}
 @media (max-width:780px){
-  .footer__inner{grid-template-columns:1fr;gap:2.2rem;padding-bottom:2.2rem}
+  .footer__inner{gap:2.2rem 1.5rem;padding-bottom:2.2rem}
+  .footer__brand,.footer__col--contatti{grid-column:1/-1}
   .footer__bottom{flex-direction:column}
 }
 
@@ -1090,11 +1097,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 
 
 /* =====================================================================
-   WOW (24/09/2026) — rifinitura "di livello": grana, barra di avanzamento,
-   testata che si compatta, sezione attiva nel menu, ticker dei servizi,
-   pulsanti con luce, card con bordo che segue il mouse, foto che prendono
-   colore al passaggio, progress dei caroselli, freccia "torna su",
-   watermark nel footer. Tutto additivo: nessuna regola precedente e' stata
+   WOW (24/09/2026) — rifinitura "di livello": grana, testata che si
+   compatta, sezione attiva nel menu, ticker dei servizi, pulsanti con luce,
+   foto che prendono colore al passaggio, progress dei caroselli, freccia
+   "torna su", watermark nel footer. (Barra di avanzamento lettura, "scorri"
+   e bagliore delle card tolti il 24/09 nella pulizia dell'interfaccia.) Tutto additivo: nessuna regola precedente e' stata
    toccata, quindi si puo' togliere questo blocco e il sito torna com'era.
    ===================================================================== */
 
@@ -1108,15 +1115,6 @@ body::after{
 @keyframes grana{0%{transform:translate(0,0)}33%{transform:translate(-2%,1%)}66%{transform:translate(1%,-2%)}100%{transform:translate(0,0)}}
 .hero body::after{mix-blend-mode:overlay}
 
-/* --- barra rossa di avanzamento lettura, sotto la testata --- */
-.progresso-lettura{
-  position:fixed;left:0;top:0;height:3px;width:100%;z-index:102;
-  background:linear-gradient(90deg,var(--accent-active),var(--accent),#ff7b7b);
-  transform-origin:0 50%;transform:scaleX(0);
-  box-shadow:0 0 12px rgba(220,38,38,.55);
-  pointer-events:none;
-}
-
 /* --- testata che si compatta scorrendo: la topbar scivola via, il logo
        si stringe, ombra piu' netta. La classe la mette js/main.js --- */
 .topbar,.nav{transition:transform .45s var(--ease), box-shadow .3s, background-color .3s}
@@ -1125,7 +1123,7 @@ html.e-scorso .nav{transform:translateY(-2.35rem);box-shadow:0 10px 30px -12px r
 html.e-scorso .nav__inner{height:72px}
 html.e-scorso .nav__mark{height:34px}
 .nav__inner,.nav__mark{transition:height .35s var(--ease)}
-@media (max-width:760px){ html.e-scorso .nav__inner{height:64px} }
+@media (max-width:760px){ html.e-scorso .nav{transform:none} html.e-scorso .nav__inner{height:64px} }
 
 /* --- voce attiva nel menu: sottolineatura rossa che scivola --- */
 .nav__links a{position:relative;padding-block:.35rem}
@@ -1161,20 +1159,6 @@ html.e-scorso .nav__mark{height:34px}
   animation:tratto 1s var(--ease) 1.6s forwards;
 }
 @keyframes tratto{to{transform:scaleX(1)}}
-/* riga di scorrimento in basso a sinistra: "scorri" in mono con una linea che pulsa */
-.hero__scorri{
-  position:absolute;left:clamp(1.5rem,5vw,3rem);bottom:clamp(1.5rem,4vw,3rem);z-index:1;
-  display:flex;align-items:center;gap:.8rem;
-  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--text-muted);
-}
-.hero__scorri::before{
-  content:"";width:56px;height:1px;background:var(--text-faint);position:relative;overflow:hidden;
-  background:linear-gradient(90deg,var(--accent) 0 40%,rgba(255,255,255,.18) 40%);
-  background-size:250% 100%;animation:scorri 1.8s var(--ease) infinite;
-}
-@keyframes scorri{0%{background-position:100% 0}100%{background-position:-100% 0}}
-@media (max-width:720px){.hero__scorri{display:none}}
 
 /* --- ticker dei servizi: nastro che scorre fra i numeri e la storia --- */
 .ticker{
@@ -1213,27 +1197,16 @@ html.e-scorso .nav__mark{height:34px}
 .settore__icon{transition:transform .35s var(--ease),background-color .25s,color .25s,border-color .25s}
 @media (max-width:640px){.settore__row::before{display:none}.settore__row:hover{padding-left:0}}
 
-/* --- card con bordo che segue il mouse (offerte, recensioni, tachimetri) --- */
+/* --- card: si staccano dal fondo solo per il colore (niente bordo + ombra +
+       bagliore insieme); al passaggio si alzano appena, senza ombra --- */
 .offerta,.recensione-card,.stat,.carousel__slide{position:relative}
-.offerta::after,.recensione-card::after,.stat::after{
-  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(220,38,38,.16), transparent 60%);
-  opacity:0;transition:opacity .35s;
-}
-.offerta:hover::after,.recensione-card:hover::after,.stat:hover::after{opacity:1}
-.offerta,.recensione-card{transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
-.offerta:hover,.recensione-card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:0 24px 44px -24px rgba(23,19,15,.35)}
-.offerta--big{overflow:hidden}
-.offerta--big::before{
-  content:"";position:absolute;right:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle,rgba(220,38,38,.14),transparent 62%);pointer-events:none;
-}
-.offerta__prezzo-new{text-shadow:0 0 22px rgba(220,38,38,.25)}
+.offerta,.recensione-card{transition:transform .35s var(--ease)}
+.offerta:hover,.recensione-card:hover{transform:translateY(-4px)}
 
 /* --- lavori: le foto sono in bianco e nero e prendono colore al passaggio --- */
-.carousel__slide{transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.carousel__slide{transition:transform .45s var(--ease)}
 .carousel__slide img{transition:filter .6s var(--ease),transform .8s var(--ease)}
-.carousel__slide:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(23,19,15,.45)}
+.carousel__slide:hover{transform:translateY(-6px)}
 .carousel__slide:hover img{filter:none;transform:scale(1.04)}
 /* barra di avanzamento sotto i caroselli: dice "tra poco scorre" */
 .carosello-progresso{
@@ -1259,8 +1232,8 @@ html.e-scorso .nav__mark{height:34px}
 /* --- foto della storia: cornice che respira al passaggio --- */
 .atelier__media{transition:transform .5s var(--ease)}
 .atelier__media:hover{transform:translateY(-4px)}
-.atelier__media img{transition:transform .8s var(--ease),box-shadow .5s}
-.atelier__media:hover img{transform:scale(1.02);box-shadow:0 40px 80px -30px rgba(23,19,15,.5)}
+.atelier__media img{transition:transform .8s var(--ease)}
+.atelier__media:hover img{transform:scale(1.02)}
 
 /* --- whatsapp: anello che pulsa, ma discreto --- */
 .whatsapp-float::before{
@@ -1269,18 +1242,38 @@ html.e-scorso .nav__mark{height:34px}
 }
 @keyframes anello{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.35);opacity:0}}
 
-/* --- torna su --- */
+/* --- torna su (solo desktop: su telefono c'e' gia' il tocco sulla barra di stato) --- */
 .torna-su{
   position:fixed;right:1.6rem;bottom:5.4rem;z-index:90;
   width:44px;height:44px;border-radius:50%;
   background:var(--bg-2);border:1px solid var(--border-strong);color:var(--text);
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 10px 26px -12px rgba(23,19,15,.45);
-  opacity:0;transform:translateY(12px);pointer-events:none;
-  transition:opacity .3s,transform .3s var(--ease),background-color .2s,color .2s;
+  transition:opacity .3s,translate .3s var(--ease),visibility 0s,background-color .2s,color .2s;
 }
-.torna-su.visibile{opacity:1;transform:none;pointer-events:auto}
 .torna-su:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* --- azioni fisse "solo quando servono" ---
+   Pallino WhatsApp, "torna su" e la barra del telefono restano nascosti finche'
+   si guarda l'hero (o l'intestazione delle pagine interne): li mostra js/main.js
+   con un IntersectionObserver (classe .oltre-hero su <html>). WhatsApp e la
+   barra del telefono si rinascondono quando a schermo ci sono gia' contatti,
+   CTA di chiusura o footer (.azioni-a-vista): stesse azioni, due volte, no.
+   Lo stato nascosto vale solo con .azioni-pronte (JS partito): senza JS
+   restano visibili come prima. Si usa "translate" e non "transform", cosi'
+   l'effetto hover (scale) del pallino WhatsApp non viene sovrascritto. */
+.azioni-pronte :is(.whatsapp-float,.torna-su,.barra-mobile){
+  opacity:0;translate:0 14px;visibility:hidden;pointer-events:none;
+  transition:opacity .3s,translate .35s var(--ease),visibility 0s .35s;
+}
+.azioni-pronte.oltre-hero :is(.whatsapp-float,.torna-su,.barra-mobile),
+.azioni-pronte.oltre-hero.azioni-a-vista .torna-su{
+  opacity:1;translate:0 0;visibility:visible;pointer-events:auto;
+  transition:opacity .3s,translate .35s var(--ease),visibility 0s 0s;
+}
+.azioni-pronte.oltre-hero.azioni-a-vista :is(.whatsapp-float,.barra-mobile){
+  opacity:0;translate:0 14px;visibility:hidden;pointer-events:none;
+  transition:opacity .3s,translate .35s var(--ease),visibility 0s .35s;
+}
 
 /* --- footer: watermark del nome, enorme e in filigrana --- */
 .footer{position:relative;overflow:hidden}
@@ -1315,7 +1308,7 @@ h2{letter-spacing:-.025em}
 @keyframes pop{40%{transform:scale(1.18)}100%{transform:scale(1)}}
 
 @media (prefers-reduced-motion: reduce){
-  body::after,.progresso-lettura,.whatsapp-float::before{animation:none}
+  body::after,.whatsapp-float::before{animation:none}
   .hero__title em::after{transform:scaleX(1);animation:none}
 }
 /* etichetta dell'hero su telefono: una riga sola, senza la seconda parte */
@@ -1331,32 +1324,26 @@ h2{letter-spacing:-.025em}
 .recensioni__track.scorre-da-sola .recensione-card{scroll-snap-align:none;transition-delay:0s !important}
 
 /* =====================================================================
-   TELEFONO (24/09/2026): barra fissa in basso con Chiama / WhatsApp /
-   Preventivo, pulsanti dell'hero a tutta larghezza, meno aria fra le sezioni.
+   TELEFONO (24/09/2026): una sola azione fissa in basso (Chiama), che compare
+   solo dopo l'hero e sparisce vicino a contatti/footer; niente pallino
+   WhatsApp ne' "torna su". A schermo, al massimo: nav + questo pulsante.
+   Pulsanti dell'hero a tutta larghezza, meno aria fra le sezioni.
    ===================================================================== */
 .barra-mobile{display:none}
 @media (max-width:760px){
   .barra-mobile{
-    position:fixed;left:0;right:0;bottom:0;z-index:95;
-    display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:.5rem;
-    padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom));
-    background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    border-top:1px solid var(--border-strong);
-    box-shadow:0 -12px 30px -18px rgba(23,19,15,.35);
+    position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom));z-index:95;
+    display:block;
   }
-  .barra-mobile a{
-    display:flex;align-items:center;justify-content:center;gap:.45rem;
-    min-height:48px;border-radius:var(--r-md);
-    font-family:var(--font-display);font-weight:700;font-size:.9rem;
-    color:var(--text);background:var(--bg-1);border:1px solid var(--border);
+  .barra-mobile__cta{
+    display:flex;align-items:center;justify-content:center;gap:.55rem;
+    min-height:50px;padding:0 1.35rem;border-radius:var(--r-pill);
+    font-family:var(--font-display);font-weight:700;font-size:.95rem;
+    background:var(--accent);color:#fff;
+    box-shadow:0 10px 24px -10px rgba(23,19,15,.45);
   }
-  .barra-mobile a i{color:var(--accent);font-size:1.05rem}
-  .barra-mobile a:nth-child(2) i{color:#25D366}
-  .barra-mobile__cta{background:var(--accent) !important;color:#fff !important;border-color:var(--accent) !important}
-  .barra-mobile__cta i{color:#fff !important}
-  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
-  .whatsapp-float{display:none}
-  .torna-su{bottom:calc(84px + env(safe-area-inset-bottom));right:1rem}
+  .barra-mobile__cta i{font-size:1rem}
+  .whatsapp-float,.torna-su{display:none}
   /* hero: i due pulsanti uno sotto l'altro, larghi quanto lo schermo */
   .hero__cta{flex-direction:column;gap:.7rem}
   .hero__cta .btn{width:100%}
@@ -1369,3 +1356,199 @@ h2{letter-spacing:-.025em}
   .recensioni__summary{order:2}
   .recensioni__carousel{order:1}
 }
+
+/* =====================================================================
+   PAGINE INTERNE (24/09/2026): storia, lavori, sei pagine settore.
+   Stesso foglio della home, nessun CSS a parte. I contenuti sono template
+   (testi e foto finte, segnati <!-- DA SOSTITUIRE --> nell'HTML).
+   ===================================================================== */
+
+/* --- link testuale con freccia (home: accordion settori, carosello lavori) --- */
+.link-freccia{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-display);font-weight:700;font-size:.95rem;
+  color:var(--accent-active);
+  text-decoration:underline;text-decoration-color:transparent;text-underline-offset:.3em;
+  transition:text-decoration-color .2s,color .2s;
+}
+.link-freccia i{font-size:.8em;transition:transform .3s var(--ease)}
+.link-freccia:hover{text-decoration-color:currentColor}
+.link-freccia:hover i{transform:translateX(4px)}
+
+/* --- foto segnaposto: blocco grigio con scritta, e fondo grigio sotto ogni
+       foto finta (se Picsum non risponde si vede un blocco, non un buco) --- */
+.foto-segnaposto{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  background:rgba(23,19,15,.08);color:var(--text-muted);
+  font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  border-radius:var(--r-lg);aspect-ratio:4/5;padding:1rem;
+}
+.tappa__foto img,.lavoro-card__foto img,.galleria img,.pagina-hero__foto{background:var(--bg-1)}
+
+/* --- hero delle pagine settore: foto grande scura con titolo --- */
+.pagina-hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:min(78vh,660px);
+  display:flex;align-items:flex-end;
+  padding:9rem clamp(1.5rem,5vw,3rem) clamp(2.5rem,6vw,4.5rem);
+  background:var(--bg);
+}
+.pagina-hero__foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.pagina-hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(0deg, rgba(11,13,16,.92) 0%, rgba(11,13,16,.6) 45%, rgba(11,13,16,.35) 100%),
+    linear-gradient(90deg, rgba(9,10,13,.7) 0%, rgba(9,10,13,.15) 70%);
+}
+.pagina-hero__inner{max-width:var(--container);margin-inline:auto;width:100%}
+.pagina-hero .breadcrumb{color:var(--text-muted)}
+.pagina-hero .breadcrumb a{color:var(--text)}
+.pagina-hero__eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;margin-bottom:.9rem;
+  font-family:var(--font-mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-hover);
+}
+.pagina-hero h1{font-size:clamp(2.4rem,6vw,4.6rem);text-transform:uppercase;max-width:16ch;margin-bottom:1rem}
+.pagina-hero p{color:rgba(242,243,245,.86);font-size:clamp(1.02rem,1.5vw,1.18rem);max-width:52ch}
+@media (max-width:760px){.pagina-hero{padding-top:7rem;min-height:min(70vh,560px)}}
+
+/* --- intestazione di sezione a sinistra, per le pagine interne --- */
+.blocco{padding:var(--section-pad) clamp(1.5rem,5vw,3rem)}
+.blocco--scuro{background:var(--bg-1)}
+.blocco__inner{max-width:var(--container);margin-inline:auto}
+.blocco__head{max-width:640px;margin-bottom:clamp(2.2rem,4vw,3.2rem)}
+.blocco__eyebrow{
+  display:block;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;
+}
+.blocco__head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:.7rem}
+.blocco__head p{color:var(--text-muted);font-size:1.05rem}
+
+/* --- storia: intro a due colonne (riusa .atelier), testo lungo --- */
+.atelier__content p + p{margin-top:-.8rem}
+
+/* --- storia: timeline verticale, una linea a sinistra, anno in rosso ---
+   Le tappe con foto hanno testo e foto affiancati; la foto cambia lato una
+   volta si' e una no (.tappa--foto-sx). Su telefono la foto va sotto. */
+.linea{
+  --rail:clamp(2rem,5vw,3.5rem);
+  max-width:1100px;margin-inline:auto;position:relative;
+  padding-left:var(--rail);
+}
+.linea::before{
+  content:"";position:absolute;left:.5rem;top:.6rem;bottom:.6rem;width:2px;
+  background:var(--border-strong);
+}
+.tappa{position:relative;padding-block:clamp(1.4rem,3vw,2.4rem)}
+.tappa::before{
+  content:"";position:absolute;left:calc(var(--rail) * -1 + .5rem + 1px);top:calc(clamp(1.4rem,3vw,2.4rem) + .9rem);
+  width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);
+  background:var(--accent);box-shadow:0 0 0 5px var(--bg);
+}
+.tappa__anno{
+  display:block;font-family:var(--font-mono);font-weight:600;
+  font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;color:var(--accent);margin-bottom:.5rem;
+}
+.tappa h3{font-size:clamp(1.2rem,2vw,1.45rem);margin-bottom:.6rem}
+.tappa p{color:var(--text-muted);max-width:58ch}
+.tappa--foto{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.tappa--foto-sx .tappa__foto{order:-1}
+.tappa__foto{position:relative}
+.tappa__foto img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:var(--r-lg)}
+.tappa__foto .atelier__tag{left:.9rem;bottom:.9rem}
+@media (max-width:760px){
+  .tappa--foto{grid-template-columns:1fr;gap:1.2rem}
+  .tappa--foto-sx .tappa__foto{order:0}
+}
+
+/* --- storia: chi siamo oggi --- */
+.staff{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2rem)}
+.staff__persona h3{font-size:1.15rem;margin:1.1rem 0 .4rem}
+.staff__persona p{color:var(--text-muted);font-size:.96rem;max-width:36ch}
+@media (max-width:860px){.staff{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.staff{grid-template-columns:1fr}.staff .foto-segnaposto{aspect-ratio:4/3}}
+
+/* --- icone + testo: valori (storia) e "cosa facciamo" (settori) --- */
+.punti{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2rem)}
+.punto{background:var(--bg-2);border-radius:var(--r-lg);padding:clamp(1.4rem,2.5vw,1.9rem)}
+.blocco--scuro .punto{background:var(--bg-2)}
+.punto__icona{
+  width:52px;height:52px;border-radius:50%;margin-bottom:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--accent-soft);color:var(--accent);font-size:1.2rem;
+}
+.punto h3{font-size:1.12rem;margin-bottom:.45rem}
+.punto p{color:var(--text-muted);font-size:.95rem}
+@media (max-width:900px){.punti{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.punti{grid-template-columns:1fr}}
+
+/* --- settori: il lavoro che ci rappresenta di piu' (riusa .atelier) --- */
+.caso__scheda{display:grid;gap:1rem;margin-bottom:1.8rem;max-width:52ch}
+.caso__scheda dt{
+  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.2rem;
+}
+.caso__scheda dd{color:var(--text-muted);font-size:1rem}
+
+/* --- settori: galleria con didascalia --- */
+.galleria{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.4rem)}
+.galleria figure{margin:0}
+.galleria img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-lg)}
+.galleria figcaption{margin-top:.6rem;font-size:.9rem;color:var(--text-muted)}
+.galleria__piu{margin-top:2rem}
+@media (max-width:860px){.galleria{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.galleria{grid-template-columns:1fr}}
+
+/* --- settori: domande frequenti, stessa animazione dell'accordion in home
+       (.settore__panel-wrap, toggle in js/main.js) --- */
+.faq{max-width:900px;border-top:1px solid var(--border)}
+.faq__item{border-bottom:1px solid var(--border)}
+.faq__domanda{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;
+  padding:clamp(1.1rem,2.4vw,1.5rem) 0;text-align:left;
+  font-family:var(--font-display);font-weight:700;font-size:clamp(1.02rem,1.6vw,1.18rem);line-height:1.3;
+}
+.faq__domanda:hover .settore__arrow{border-color:var(--accent);color:var(--accent)}
+.faq__domanda[aria-expanded="true"] .settore__arrow{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast);transform:rotate(90deg)}
+.faq__risposta{padding:0 0 clamp(1.2rem,2.4vw,1.6rem);max-width:68ch}
+.faq__risposta p{color:var(--text-muted)}
+
+/* --- lavori: filtri per settore + griglia 3 / 2 / 1 colonne --- */
+.filtri{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem}
+.filtri button{
+  padding:.6rem 1.1rem;border-radius:var(--r-pill);
+  background:var(--bg-2);color:var(--text-muted);
+  font-family:var(--font-display);font-weight:600;font-size:.92rem;
+  transition:background-color .2s,color .2s;
+}
+.filtri button:hover{color:var(--text)}
+.filtri button[aria-pressed="true"]{background:var(--text);color:#fff}
+.filtri__conteggio{font-family:var(--font-mono);font-size:.82rem;color:var(--text-faint);margin-bottom:clamp(1.6rem,3vw,2.4rem)}
+.lavori-griglia{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
+.lavori-griglia > [hidden]{display:none}
+.lavoro-card{
+  display:flex;flex-direction:column;height:100%;
+  background:var(--bg-2);border-radius:var(--r-lg);overflow:hidden;
+  transition:transform .35s var(--ease);
+}
+.lavoro-card:hover{transform:translateY(-4px)}
+.lavoro-card__foto{overflow:hidden}
+.lavoro-card__foto img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s var(--ease)}
+.lavoro-card:hover .lavoro-card__foto img{transform:scale(1.04)}
+.lavoro-card__corpo{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.lavoro-card__meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem .8rem}
+.lavoro-card__settore{
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent-active);background:var(--accent-soft);padding:.25rem .6rem;border-radius:var(--r-pill);
+}
+.lavoro-card__data{font-family:var(--font-mono);font-size:.78rem;color:var(--text-faint)}
+.lavoro-card h3{font-size:1.1rem;line-height:1.25}
+.lavoro-card p{color:var(--text-muted);font-size:.93rem}
+.lavoro-card__apri{margin-top:auto;padding-top:.4rem;font-family:var(--font-display);font-weight:700;font-size:.88rem;color:var(--accent-active);display:inline-flex;align-items:center;gap:.45rem}
+.lavoro-card__apri i{font-size:.8em;transition:transform .3s var(--ease)}
+.lavoro-card:hover .lavoro-card__apri i{transform:translateX(4px)}
+@media (max-width:980px){.lavori-griglia{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.lavori-griglia{grid-template-columns:1fr}}
+
+/* CTA di chiusura: stesso blocco su tutte le pagine interne */
+.storia-cta--chiara{background:var(--bg)}  /* dopo una sezione grigia (FAQ nelle pagine settore) */
+.storia-cta p{color:var(--text-muted);margin:-.8rem auto 1.6rem;max-width:48ch}

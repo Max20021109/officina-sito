@@ -17,6 +17,8 @@ Aprendo `index.html` direttamente come file (doppio click, `file://...`) il sito
 officina/
   index.html              home page (tutte le sezioni sono ancore: #storia, #servizi, ...)
   storia.html             pagina "Chi siamo" a se stante: la timeline completa dei 40 anni, per non appesantire la home. La home mostra solo un riassunto con un bottone "Scopri la storia completa" che porta qui.
+  lavori.html             tutti i lavori svolti, con i filtri per settore (JS, senza ricaricare). Ci porta il link "Vedi tutti i lavori" sotto il carosello della home.
+  settore-*.html          una pagina per settore (preparazioni-sportive, officina-meccanica, gommista, elettrauto, tuning-montaggio, scarichi), tutte con la stessa struttura. Ci portano i link dentro l'accordion dei settori in home, le card di lavori.html e il footer.
   css/style.css            tutto lo stile (tema chiaro di base; hero, vetrina "lavori" e footer restano scuri via variabili CSS scoped su quelle sezioni)
   js/main.js               menu mobile, carosello, validazione form, animazioni
   php/contattaci.php        riceve il form e prova a inviare l'email
@@ -32,6 +34,8 @@ officina/
 Le librerie in `assets/vendor/` sono scaricate una volta sola e servite dal sito stesso: niente Google Fonts o CDN esterni da caricare ogni volta, il sito e' piu' veloce e funziona anche se la connessione e' scarsa.
 
 ## Cosa sostituire prima di pubblicare
+
+**Pagine template (storia, lavori, settori):** testi e foto sono finti, messi solo per vedere il layout pieno. Ogni blocco da riempire e' segnato nel codice con `<!-- DA SOSTITUIRE -->` (Ctrl+F): foto Picsum o blocchi grigi "Foto da sostituire", anni della timeline, persone dello staff, casi "il lavoro che ci rappresenta di piu'", gallerie, domande frequenti, e le 12 card di lavori.html (per aggiungerne una basta copiare un `<li>` e cambiare `data-settore`). Tutte le pagine usano lo stesso `css/style.css` e `js/main.js` della home.
 
 I dati base (nome, indirizzo, telefono, WhatsApp, email, P.IVA, logo, servizi) sono gia' quelli reali di Autocar Service. Restano da sostituire, dentro `index.html` (Ctrl+F nel tuo editor):
 

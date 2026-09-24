@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>La nostra storia - Autocar Service, officina a Saint-Marcel</title>
-<meta name="description" content="40 anni di Autocar Service: dall'apertura dell'officina a Saint-Marcel (AO) a oggi, quattro tappe che raccontano la nostra storia.">
+<meta name="description" content="40 anni di Autocar Service: dall'apertura dell'officina a Saint-Marcel (AO) nel 1986 a oggi, le persone e i valori che ci guidano.">
 <meta name="theme-color" content="#0b0d10">
 <link rel="canonical" href="https://www.tuodominio.it/storia.html">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="La nostra storia - Autocar Service">
-<meta property="og:description" content="40 anni di lavoro nella stessa officina, raccontati in quattro tappe.">
+<meta property="og:title" content="La nostra storia - Autocar Service, officina a Saint-Marcel">
+<meta property="og:description" content="40 anni di Autocar Service: dall'apertura dell'officina a Saint-Marcel (AO) nel 1986 a oggi, le persone e i valori che ci guidano.">
 <meta property="og:image" content="assets/img/hero-poster.jpg">
 <meta property="og:locale" content="it_IT">
 <meta property="og:url" content="https://www.tuodominio.it/storia.html">
@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=20260924b">
+<link rel="stylesheet" href="css/style.css?v=20260924c">
 </head>
 <body>
 
@@ -58,8 +58,8 @@
 </div>
 
 <!-- ============ NAV ============
-     Pagina interna: i link puntano alle sezioni della home (index.html#...) tranne
-     "Chi siamo", che qui e' la pagina corrente. -->
+     Pagina interna: i link puntano alle sezioni della home (index.html#...),
+     tranne "Chi siamo" e "Lavori" che hanno una pagina propria. -->
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a href="index.html" class="nav__brand" aria-label="Autocar Service, torna alla home">
@@ -70,7 +70,7 @@
     <nav class="nav__links" aria-label="Sezioni del sito">
       <a href="storia.html" aria-current="page">Chi siamo</a>
       <a href="index.html#servizi">Servizi</a>
-      <a href="index.html#lavori">Lavori</a>
+      <a href="lavori.html">Lavori</a>
       <a href="index.html#offerte">Offerte</a>
       <a href="index.html#recensioni">Recensioni</a>
       <a href="index.html#contatti">Contatti</a>
@@ -88,7 +88,7 @@
   <div class="nav__mobile" id="navMobile">
     <a href="storia.html" aria-current="page">Chi siamo</a>
     <a href="index.html#servizi">Servizi</a>
-    <a href="index.html#lavori">Lavori</a>
+    <a href="lavori.html">Lavori</a>
     <a href="index.html#offerte">Offerte</a>
     <a href="index.html#recensioni">Recensioni</a>
     <a href="index.html#contatti">Contatti</a>
@@ -102,65 +102,168 @@
 <!-- ============ INTESTAZIONE PAGINA ============ -->
 <section class="page-header">
   <div class="page-header__inner">
-    <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span>/</span> <span>Chi siamo</span></nav>
-    <h1>40 anni di lavoro, raccontati in quattro tappe.</h1>
-    <p>Dalla prima officina aperta nel 1986 a oggi: la stessa cura per ogni cliente, con gli strumenti che sono cambiati nel tempo.</p>
+    <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">La nostra storia</span></nav>
+    <h1>40 anni di lavoro nella stessa officina.</h1>
+    <p>Dall'apertura nel 1986 a oggi: le tappe che hanno fatto di Autocar Service l'officina che conosci a Saint-Marcel.</p>
   </div>
 </section>
 
-<!-- ============ TIMELINE COMPLETA ============ -->
-<!-- Anni e testi delle prime 3 tappe sono ancora segnaposto "testo finto classico": il
-     cliente non ha ancora fornito la storia vera dell'officina (chi l'ha aperta, quando si
-     e' trasferita, quando e' arrivata la diagnosi computerizzata...). Restano cosi' finche'
-     non arrivano i fatti reali da lui: a quel punto basta sostituire anno/titolo/testo di
-     ogni <li>, il markup e le animazioni restano identici. -->
-<section class="storia">
-  <ol class="timeline">
-    <li class="timeline__step will-reveal">
-      <span class="timeline__year font-mono">1986</span>
-      <h3>Apre l'officina</h3>
-      <p>Nasce con l'idea di offrire diagnosi oneste e un preventivo chiaro prima di ogni intervento, senza sorprese in fattura.</p>
-    </li>
-    <li class="timeline__step will-reveal">
-      <span class="timeline__year font-mono">1998</span>
-      <h3>Nuova sede e secondo elevatore</h3>
-      <p>Il numero di clienti cresce e l'officina si trasferisce in una sede piu' grande, con un secondo elevatore per lavorare su piu' auto insieme.</p>
-    </li>
-    <li class="timeline__step will-reveal">
-      <span class="timeline__year font-mono">2012</span>
-      <h3>Arriva la diagnosi computerizzata</h3>
-      <p>L'officina si aggiorna con le nuove tecnologie e introduce la diagnosi elettronica per individuare i guasti in modo piu' rapido e preciso.</p>
-    </li>
-    <li class="timeline__step timeline__step--now will-reveal">
-      <span class="timeline__year font-mono">Oggi</span>
-      <h3>40+ anni, la stessa cura per ogni cliente</h3>
-      <p>Ancora la stessa attenzione del primo giorno, con gli strumenti di oggi.</p>
-      <img src="https://picsum.photos/seed/officina-oggi-2026/240/240" alt="Autocar Service oggi" loading="lazy">
-    </li>
-  </ol>
-</section>
-
-<!-- ============ FOTO VERA DALL'OFFICINA ============ -->
+<!-- ============ INTRO CON FOTO GRANDE ============ -->
+<!-- DA SOSTITUIRE: foto e testo dell'introduzione. Il 1986 e la zona industriale sono veri,
+     il resto e' testo di esempio da confermare col cliente (BRIEF-CLIENTE.md, punto 2). -->
 <section class="atelier">
   <div class="atelier__inner will-reveal">
     <div class="atelier__media">
-      <img src="assets/img/storia-officina-porsche.webp" alt="Porsche 911 Turbo Cabriolet sollevata sul ponte in officina durante un intervento" loading="lazy">
-      <span class="atelier__tag">Scatto reale, dalla nostra officina</span>
+      <img src="https://picsum.photos/seed/storia-intro/1200/1400" alt="L'officina Autocar Service vista dall'ingresso" width="1200" height="1400" loading="lazy">
     </div>
     <div class="atelier__content">
-      <span class="atelier__eyebrow">Un giorno come tanti</span>
-      <h2>Dalle utilitarie alle sportive, la stessa attenzione.</h2>
-      <p>Che sia un tagliando di routine o un intervento piu' delicato su una vettura sportiva, il metodo non cambia: diagnosi corretta, un preventivo chiaro prima di iniziare e lo stesso rispetto per ogni auto che sale sul ponte.</p>
-      <a href="index.html#contatti" class="btn btn--primary">Richiedi preventivo</a>
+      <span class="atelier__eyebrow">Da dove partiamo</span>
+      <h2>Un'officina di paese, con gli strumenti di oggi.</h2>
+      <p>Autocar Service nasce nel 1986 nella zona industriale di Saint-Marcel, con un ponte sollevatore e una regola semplice: spiegare al cliente cosa serve davvero prima di mettere mano all'auto.</p>
+      <p>In quarant'anni sono cambiate le auto, gli strumenti e le persone che le guidano, ma quella regola è rimasta. Oggi seguiamo meccanica, gomme, impianti elettrici e preparazioni sportive sotto lo stesso tetto.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA DI CHIUSURA ============ -->
+<!-- ============ TIMELINE VERTICALE: 6 TAPPE ============
+     Una foto ogni due tappe, alternata destra/sinistra (.tappa--foto-sx mette la foto a
+     sinistra). Per cambiare una tappa basta sostituire anno, titolo, testo e foto dentro
+     il suo <li>: markup e animazioni restano uguali. -->
+<section class="blocco">
+  <div class="blocco__inner">
+    <div class="blocco__head will-reveal">
+      <span class="blocco__eyebrow">Le tappe</span>
+      <h2>Dal primo ponte sollevatore a oggi.</h2>
+    </div>
+    <ol class="linea">
+    <!-- DA SOSTITUIRE: anno, titolo e testo della tappa -->
+    <li class="tappa will-reveal">
+      <div class="tappa__testo">
+        <span class="tappa__anno">1986</span>
+        <h3>Apre l'officina</h3>
+        <p>L'officina apre nella zona industriale di Saint-Marcel con un solo ponte sollevatore e pochi attrezzi. Il lavoro è quello di tutti i giorni: tagliandi, freni e frizioni sulle auto di chi abita in paese e nei dintorni. Fin dal primo giorno il preventivo si fa prima di iniziare, non dopo.</p>
+      </div>
+    </li>
+    <!-- DA SOSTITUIRE: anno, titolo, testo e foto della tappa -->
+    <li class="tappa tappa--foto will-reveal">
+      <div class="tappa__testo">
+        <span class="tappa__anno">1994</span>
+        <h3>Nasce il reparto gomme</h3>
+        <p>Con gli inverni della valle cresce la richiesta di cambi gomme stagionali. Arrivano lo smontagomme e l'equilibratrice, e nasce il deposito per tenere le gomme dei clienti al coperto tra un cambio e l'altro. Molti di quei clienti tornano ancora oggi, due volte l'anno.</p>
+      </div>
+      <div class="tappa__foto">
+        <!-- DA SOSTITUIRE: foto finta -->
+        <img src="https://picsum.photos/seed/storia-1994/1200/800" alt="Reparto gomme dell'officina negli anni Novanta" width="1200" height="800" loading="lazy">
+      </div>
+    </li>
+    <!-- DA SOSTITUIRE: anno, titolo e testo della tappa -->
+    <li class="tappa will-reveal">
+      <div class="tappa__testo">
+        <span class="tappa__anno">2003</span>
+        <h3>Secondo ponte e più spazio</h3>
+        <p>I clienti aumentano e l'officina si allarga: un secondo ponte sollevatore permette di lavorare su più auto insieme e di accorciare i tempi di attesa. Cambia lo spazio, non il metodo: ogni auto viene controllata e spiegata come prima.</p>
+      </div>
+    </li>
+    <!-- DA SOSTITUIRE: anno, titolo, testo e foto della tappa -->
+    <li class="tappa tappa--foto tappa--foto-sx will-reveal">
+      <div class="tappa__testo">
+        <span class="tappa__anno">2010</span>
+        <h3>La diagnosi diventa elettronica</h3>
+        <p>Le auto si riempiono di centraline e l'officina si aggiorna: arriva la diagnosi computerizzata e nasce il reparto elettrauto. I guasti si trovano leggendo i dati del motore, non andando per tentativi e cambiando pezzi a caso.</p>
+      </div>
+      <div class="tappa__foto">
+        <!-- DA SOSTITUIRE: foto finta -->
+        <img src="https://picsum.photos/seed/storia-2010/1200/800" alt="Diagnosi computerizzata collegata a una vettura in officina" width="1200" height="800" loading="lazy">
+      </div>
+    </li>
+    <!-- DA SOSTITUIRE: anno, titolo e testo della tappa -->
+    <li class="tappa will-reveal">
+      <div class="tappa__testo">
+        <span class="tappa__anno">2016</span>
+        <h3>Le prime preparazioni sportive</h3>
+        <p>Dalla passione per i motori nascono le prime elaborazioni: messe a punto, assetti, freni e scarichi su misura, seguiti dalla progettazione al collaudo. Tutto nella stessa officina che si occupa della manutenzione di ogni giorno.</p>
+      </div>
+    </li>
+    <!-- DA SOSTITUIRE: testo della tappa (la foto e' gia' vera) -->
+    <li class="tappa tappa--foto will-reveal">
+      <div class="tappa__testo">
+        <span class="tappa__anno">Oggi</span>
+        <h3>40 anni, la stessa regola</h3>
+        <p>Sei settori sotto lo stesso tetto e clienti che tornano da decenni, spesso da una generazione all'altra. Le auto sono cambiate, gli strumenti anche, ma la regola è quella del primo giorno: prima si spiega, poi si lavora.</p>
+      </div>
+      <div class="tappa__foto">
+        <img src="assets/img/storia-officina-porsche.webp" alt="Porsche 911 Turbo Cabriolet sollevata sul ponte in officina durante un intervento" loading="lazy">
+        <span class="atelier__tag">Scatto reale, dalla nostra officina</span>
+      </div>
+    </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CHI SIAMO OGGI ============ -->
+<section class="blocco blocco--scuro">
+  <div class="blocco__inner">
+    <div class="blocco__head will-reveal">
+      <span class="blocco__eyebrow">Chi siamo oggi</span>
+      <h2>Le persone che trovi in officina.</h2>
+      <p>Poche persone, sempre le stesse: sai con chi parli e chi lavora sulla tua auto.</p>
+    </div>
+    <div class="staff">
+      <!-- DA SOSTITUIRE: foto, nome e frase -->
+      <article class="staff__persona will-reveal">
+        <div class="foto-segnaposto" role="img" aria-label="Foto da sostituire">Foto da sostituire</div>
+        <h3>Il titolare</h3>
+        <p>Segue di persona le auto che entrano in officina e fa i preventivi: se c'è da spiegare un lavoro, è lui che ti chiama.</p>
+      </article>
+      <!-- DA SOSTITUIRE: foto, nome e frase -->
+      <article class="staff__persona will-reveal">
+        <div class="foto-segnaposto" role="img" aria-label="Foto da sostituire">Foto da sostituire</div>
+        <h3>In officina</h3>
+        <p>Meccanica, diagnosi e preparazioni: le mani che lavorano sulla tua auto e che ti mostrano cosa hanno trovato.</p>
+      </article>
+      <!-- DA SOSTITUIRE: foto, nome e frase -->
+      <article class="staff__persona will-reveal">
+        <div class="foto-segnaposto" role="img" aria-label="Foto da sostituire">Foto da sostituire</div>
+        <h3>Gomme e accettazione</h3>
+        <p>Ti accoglie al banco, fissa gli appuntamenti per i cambi stagionali e tiene in ordine il deposito gomme.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALORI ============ -->
+<!-- DA SOSTITUIRE: i tre valori (icona + titolo + testo), da confermare col cliente -->
+<section class="blocco">
+  <div class="blocco__inner">
+    <div class="blocco__head will-reveal">
+      <span class="blocco__eyebrow">Come lavoriamo</span>
+      <h2>Tre cose che non cambiano.</h2>
+    </div>
+    <div class="punti">
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-file-invoice"></i></span>
+        <h3>Chiarezza</h3>
+        <p>Preventivo scritto prima di iniziare e una telefonata se durante il lavoro salta fuori qualcosa che non era previsto.</p>
+      </article>
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+        <h3>Lavoro fatto bene</h3>
+        <p>Ricambi tracciabili, garanzia su pezzi e manodopera e nessun intervento fatto solo “per stare tranquilli”.</p>
+      </article>
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span>
+        <h3>Fiducia</h3>
+        <p>Clienti che tornano da anni, spesso da una generazione all'altra: è il biglietto da visita a cui teniamo di più.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA DI CHIUSURA (uguale su tutte le pagine interne) ============ -->
 <section class="storia-cta">
   <div class="storia-cta__inner will-reveal">
     <h2>Hai letto la nostra storia. Parliamo della tua auto.</h2>
-    <a href="index.html#contatti" class="btn btn--primary btn--lg">Richiedi preventivo</a>
+    <a href="index.html#contatti" class="btn btn--primary btn--lg">Richiedi un preventivo</a>
   </div>
 </section>
 
@@ -180,13 +283,24 @@
       <h3 class="footer__heading">Sezioni</h3>
       <a href="storia.html">Chi siamo</a>
       <a href="index.html#servizi">Servizi</a>
-      <a href="index.html#lavori">Lavori</a>
+      <a href="lavori.html">Lavori</a>
       <a href="index.html#offerte">Offerte</a>
       <a href="index.html#recensioni">Recensioni</a>
       <a href="index.html#contatti">Contatti</a>
     </nav>
 
-    <div class="footer__col">
+    <nav class="footer__col" aria-label="Settori">
+      <h3 class="footer__heading">Settori</h3>
+      <a href="settore-preparazioni-sportive.html">Preparazioni sportive</a>
+      <a href="settore-officina-meccanica.html">Officina meccanica</a>
+      <a href="settore-gommista.html">Gommista</a>
+      <a href="settore-elettrauto.html">Elettrauto</a>
+      <a href="settore-tuning-montaggio.html">Tuning e montaggio</a>
+      <a href="settore-scarichi.html">Scarichi personalizzati</a>
+      <a href="lavori.html">Tutti i lavori</a>
+    </nav>
+
+    <div class="footer__col footer__col--contatti">
       <h3 class="footer__heading">Contatti</h3>
       <a href="tel:+390165768675"><i class="fa-solid fa-phone"></i> 0165 768675</a>
       <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp</a>
@@ -202,11 +316,10 @@
   </div>
 </footer>
 
-<!-- barra fissa in basso, solo telefono: le tre cose che uno fa da un cellulare -->
-<nav class="barra-mobile" aria-label="Contatti rapidi">
-  <a href="tel:+390165768675"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiama</span></a>
-  <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
-  <a href="index.html#contatti" class="barra-mobile__cta"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i><span>Preventivo</span></a>
+<!-- azione fissa in basso, solo telefono: UNA sola (chiamare), compare dopo l'intestazione
+     e si toglie vicino a CTA finale/footer (vedi js/main.js). -->
+<nav class="barra-mobile" aria-label="Contatto rapido">
+  <a href="tel:+390165768675" class="barra-mobile__cta"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiama l'officina</span></a>
 </nav>
 
 <a href="https://wa.me/393478567108" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
@@ -215,6 +328,6 @@
 
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20260924b"></script>
+<script src="js/main.js?v=20260924c"></script>
 </body>
 </html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scarichi personalizzati - Autocar Service, officina a Saint-Marcel (AO)</title>
+<meta name="description" content="Scarichi personalizzati a Saint-Marcel (AO): linee su misura, terminali, riparazioni, catalizzatori e FAP, con componenti omologati e suono calibrato.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="canonical" href="https://www.tuodominio.it/settore-scarichi.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scarichi personalizzati - Autocar Service, officina a Saint-Marcel (AO)">
+<meta property="og:description" content="Scarichi personalizzati a Saint-Marcel (AO): linee su misura, terminali, riparazioni, catalizzatori e FAP, con componenti omologati e suono calibrato.">
+<meta property="og:image" content="assets/img/hero-poster.jpg">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://www.tuodominio.it/settore-scarichi.html">
+
+<!-- Favicon: sostituisci con il logo reale -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0d10'/%3E%3Cpath d='M50 18 65 27v18l-15 9-15-9V27z' fill='none' stroke='%23e6332a' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e6332a'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="css/style.css?v=20260924c">
+</head>
+<body>
+
+<!-- ============ PRELOADER: l'auto rossa che sfreccia all'apertura ============
+     Foto vera (scontornata, senza sfondo), non un disegno. Solo CSS: entra da
+     sinistra sfocata con le scie, rallenta un attimo al centro, riparte e esce
+     a destra; poi il velo scuro sparisce (animation-fill-mode forwards,
+     pointer-events:none: non blocca mai il sito sotto). Con
+     prefers-reduced-motion e' nascosto di scatto. -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__track">
+    <div class="preloader__scie" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="preloader__auto">
+      <picture>
+        <source srcset="assets/img/auto-preloader.webp" type="image/webp">
+        <img class="preloader__foto" src="assets/img/auto-preloader.png" alt="" width="1400" height="487" decoding="async" fetchpriority="high">
+      </picture>
+      <span class="preloader__ombra"></span>
+    </div>
+  </div>
+</div>
+
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <div class="topbar__info">
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+    <a href="index.html#contatti" class="topbar__cta">Richiedi preventivo <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ============ NAV ============
+     Pagina interna: i link puntano alle sezioni della home (index.html#...),
+     tranne "Chi siamo" e "Lavori" che hanno una pagina propria. -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand" aria-label="Autocar Service, torna alla home">
+      <img class="nav__mark" src="assets/img/logo-mark.png?v=20260921o" alt="" width="120" height="38" aria-hidden="true">
+      <span class="nav__brand-text">Autocar<br>Service</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sezioni del sito">
+      <a href="storia.html">Chi siamo</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="lavori.html">Lavori</a>
+      <a href="index.html#offerte">Offerte</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="tel:+390165768675" class="nav__phone"><i class="fa-solid fa-phone"></i><span>0165 768675</span></a>
+      <a href="index.html#contatti" class="btn btn--primary btn--sm">Richiedi preventivo</a>
+      <button class="nav__burger" id="navBurger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__mobile" id="navMobile">
+    <a href="storia.html">Chi siamo</a>
+    <a href="index.html#servizi">Servizi</a>
+    <a href="lavori.html">Lavori</a>
+    <a href="index.html#offerte">Offerte</a>
+    <a href="index.html#recensioni">Recensioni</a>
+    <a href="index.html#contatti">Contatti</a>
+    <a href="tel:+390165768675" class="nav__mobile-phone"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+    <a href="index.html#contatti" class="btn btn--primary nav__mobile-cta">Richiedi preventivo</a>
+  </div>
+</header>
+
+<main id="contenuto">
+
+<!-- ============ HERO DELLA PAGINA ============
+     Stessa struttura per tutte e sei le pagine settore: cambiano solo i testi e le foto. -->
+<section class="pagina-hero">
+  <!-- DA SOSTITUIRE: foto finta del settore -->
+  <img class="pagina-hero__foto" src="https://picsum.photos/seed/scarichi-hero/1600/900" alt="" width="1600" height="900" fetchpriority="high">
+  <div class="pagina-hero__inner">
+    <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="index.html#servizi">Servizi</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Scarichi personalizzati</span></nav>
+    <span class="pagina-hero__eyebrow"><i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i> Settore</span>
+    <h1>Scarichi personalizzati</h1>
+    <!-- DA SOSTITUIRE: frase introduttiva del settore -->
+    <p>Scarichi su misura, terminali e riparazioni: scegliamo il suono insieme a te e lo montiamo con componenti conformi alle norme.</p>
+  </div>
+</section>
+
+<!-- ============ COSA FACCIAMO ============ -->
+<!-- DA SOSTITUIRE: i punti (icona + titolo + testo), da confermare col cliente -->
+<section class="blocco">
+  <div class="blocco__inner">
+    <div class="blocco__head will-reveal">
+      <span class="blocco__eyebrow">Cosa facciamo</span>
+      <h2>Scarichi personalizzati: gli interventi che seguiamo.</h2>
+    </div>
+    <div class="punti">
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-fire-flame-curved"></i></span>
+        <h3>Scarichi su misura</h3>
+        <p>Linee progettate per la tua auto, dal collettore fino ai terminali.</p>
+      </article>
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-volume-high"></i></span>
+        <h3>Suono calibrato</h3>
+        <p>Scegliamo insieme il suono: presente, ma non fastidioso nei viaggi lunghi.</p>
+      </article>
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+        <h3>Riparazioni e saldature</h3>
+        <p>Marmitte forate, staffe rotte e tubi corrosi riparati o sostituiti.</p>
+      </article>
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-filter"></i></span>
+        <h3>Catalizzatori e FAP</h3>
+        <p>Controllo, pulizia e sostituzione di catalizzatori e filtri antiparticolato.</p>
+      </article>
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-certificate"></i></span>
+        <h3>Componenti omologati</h3>
+        <p>Solo silenziatori e terminali conformi, con la documentazione quando serve.</p>
+      </article>
+      <article class="punto will-reveal">
+        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <h3>Controllo perdite</h3>
+        <p>Ricerca di perdite e rumori sospetti prima che diventino un problema.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IL LAVORO CHE CI RAPPRESENTA DI PIU' ============ -->
+<!-- DA SOSTITUIRE: foto e testo del caso (auto, problema, cosa abbiamo fatto, risultato).
+     Serve un caso vero per settore, vedi BRIEF-CLIENTE.md punto 3. -->
+<section class="atelier">
+  <div class="atelier__inner will-reveal">
+    <div class="atelier__media">
+      <img src="https://picsum.photos/seed/scarichi-caso/1200/1400" alt="Scarichi personalizzati: il lavoro che ci rappresenta di più" width="1200" height="1400" loading="lazy">
+    </div>
+    <div class="atelier__content">
+      <span class="atelier__eyebrow">Il lavoro che ci rappresenta di più</span>
+      <h2>Una linea in inox che resiste al sale degli inverni.</h2>
+      <dl class="caso__scheda">
+        <div><dt>Auto</dt><dd>BMW Serie 1 M135i del 2015, usata tutto l'anno.</dd></div>
+        <div><dt>Il problema</dt><dd>Silenziatore posteriore corroso dal sale delle strade d'inverno, con un rumore metallico a freddo e il timore di non passare la revisione.</dd></div>
+        <div><dt>Cosa abbiamo fatto</dt><dd>Sostituzione della parte posteriore con una linea in acciaio inox, silenziatore omologato e terminali doppi, staffe nuove e giunzioni saldate.</dd></div>
+        <div><dt>Il risultato</dt><dd>Nessuna perdita, un suono pieno ma composto in autostrada e una linea pensata per durare molti inverni.</dd></div>
+      </dl>
+      <a href="index.html#contatti" class="btn btn--primary">Richiedi un preventivo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERIA ============ -->
+<!-- DA SOSTITUIRE: foto finte e didascalie -->
+<section class="blocco">
+  <div class="blocco__inner">
+    <div class="blocco__head will-reveal">
+      <span class="blocco__eyebrow">Dall'officina</span>
+      <h2>Qualche scatto dal lavoro.</h2>
+    </div>
+    <div class="galleria">
+      <figure class="will-reveal">
+        <img src="https://picsum.photos/seed/scarichi-galleria-1/800/600" alt="Linea in acciaio inox prima del montaggio" width="800" height="600" loading="lazy">
+        <figcaption>Linea in acciaio inox prima del montaggio</figcaption>
+      </figure>
+      <figure class="will-reveal">
+        <img src="https://picsum.photos/seed/scarichi-galleria-2/800/600" alt="Saldatura delle giunzioni" width="800" height="600" loading="lazy">
+        <figcaption>Saldatura delle giunzioni</figcaption>
+      </figure>
+      <figure class="will-reveal">
+        <img src="https://picsum.photos/seed/scarichi-galleria-3/800/600" alt="Terminali doppi montati" width="800" height="600" loading="lazy">
+        <figcaption>Terminali doppi montati</figcaption>
+      </figure>
+      <figure class="will-reveal">
+        <img src="https://picsum.photos/seed/scarichi-galleria-4/800/600" alt="Silenziatore corroso appena smontato" width="800" height="600" loading="lazy">
+        <figcaption>Silenziatore corroso appena smontato</figcaption>
+      </figure>
+      <figure class="will-reveal">
+        <img src="https://picsum.photos/seed/scarichi-galleria-5/800/600" alt="Staffe nuove sotto la vettura" width="800" height="600" loading="lazy">
+        <figcaption>Staffe nuove sotto la vettura</figcaption>
+      </figure>
+      <figure class="will-reveal">
+        <img src="https://picsum.photos/seed/scarichi-galleria-6/800/600" alt="Prova del suono a motore acceso" width="800" height="600" loading="lazy">
+        <figcaption>Prova del suono a motore acceso</figcaption>
+      </figure>
+    </div>
+    <p class="galleria__piu"><a href="lavori.html" class="link-freccia">Vedi tutti i lavori <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
+  </div>
+</section>
+
+<!-- ============ DOMANDE FREQUENTI ============
+     Stessa animazione dell'accordion dei settori in home (.settore__panel-wrap). -->
+<!-- DA SOSTITUIRE: domande e risposte, da confermare col cliente -->
+<section class="blocco blocco--scuro">
+  <div class="blocco__inner">
+    <div class="blocco__head will-reveal">
+      <span class="blocco__eyebrow">Domande frequenti</span>
+      <h2>Quello che ci chiedono più spesso.</h2>
+    </div>
+    <div class="faq">
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1">
+          <span>Uno scarico sportivo passa la revisione?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-1" role="region" aria-labelledby="faq-btn-1">
+              <p>Se i componenti sono omologati per la tua auto, sì. Montiamo solo silenziatori e terminali conformi e ti lasciamo la documentazione da tenere a bordo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
+          <span>Potete riparare solo un pezzo dello scarico?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-2" role="region" aria-labelledby="faq-btn-2">
+              <p>Quando si può, sì: saldiamo o sostituiamo solo il tratto danneggiato. Se l'impianto è corroso ovunque ti spieghiamo perché conviene cambiarlo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-3" id="faq-btn-3">
+          <span>Posso sentire il suono prima di decidere?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-3" role="region" aria-labelledby="faq-btn-3">
+              <p>Ti facciamo sentire lavori simili già fatti e ti spieghiamo le differenze tra le soluzioni, così scegli con l'orecchio e non solo sulla carta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA DI CHIUSURA (uguale su tutte le pagine interne) ============ -->
+<section class="storia-cta storia-cta--chiara">
+  <div class="storia-cta__inner will-reveal">
+    <h2>Vuoi un suono diverso, o uno scarico che non perde? Parliamone.</h2>
+    <a href="index.html#contatti" class="btn btn--primary btn--lg">Richiedi un preventivo</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <span class="footer__watermark" aria-hidden="true">Autocar</span>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img class="footer__logo" src="assets/img/logo.png" alt="Autocar Service" width="220" height="115">
+      <p class="footer__tagline">Officina meccanica, elettrauto e gommista a Saint-Marcel, dal 1986. Preventivo chiaro prima di iniziare.</p>
+      <a href="https://wa.me/393478567108" class="footer__social" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <nav class="footer__col" aria-label="Link del sito">
+      <h3 class="footer__heading">Sezioni</h3>
+      <a href="storia.html">Chi siamo</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="lavori.html">Lavori</a>
+      <a href="index.html#offerte">Offerte</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+
+    <nav class="footer__col" aria-label="Settori">
+      <h3 class="footer__heading">Settori</h3>
+      <a href="settore-preparazioni-sportive.html">Preparazioni sportive</a>
+      <a href="settore-officina-meccanica.html">Officina meccanica</a>
+      <a href="settore-gommista.html">Gommista</a>
+      <a href="settore-elettrauto.html">Elettrauto</a>
+      <a href="settore-tuning-montaggio.html">Tuning e montaggio</a>
+      <a href="settore-scarichi.html">Scarichi personalizzati</a>
+      <a href="lavori.html">Tutti i lavori</a>
+    </nav>
+
+    <div class="footer__col footer__col--contatti">
+      <h3 class="footer__heading">Contatti</h3>
+      <a href="tel:+390165768675"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp</a>
+      <a href="mailto:autocar-service@libero.it"><i class="fa-solid fa-envelope"></i> autocar-service@libero.it</a>
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>Autocar Service di Barcellona Calogero &middot; P.IVA/C.F. 01130660077</p>
+    <p>&copy; <span id="year"></span> Autocar Service. Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<!-- azione fissa in basso, solo telefono: UNA sola (chiamare), compare dopo l'intestazione
+     e si toglie vicino a CTA finale/footer (vedi js/main.js). -->
+<nav class="barra-mobile" aria-label="Contatto rapido">
+  <a href="tel:+390165768675" class="barra-mobile__cta"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiama l'officina</span></a>
+</nav>
+
+<a href="https://wa.me/393478567108" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=20260924c"></script>
+</body>
+</html>

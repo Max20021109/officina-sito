@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lavori svolti - Autocar Service, officina a Saint-Marcel (AO)</title>
+<meta name="description" content="I lavori svolti da Autocar Service a Saint-Marcel (AO): meccanica, gomme, elettrauto, preparazioni sportive, tuning e scarichi, filtrabili per settore.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="canonical" href="https://www.tuodominio.it/lavori.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lavori svolti - Autocar Service, officina a Saint-Marcel (AO)">
+<meta property="og:description" content="I lavori svolti da Autocar Service a Saint-Marcel (AO): meccanica, gomme, elettrauto, preparazioni sportive, tuning e scarichi, filtrabili per settore.">
+<meta property="og:image" content="assets/img/hero-poster.jpg">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://www.tuodominio.it/lavori.html">
+
+<!-- Favicon: sostituisci con il logo reale -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0d10'/%3E%3Cpath d='M50 18 65 27v18l-15 9-15-9V27z' fill='none' stroke='%23e6332a' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e6332a'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="css/style.css?v=20260924c">
+</head>
+<body>
+
+<!-- ============ PRELOADER: l'auto rossa che sfreccia all'apertura ============
+     Foto vera (scontornata, senza sfondo), non un disegno. Solo CSS: entra da
+     sinistra sfocata con le scie, rallenta un attimo al centro, riparte e esce
+     a destra; poi il velo scuro sparisce (animation-fill-mode forwards,
+     pointer-events:none: non blocca mai il sito sotto). Con
+     prefers-reduced-motion e' nascosto di scatto. -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__track">
+    <div class="preloader__scie" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="preloader__auto">
+      <picture>
+        <source srcset="assets/img/auto-preloader.webp" type="image/webp">
+        <img class="preloader__foto" src="assets/img/auto-preloader.png" alt="" width="1400" height="487" decoding="async" fetchpriority="high">
+      </picture>
+      <span class="preloader__ombra"></span>
+    </div>
+  </div>
+</div>
+
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <div class="topbar__info">
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+    <a href="index.html#contatti" class="topbar__cta">Richiedi preventivo <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ============ NAV ============
+     Pagina interna: i link puntano alle sezioni della home (index.html#...),
+     tranne "Chi siamo" e "Lavori" che hanno una pagina propria. -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand" aria-label="Autocar Service, torna alla home">
+      <img class="nav__mark" src="assets/img/logo-mark.png?v=20260921o" alt="" width="120" height="38" aria-hidden="true">
+      <span class="nav__brand-text">Autocar<br>Service</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sezioni del sito">
+      <a href="storia.html">Chi siamo</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="lavori.html" aria-current="page">Lavori</a>
+      <a href="index.html#offerte">Offerte</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="tel:+390165768675" class="nav__phone"><i class="fa-solid fa-phone"></i><span>0165 768675</span></a>
+      <a href="index.html#contatti" class="btn btn--primary btn--sm">Richiedi preventivo</a>
+      <button class="nav__burger" id="navBurger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__mobile" id="navMobile">
+    <a href="storia.html">Chi siamo</a>
+    <a href="index.html#servizi">Servizi</a>
+    <a href="lavori.html" aria-current="page">Lavori</a>
+    <a href="index.html#offerte">Offerte</a>
+    <a href="index.html#recensioni">Recensioni</a>
+    <a href="index.html#contatti">Contatti</a>
+    <a href="tel:+390165768675" class="nav__mobile-phone"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+    <a href="index.html#contatti" class="btn btn--primary nav__mobile-cta">Richiedi preventivo</a>
+  </div>
+</header>
+
+<main id="contenuto">
+
+<!-- ============ INTESTAZIONE PAGINA ============ -->
+<section class="page-header">
+  <div class="page-header__inner">
+    <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Lavori</span></nav>
+    <h1>Tutti i lavori svolti in officina.</h1>
+    <p>Gli interventi più recenti, divisi per settore. Scegli un settore per vedere solo quei lavori, oppure apri una scheda per scoprire cosa facciamo in quel reparto.</p>
+  </div>
+</section>
+
+<!-- ============ ARCHIVIO LAVORI ============
+     Filtri: ogni bottone ha data-filtro uguale al data-settore delle card, il JS
+     (js/main.js, "filtri per settore") nasconde/mostra senza ricaricare la pagina.
+     Per aggiungere un lavoro basta copiare un <li> e cambiare testi, foto e
+     data-settore (uno di: preparazioni-sportive, officina-meccanica, gommista,
+     elettrauto, tuning-montaggio, scarichi). -->
+<section class="blocco">
+  <div class="blocco__inner">
+    <div class="filtri" role="group" aria-label="Filtra per settore">
+      <button type="button" data-filtro="tutti" aria-pressed="true">Tutti</button>
+      <button type="button" data-filtro="preparazioni-sportive" aria-pressed="false">Preparazioni sportive</button>
+      <button type="button" data-filtro="officina-meccanica" aria-pressed="false">Officina meccanica</button>
+      <button type="button" data-filtro="gommista" aria-pressed="false">Gommista</button>
+      <button type="button" data-filtro="elettrauto" aria-pressed="false">Elettrauto</button>
+      <button type="button" data-filtro="tuning-montaggio" aria-pressed="false">Tuning e montaggio</button>
+      <button type="button" data-filtro="scarichi" aria-pressed="false">Scarichi</button>
+    </div>
+    <p class="filtri__conteggio" id="lavoriConteggio" aria-live="polite">12 lavori</p>
+    <ul class="lavori-griglia">
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="preparazioni-sportive">
+        <a class="lavoro-card" href="settore-preparazioni-sportive.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-01-preparazioni-sportive/800/600" alt="Abarth 595 Competizione — 2018: preparazioni sportive" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Preparazioni sportive</span>
+              <time class="lavoro-card__data" datetime="2026-09-18">18 settembre 2026</time>
+            </div>
+            <h3>Abarth 595 Competizione — 2018</h3>
+            <p>Intercooler maggiorato, freni sportivi e nuova mappatura per le giornate in pista.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="elettrauto">
+        <a class="lavoro-card" href="settore-elettrauto.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-02-elettrauto/800/600" alt="Alfa Romeo Giulia — 2019: elettrauto" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Elettrauto</span>
+              <time class="lavoro-card__data" datetime="2026-09-12">12 settembre 2026</time>
+            </div>
+            <h3>Alfa Romeo Giulia — 2019</h3>
+            <p>Spie fantasma e batteria scarica al mattino: trovato un modulo che restava acceso di notte.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="gommista">
+        <a class="lavoro-card" href="settore-gommista.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-03-gommista/800/600" alt="Subaru Forester — 2020: gommista" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Gommista</span>
+              <time class="lavoro-card__data" datetime="2026-09-08">8 settembre 2026</time>
+            </div>
+            <h3>Subaru Forester — 2020</h3>
+            <p>Vibrazioni al volante risolte con equilibratura completa e convergenza registrata.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="officina-meccanica">
+        <a class="lavoro-card" href="settore-officina-meccanica.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-04-officina-meccanica/800/600" alt="Volkswagen Golf 1.6 TDI — 2017: officina meccanica" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Officina meccanica</span>
+              <time class="lavoro-card__data" datetime="2026-09-03">3 settembre 2026</time>
+            </div>
+            <h3>Volkswagen Golf 1.6 TDI — 2017</h3>
+            <p>Perdita di potenza in salita: valvola EGR pulita e sensore del turbo sostituito.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="scarichi">
+        <a class="lavoro-card" href="settore-scarichi.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-05-scarichi/800/600" alt="BMW Serie 1 M135i — 2015: scarichi" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Scarichi</span>
+              <time class="lavoro-card__data" datetime="2026-08-27">27 agosto 2026</time>
+            </div>
+            <h3>BMW Serie 1 M135i — 2015</h3>
+            <p>Parte posteriore in acciaio inox, silenziatore omologato e terminali doppi.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="tuning-montaggio">
+        <a class="lavoro-card" href="settore-tuning-montaggio.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-06-tuning-montaggio/800/600" alt="Volkswagen Transporter T6 — 2019: tuning e montaggio" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Tuning e montaggio</span>
+              <time class="lavoro-card__data" datetime="2026-08-21">21 agosto 2026</time>
+            </div>
+            <h3>Volkswagen Transporter T6 — 2019</h3>
+            <p>Allestimento per lavoro e tempo libero: portapacchi, gancio traino e luci posteriori.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="officina-meccanica">
+        <a class="lavoro-card" href="settore-officina-meccanica.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-07-officina-meccanica/800/600" alt="Fiat Panda 4x4 — 2014: officina meccanica" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Officina meccanica</span>
+              <time class="lavoro-card__data" datetime="2026-08-06">6 agosto 2026</time>
+            </div>
+            <h3>Fiat Panda 4x4 — 2014</h3>
+            <p>Kit distribuzione, pompa acqua e tagliando completo prima delle ferie.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="gommista">
+        <a class="lavoro-card" href="settore-gommista.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-08-gommista/800/600" alt="Dacia Duster 4x4 — 2021: gommista" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Gommista</span>
+              <time class="lavoro-card__data" datetime="2026-07-24">24 luglio 2026</time>
+            </div>
+            <h3>Dacia Duster 4x4 — 2021</h3>
+            <p>Treno quattro stagioni montato e sensori di pressione riprogrammati.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="preparazioni-sportive">
+        <a class="lavoro-card" href="settore-preparazioni-sportive.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-09-preparazioni-sportive/800/600" alt="Renault Clio RS — 2016: preparazioni sportive" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Preparazioni sportive</span>
+              <time class="lavoro-card__data" datetime="2026-07-15">15 luglio 2026</time>
+            </div>
+            <h3>Renault Clio RS — 2016</h3>
+            <p>Assetto regolabile e geometria su misura per un uso misto tra strada e pista.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="elettrauto">
+        <a class="lavoro-card" href="settore-elettrauto.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-10-elettrauto/800/600" alt="Jeep Renegade — 2018: elettrauto" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Elettrauto</span>
+              <time class="lavoro-card__data" datetime="2026-07-02">2 luglio 2026</time>
+            </div>
+            <h3>Jeep Renegade — 2018</h3>
+            <p>Il clima non raffreddava: trovata e riparata una perdita sul condensatore.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="tuning-montaggio">
+        <a class="lavoro-card" href="settore-tuning-montaggio.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-11-tuning-montaggio/800/600" alt="Suzuki Jimny — 2022: tuning e montaggio" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Tuning e montaggio</span>
+              <time class="lavoro-card__data" datetime="2026-06-19">19 giugno 2026</time>
+            </div>
+            <h3>Suzuki Jimny — 2022</h3>
+            <p>Assetto rialzato, protezioni sottoscocca e fari supplementari dove consentito.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+      <!-- DA SOSTITUIRE: foto, modello, settore, testo e data -->
+      <li class="will-reveal" data-settore="scarichi">
+        <a class="lavoro-card" href="settore-scarichi.html">
+          <div class="lavoro-card__foto"><img src="https://picsum.photos/seed/lavoro-12-scarichi/800/600" alt="Mazda MX-5 — 2017: scarichi" width="800" height="600" loading="lazy"></div>
+          <div class="lavoro-card__corpo">
+            <div class="lavoro-card__meta">
+              <span class="lavoro-card__settore">Scarichi</span>
+              <time class="lavoro-card__data" datetime="2026-06-05">5 giugno 2026</time>
+            </div>
+            <h3>Mazda MX-5 — 2017</h3>
+            <p>Terminale sportivo omologato, con un suono calibrato per i viaggi lunghi.</p>
+            <span class="lavoro-card__apri">Vai al settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CTA DI CHIUSURA (uguale su tutte le pagine interne) ============ -->
+<section class="storia-cta">
+  <div class="storia-cta__inner will-reveal">
+    <h2>Hai un lavoro simile da fare? Parliamo della tua auto.</h2>
+    <a href="index.html#contatti" class="btn btn--primary btn--lg">Richiedi un preventivo</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <span class="footer__watermark" aria-hidden="true">Autocar</span>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img class="footer__logo" src="assets/img/logo.png" alt="Autocar Service" width="220" height="115">
+      <p class="footer__tagline">Officina meccanica, elettrauto e gommista a Saint-Marcel, dal 1986. Preventivo chiaro prima di iniziare.</p>
+      <a href="https://wa.me/393478567108" class="footer__social" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <nav class="footer__col" aria-label="Link del sito">
+      <h3 class="footer__heading">Sezioni</h3>
+      <a href="storia.html">Chi siamo</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="lavori.html">Lavori</a>
+      <a href="index.html#offerte">Offerte</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+
+    <nav class="footer__col" aria-label="Settori">
+      <h3 class="footer__heading">Settori</h3>
+      <a href="settore-preparazioni-sportive.html">Preparazioni sportive</a>
+      <a href="settore-officina-meccanica.html">Officina meccanica</a>
+      <a href="settore-gommista.html">Gommista</a>
+      <a href="settore-elettrauto.html">Elettrauto</a>
+      <a href="settore-tuning-montaggio.html">Tuning e montaggio</a>
+      <a href="settore-scarichi.html">Scarichi personalizzati</a>
+      <a href="lavori.html">Tutti i lavori</a>
+    </nav>
+
+    <div class="footer__col footer__col--contatti">
+      <h3 class="footer__heading">Contatti</h3>
+      <a href="tel:+390165768675"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp</a>
+      <a href="mailto:autocar-service@libero.it"><i class="fa-solid fa-envelope"></i> autocar-service@libero.it</a>
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>Autocar Service di Barcellona Calogero &middot; P.IVA/C.F. 01130660077</p>
+    <p>&copy; <span id="year"></span> Autocar Service. Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<!-- azione fissa in basso, solo telefono: UNA sola (chiamare), compare dopo l'intestazione
+     e si toglie vicino a CTA finale/footer (vedi js/main.js). -->
+<nav class="barra-mobile" aria-label="Contatto rapido">
+  <a href="tel:+390165768675" class="barra-mobile__cta"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiama l'officina</span></a>
+</nav>
+
+<a href="https://wa.me/393478567108" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=20260924c"></script>
+</body>
+</html>

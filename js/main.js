@@ -122,12 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---------- settori: accordion "il lavoro che ci rappresenta di piu'" ----------
+  /* ---------- settori (home) e domande frequenti (pagine settore): accordion ----------
      Animazione CSS pura (grid-template-rows 0fr -> 1fr in style.css): qui si
      tocca solo la classe .is-open e gli attributi aria, mai un'altezza calcolata
      in JS. Se il CSS non fosse supportato il pannello si aprirebbe comunque,
-     solo senza la transizione morbida. */
-  document.querySelectorAll('.settore__row').forEach((btn) => {
+     solo senza la transizione morbida. Il link "Vedi tutti i lavori di questo
+     settore" sta DENTRO il pannello, non nel bottone: la freccia apre/chiude
+     e basta, non naviga mai. */
+  document.querySelectorAll('.settore__row, .faq__domanda').forEach((btn) => {
     btn.addEventListener('click', () => {
       const wrap = btn.nextElementSibling;
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
@@ -377,12 +379,8 @@ document.addEventListener('DOMContentLoaded', () => {
      Tutto facoltativo e senza dipendenze: se una riga qui sotto fallisce, il
      resto della pagina non se ne accorge. */
 
-  /* barra di avanzamento della lettura + testata che si compatta + "torna su" */
+  /* testata che si compatta + "torna su" */
   (() => {
-    const barra = document.createElement('div');
-    barra.className = 'progresso-lettura'; barra.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(barra);
-
     const su = document.createElement('button');
     su.type = 'button'; su.className = 'torna-su'; su.setAttribute('aria-label', 'Torna in cima');
     su.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
@@ -393,13 +391,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const aggiorna = () => {
       ticking = false;
       const y = window.scrollY || document.documentElement.scrollTop;
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      barra.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
       document.documentElement.classList.toggle('e-scorso', y > 80);
-      su.classList.toggle('visibile', y > window.innerHeight * 1.2);
     };
     window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(aggiorna); } }, { passive: true });
     aggiorna();
+  })();
+
+  /* azioni fisse solo quando servono: pallino WhatsApp, "torna su" e il
+     pulsante "Chiama" del telefono compaiono solo dopo aver superato l'hero
+     (o l'intestazione delle pagine interne), e WhatsApp/Chiama si tolgono di
+     mezzo quando a schermo ci sono gia' contatti, CTA finale o footer.
+     Qui si mettono solo classi su <html>, il resto e' in style.css. */
+  (() => {
+    const root = document.documentElement;
+    const inizio = document.querySelector('.hero, .pagina-hero, .page-header');
+    if (!inizio || !('IntersectionObserver' in window)) return;
+    root.classList.add('azioni-pronte');
+    new IntersectionObserver(([v]) => {
+      root.classList.toggle('oltre-hero', !v.isIntersecting);
+    }, { rootMargin: '-80px 0px 0px 0px' }).observe(inizio);
+
+    const aVista = new Set();
+    const io = new IntersectionObserver((voci) => {
+      voci.forEach((v) => (v.isIntersecting ? aVista.add(v.target) : aVista.delete(v.target)));
+      root.classList.toggle('azioni-a-vista', aVista.size > 0);
+    });
+    document.querySelectorAll('#contatti, .storia-cta, .footer').forEach((el) => io.observe(el));
+  })();
+
+  /* lavori.html: filtri per settore, senza ricaricare la pagina */
+  (() => {
+    const bottoni = document.querySelectorAll('.filtri [data-filtro]');
+    const voci = document.querySelectorAll('.lavori-griglia [data-settore]');
+    const conteggio = document.getElementById('lavoriConteggio');
+    if (!bottoni.length || !voci.length) return;
+    const applica = (filtro) => {
+      let n = 0;
+      voci.forEach((el) => {
+        const mostra = filtro === 'tutti' || el.dataset.settore === filtro;
+        el.hidden = !mostra;
+        if (mostra) n++;
+      });
+      bottoni.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filtro === filtro)));
+      if (conteggio) conteggio.textContent = n === 1 ? '1 lavoro' : n + ' lavori';
+    };
+    bottoni.forEach((b) => b.addEventListener('click', () => applica(b.dataset.filtro)));
   })();
 
   /* voce del menu evidenziata in base alla sezione che si sta guardando */
@@ -417,17 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
     sezioni.forEach((s) => io.observe(s));
   })();
-
-  /* bordo luminoso che segue il mouse sulle card (solo con un mouse vero) */
-  if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
-    document.addEventListener('pointermove', (e) => {
-      const card = e.target.closest('.offerta, .recensione-card, .stat');
-      if (!card) return;
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    }, { passive: true });
-  }
 
   /* i numeri del cruscotto fanno un piccolo "pop" quando arrivano a fondo scala */
   (() => {
@@ -448,6 +473,8 @@ document.addEventListener('DOMContentLoaded', () => {
      (rete assente, file bloccato) l'hero resta comunque leggibile e statico. */
   if (typeof gsap === 'undefined' || reduceMotion) return;
   gsap.registerPlugin(ScrollTrigger);
+  /* le pagine interne non hanno hero/cruscotto/vetrina: niente da animare qui */
+  if (!document.querySelector('.hero')) return;
 
   /* Hero: l'etichetta piccola arriva per prima (annuncia il contesto), poi le due
      righe del titolo dal basso in sequenza, poi sottotitolo/CTA: storytelling di

@@ -26,7 +26,7 @@
 <!-- Font Awesome auto-ospitato (libreria icone, niente SVG disegnate a mano) -->
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=20260924b">
+<link rel="stylesheet" href="css/style.css?v=20260924c">
 
 <!-- Dati struttura per Google: aiuta l'indicizzazione locale. Sostituisci ogni valore con quello reale. -->
 <script type="application/ld+json">
@@ -164,7 +164,6 @@
     </div>
   </div>
 
-  <span class="hero__scorri" aria-hidden="true">Scorri</span>
   <a href="#storia" class="hero__badge" aria-label="Scopri la nostra storia, dal 1986 a oggi">
     <svg class="hero__badge-ring" viewBox="0 0 200 200" aria-hidden="true">
       <defs><path id="badgePath" d="M 100,100 m -84,0 a 84,84 0 1,1 168,0 a 84,84 0 1,1 -168,0"/></defs>
@@ -355,6 +354,7 @@
           <div class="settore__desc" id="settore-panel-1" role="region" aria-labelledby="settore-btn-1">
             <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
             <p>Elaborazioni su misura, dalla messa a punto del motore agli scarichi personalizzati, seguite dalla progettazione al collaudo finale.</p>
+            <a href="settore-preparazioni-sportive.html" class="link-freccia">Vedi tutti i lavori di questo settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -375,6 +375,7 @@
           <div class="settore__desc" id="settore-panel-2" role="region" aria-labelledby="settore-btn-2">
             <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
             <p>Diagnosi elettronica, tagliandi e riparazioni su ogni marca, con ricambi tracciabili e un preventivo chiaro prima di iniziare.</p>
+            <a href="settore-officina-meccanica.html" class="link-freccia">Vedi tutti i lavori di questo settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -395,6 +396,7 @@
           <div class="settore__desc" id="settore-panel-3" role="region" aria-labelledby="settore-btn-3">
             <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
             <p>Cambio stagionale, equilibratura e riparazione gomme, con i pneumatici tenuti in deposito da noi tra un cambio e l'altro.</p>
+            <a href="settore-gommista.html" class="link-freccia">Vedi tutti i lavori di questo settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -415,6 +417,7 @@
           <div class="settore__desc" id="settore-panel-4" role="region" aria-labelledby="settore-btn-4">
             <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
             <p>Diagnosi e riparazione di impianti elettrici, centraline e climatizzazione, anche sui guasti piu' difficili da individuare.</p>
+            <a href="settore-elettrauto.html" class="link-freccia">Vedi tutti i lavori di questo settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -435,6 +438,7 @@
           <div class="settore__desc" id="settore-panel-5" role="region" aria-labelledby="settore-btn-5">
             <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
             <p>Allestimenti e montaggi su misura, dagli accessori agli assetti, con la stessa cura riservata alla manutenzione di ogni giorno.</p>
+            <a href="settore-tuning-montaggio.html" class="link-freccia">Vedi tutti i lavori di questo settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -455,6 +459,7 @@
           <div class="settore__desc" id="settore-panel-6" role="region" aria-labelledby="settore-btn-6">
             <span class="settore__desc-label">Il lavoro che ci rappresenta di piu'</span>
             <p>Scarichi realizzati su misura per ogni vettura, dal progetto del suono al montaggio, per un risultato pensato per la tua auto.</p>
+            <a href="settore-scarichi.html" class="link-freccia">Vedi tutti i lavori di questo settore <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -514,6 +519,9 @@
       </li>
     </ul>
     <div class="carosello-progresso" aria-hidden="true"><i></i></div>
+  </div>
+  <div class="lavori__tutti">
+    <a href="lavori.html" class="link-freccia">Vedi tutti i lavori <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
   </div>
 </section>
 
@@ -795,7 +803,18 @@
       <a href="#contatti">Contatti</a>
     </nav>
 
-    <div class="footer__col">
+    <nav class="footer__col" aria-label="Settori">
+      <h3 class="footer__heading">Settori</h3>
+      <a href="settore-preparazioni-sportive.html">Preparazioni sportive</a>
+      <a href="settore-officina-meccanica.html">Officina meccanica</a>
+      <a href="settore-gommista.html">Gommista</a>
+      <a href="settore-elettrauto.html">Elettrauto</a>
+      <a href="settore-tuning-montaggio.html">Tuning e montaggio</a>
+      <a href="settore-scarichi.html">Scarichi personalizzati</a>
+      <a href="lavori.html">Tutti i lavori</a>
+    </nav>
+
+    <div class="footer__col footer__col--contatti">
       <h3 class="footer__heading">Contatti</h3>
       <a href="tel:+390165768675"><i class="fa-solid fa-phone"></i> 0165 768675</a>
       <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp</a>
@@ -811,11 +830,11 @@
   </div>
 </footer>
 
-<!-- barra fissa in basso, solo telefono: le tre cose che uno fa da un cellulare -->
-<nav class="barra-mobile" aria-label="Contatti rapidi">
-  <a href="tel:+390165768675"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiama</span></a>
-  <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
-  <a href="#contatti" class="barra-mobile__cta"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i><span>Preventivo</span></a>
+<!-- azione fissa in basso, solo telefono: UNA sola (chiamare), compare dopo l'hero
+     e si toglie vicino a contatti/footer (vedi js/main.js). WhatsApp e preventivo
+     restano nel menu, in Contatti e nel footer. -->
+<nav class="barra-mobile" aria-label="Contatto rapido">
+  <a href="tel:+390165768675" class="barra-mobile__cta"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiama l'officina</span></a>
 </nav>
 
 <a href="https://wa.me/393478567108" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
@@ -826,6 +845,6 @@
      visibile e funzionante (vedi js/main.js, le animazioni sono un "di piu'", mai un requisito). -->
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20260924b"></script>
+<script src="js/main.js?v=20260924c"></script>
 </body>
 </html>
