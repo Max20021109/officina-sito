@@ -49,14 +49,11 @@
   --r-lg: 20px;
   --r-pill: 999px;
 
-  /* ritmo verticale: su desktop (>=1024px) sale ad almeno 7rem, vedi sotto */
-  --section-pad: clamp(5rem, 9vw, 7.5rem);
+  /* ritmo verticale */
+  --section-pad: clamp(4rem, 9vw, 7.5rem);
   --container: 1320px;
 
   --ease: cubic-bezier(.16,1,.3,1);
-}
-@media (min-width:1024px){
-  :root{--section-pad:clamp(7rem, 8vw, 8.5rem)}
 }
 
 /* Tre sezioni restano scaure di proposito (hero, vetrina preparazioni, footer):
@@ -67,7 +64,7 @@
    della pagina, staccata dalla hero. Il quadrante scuro dei tachimetri e'
    comunque scuro, ma con colori scritti a mano dentro .stats (vedi piu'
    sotto), non ereditati da qui. */
-.hero,.showcase,.footer,.pagina-hero{
+.hero,.showcase,.footer{
   --bg:#0b0d10; --bg-1:#121519; --bg-2:#191d22; --bg-3:#21262c;
   --border:rgba(255,255,255,.08); --border-strong:rgba(255,255,255,.16);
   --text:#f2f3f5; --text-muted:#a7adb6; --text-faint:#6d737b;
@@ -82,7 +79,6 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:8.5rem}
-@media (max-width:760px){html{scroll-padding-top:5.5rem}}
 body{
   background:var(--bg);
   color:var(--text);
@@ -244,14 +240,12 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 .topbar__cta i{font-size:.72rem;transition:transform .2s var(--ease)}
 .topbar__cta:hover i{transform:translateX(3px)}
-/* Su telefono la topbar non c'e' piu': indirizzo e orari stanno in Contatti e nel
-   footer, il preventivo nel menu. A schermo resta fissa solo la nav (piu' una
-   sola azione in basso, vedi .barra-mobile). */
-@media (max-width:1100px){
+@media (max-width:720px){
   .topbar__info span:last-child{display:none}
 }
-@media (max-width:760px){
-  .topbar{display:none}
+@media (max-width:560px){
+  .topbar__info{display:none}
+  .topbar__inner{justify-content:center}
 }
 
 /* ================= NAV =================
@@ -309,9 +303,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 @media (max-width:760px){
   /* Sotto i 760px il bottone e il telefono nella barra affollano troppo lo spazio
      accanto al logo (misurato: a 320-390px il testo del brand arriva a toccare/
-     finire sotto il bottone). "Richiedi preventivo" e il telefono restano nel menu
-     mobile qui sotto; la topbar su telefono non c'e' piu', quindi la nav sta in cima. */
-  .nav{top:0}
+     finire sotto il bottone). La stessa azione "Richiedi preventivo" resta comunque
+     raggiungibile dalla topbar sempre fissa in alto e dal menu mobile qui sotto. */
   .nav__phone{display:none}
   .nav__actions .btn--primary{display:none}
   .nav__actions{gap:.5rem}
@@ -334,10 +327,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   padding-top:8.4rem;
   isolation:isolate;
 }
-@media (max-width:760px){
-  /* Sotto i 760px c'e' solo la nav (72px, 64px sotto i 400px), niente topbar:
-     6rem basta a non far finire il contenuto sotto la barra. */
-  .hero{padding-top:6rem}
+@media (max-width:560px){
+  /* La barra e' piu' bassa sotto i 760px (vedi .nav__inner): 7.2rem basta a non
+     far finire il contenuto sotto la barra, con margine sia agli 88px che ai
+     64px di altezza che puo' avere qui sotto. Misurato, non a occhio. */
+  .hero{padding-top:7.2rem}
 }
 .hero__media{position:absolute;inset:0;z-index:-1;background:var(--bg)}
 .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
@@ -529,8 +523,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   background:var(--bg-1);border-bottom:1px solid var(--border);
 }
 .page-header__inner{max-width:var(--container);margin-inline:auto}
-@media (max-width:760px){.page-header{padding-top:6.5rem}}
-.breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;font-size:.85rem;color:var(--text-faint);margin-bottom:1.2rem}
+.breadcrumb{display:flex;gap:.5rem;align-items:center;font-size:.85rem;color:var(--text-faint);margin-bottom:1.2rem}
 .breadcrumb a{color:var(--text-muted)}
 .breadcrumb a:hover{color:var(--text)}
 .page-header h1{font-size:clamp(2.1rem,4.2vw,3rem);text-transform:uppercase;margin-bottom:.7rem;max-width:22ch}
@@ -624,11 +617,12 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .atelier__media img{
   width:100%;height:auto;max-height:640px;display:block;object-fit:cover;
   border-radius:var(--r-lg);
-  background:var(--bg-1);
+  box-shadow:0 32px 70px -32px rgba(23,19,15,.4);
 }
 .atelier__media::before,.atelier__media::after{
   content:'';position:absolute;width:32px;height:32px;
   border:3px solid var(--accent);pointer-events:none;
+  filter:drop-shadow(0 0 10px rgba(220,38,38,.35));
 }
 .atelier__media::before{top:-10px;left:-10px;border-right:0;border-bottom:0;border-radius:12px 0 0 0}
 .atelier__media::after{bottom:-10px;right:-10px;border-left:0;border-top:0;border-radius:0 0 12px 0}
@@ -686,14 +680,13 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   border:1px solid var(--border-strong);color:var(--text);
   transition:transform .3s var(--ease), background-color .25s, color .25s, border-color .25s;
 }
-.settore__row:hover .settore__icon{border-color:var(--accent)}
-.settore__row:hover .settore__arrow{border-color:var(--accent);color:var(--accent)}
-.settore__row[aria-expanded="true"] .settore__arrow{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast);transform:rotate(90deg)}
+/* tutta la riga e' un link alla pagina del settore */
+.settore__row{color:inherit;text-decoration:none}
+.settore__row:hover .settore__arrow,.settore__row:focus-visible .settore__arrow{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateX(4px)}
 
 .settore__panel-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
 .settore__panel-wrap.is-open{grid-template-rows:1fr}
-.settore__panel-inner{overflow:hidden;visibility:hidden;transition:visibility 0s .4s}
-.settore__panel-wrap.is-open .settore__panel-inner{visibility:visible;transition-delay:0s}
+.settore__panel-inner{overflow:hidden}
 .settore__desc{
   padding:0 clamp(.25rem,2vw,1rem) clamp(1.5rem,3vw,2rem) calc(60px + 1.3rem + clamp(.25rem,2vw,1rem));
   max-width:64ch;
@@ -703,7 +696,6 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;
 }
 .settore__desc p{color:var(--text-muted);font-size:.98rem}
-.settore__desc .link-freccia{margin-top:1rem}
 @media (max-width:640px){
   .settore__icon{width:46px;height:46px;font-size:1.1rem}
   .settore__left{gap:.9rem}
@@ -760,12 +752,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   flex:0 0 auto;width:min(76vw,340px);
   scroll-snap-align:start;
   border-radius:var(--r-lg);overflow:hidden;
-  background:var(--bg-2);
+  background:var(--bg-2);border:1px solid var(--border);
 }
 .carousel__slide img{aspect-ratio:4/4.6;object-fit:cover;filter:grayscale(55%) sepia(8%) hue-rotate(-10deg) contrast(1.05)}
 .carousel__caption{padding:1rem 1.1rem;font-size:.92rem;color:var(--text-muted)}
 .carousel__caption span{color:var(--text);font-weight:600;font-family:var(--font-display);letter-spacing:.01em}
-.lavori__tutti{max-width:var(--container);margin:1.8rem auto 0;padding-inline:clamp(1.5rem,5vw,3rem);display:flex;justify-content:flex-end}
 
 /* ================= OFFERTE (bento 1+2) ================= */
 .offerte{padding:var(--section-pad) clamp(1.5rem,5vw,3rem);background:var(--bg-1)}
@@ -774,10 +765,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:1.2rem;
 }
 .offerta{
-  background:var(--bg-2);border-radius:var(--r-lg);
+  background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-lg);
   padding:1.9rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start;
 }
-.offerta--big{grid-row:1/3;background:var(--bg-2);padding:2.4rem}
+.offerta--big{grid-row:1/3;background:linear-gradient(150deg, var(--bg-3), var(--bg-2));border-color:var(--border-strong);padding:2.4rem}
 .offerta--big h3{font-size:1.7rem}
 .offerta__badge{
   background:var(--accent);color:var(--accent-contrast);
@@ -808,7 +799,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 
 .recensioni__summary{
-  background:var(--bg-1);border-radius:var(--r-lg);
+  background:var(--bg-3);border:1px solid var(--border-strong);border-radius:var(--r-lg);
   padding:2.2rem;display:flex;flex-direction:column;align-items:flex-start;gap:.85rem;
 }
 .recensioni__google-badge{
@@ -835,7 +826,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .recensione-card{
   flex:0 0 auto;width:min(80vw,300px);scroll-snap-align:start;
   background:var(--bg-2);color:var(--text);
-  border-radius:var(--r-lg);
+  border:1px solid var(--border);border-radius:var(--r-lg);
+  box-shadow:0 16px 34px -22px rgba(23,19,15,.22);
   padding:1.5rem;display:flex;flex-direction:column;gap:.8rem;
 }
 .recensione-card__head{display:flex;align-items:center;gap:.7rem}
@@ -861,7 +853,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 .recensione-card__verified i{font-size:.85rem}
 
-.recensione-card--cta{background:var(--bg-1);align-items:flex-start;justify-content:center}
+.recensione-card--cta{background:var(--bg-3);align-items:flex-start;justify-content:center}
 .recensione-card--cta__icon{font-size:1.6rem;color:var(--accent);margin-bottom:.2rem}
 .recensione-card--cta p{font-size:.94rem;line-height:1.5;color:var(--text-muted)}
 .recensione-card--cta .btn{margin-top:.3rem}
@@ -890,10 +882,12 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   max-width:1800px;margin-inline:auto;
   display:grid;grid-template-columns:1.15fr 1fr;
   border-radius:var(--r-lg);
+  box-shadow:0 32px 70px -32px rgba(23,19,15,.3);
 }
 .contatti__inner::before,.contatti__inner::after{
   content:'';position:absolute;width:34px;height:34px;
   border:3px solid var(--accent);pointer-events:none;
+  filter:drop-shadow(0 0 10px rgba(220,38,38,.35));
 }
 .contatti__inner::before{top:-10px;left:-10px;border-right:0;border-bottom:0;border-radius:12px 0 0 0}
 .contatti__inner::after{bottom:-10px;right:-10px;border-left:0;border-top:0;border-radius:0 0 12px 0}
@@ -946,11 +940,13 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 }
 .contatti__map{
   border-radius:var(--r-md);overflow:hidden;
+  border:1px solid var(--border);
   aspect-ratio:16/11;
+  box-shadow:0 12px 26px -18px rgba(23,19,15,.35);
 }
 .contatti__map iframe{width:100%;height:100%;border:0;display:block}
 .contatti__info{
-  background:var(--bg-2);border-radius:var(--r-md);
+  background:var(--bg-2);border:1px solid var(--border);border-radius:var(--r-md);
   padding:1.5rem;display:flex;flex-direction:column;gap:1rem;
 }
 .contatti__info li{display:flex;align-items:center;gap:.9rem;font-size:.94rem;color:var(--text-muted)}
@@ -991,12 +987,15 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .footer{background:var(--bg);border-top:1px solid var(--border);padding:clamp(3rem,6vw,4.5rem) clamp(1.5rem,5vw,3rem) 0}
 .footer__inner{
   max-width:var(--container);margin-inline:auto;
-  display:grid;grid-template-columns:1.3fr .8fr 1fr 1.2fr;gap:2.5rem;
+  display:grid;grid-template-columns:1.3fr 1fr 1.1fr;gap:2.5rem;
   padding-bottom:2.8rem;
 }
 .footer__brand{display:flex;flex-direction:column;align-items:flex-start;gap:1.15rem}
 .footer__logo{width:auto;height:64px;object-fit:contain}
 .footer__tagline{color:var(--text-muted);font-size:.94rem;line-height:1.6;max-width:32ch}
+/* riga di icone social (WhatsApp + Instagram): in fila, non impilate come gli
+   altri figli di .footer__brand, che e' invece una colonna (24/09/2026) */
+.footer__socials{display:flex;gap:.75rem}
 .footer__social{
   width:2.5rem;height:2.5rem;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
@@ -1023,12 +1022,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;justify-content:space-between;
   font-size:.85rem;color:var(--text-faint);
 }
-@media (max-width:1024px){
-  .footer__inner{grid-template-columns:1fr 1fr}
-}
 @media (max-width:780px){
-  .footer__inner{gap:2.2rem 1.5rem;padding-bottom:2.2rem}
-  .footer__brand,.footer__col--contatti{grid-column:1/-1}
+  .footer__inner{grid-template-columns:1fr;gap:2.2rem;padding-bottom:2.2rem}
   .footer__bottom{flex-direction:column}
 }
 
@@ -1091,11 +1086,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 
 
 /* =====================================================================
-   WOW (24/09/2026) — rifinitura "di livello": grana, testata che si
-   compatta, sezione attiva nel menu, ticker dei servizi, pulsanti con luce,
-   foto che prendono colore al passaggio, progress dei caroselli, freccia
-   "torna su", watermark nel footer. (Barra di avanzamento lettura, "scorri"
-   e bagliore delle card tolti il 24/09 nella pulizia dell'interfaccia.) Tutto additivo: nessuna regola precedente e' stata
+   WOW (24/09/2026) — rifinitura "di livello": grana, barra di avanzamento,
+   testata che si compatta, sezione attiva nel menu, ticker dei servizi,
+   pulsanti con luce, card con bordo che segue il mouse, foto che prendono
+   colore al passaggio, progress dei caroselli, freccia "torna su",
+   watermark nel footer. Tutto additivo: nessuna regola precedente e' stata
    toccata, quindi si puo' togliere questo blocco e il sito torna com'era.
    ===================================================================== */
 
@@ -1109,6 +1104,15 @@ body::after{
 @keyframes grana{0%{transform:translate(0,0)}33%{transform:translate(-2%,1%)}66%{transform:translate(1%,-2%)}100%{transform:translate(0,0)}}
 .hero body::after{mix-blend-mode:overlay}
 
+/* --- barra rossa di avanzamento lettura, sotto la testata --- */
+.progresso-lettura{
+  position:fixed;left:0;top:0;height:3px;width:100%;z-index:102;
+  background:linear-gradient(90deg,var(--accent-active),var(--accent),#ff7b7b);
+  transform-origin:0 50%;transform:scaleX(0);
+  box-shadow:0 0 12px rgba(220,38,38,.55);
+  pointer-events:none;
+}
+
 /* --- testata che si compatta scorrendo: la topbar scivola via, il logo
        si stringe, ombra piu' netta. La classe la mette js/main.js --- */
 .topbar,.nav{transition:transform .45s var(--ease), box-shadow .3s, background-color .3s}
@@ -1117,7 +1121,7 @@ html.e-scorso .nav{transform:translateY(-2.35rem);box-shadow:0 10px 30px -12px r
 html.e-scorso .nav__inner{height:72px}
 html.e-scorso .nav__mark{height:34px}
 .nav__inner,.nav__mark{transition:height .35s var(--ease)}
-@media (max-width:760px){ html.e-scorso .nav{transform:none} html.e-scorso .nav__inner{height:64px} }
+@media (max-width:760px){ html.e-scorso .nav__inner{height:64px} }
 
 /* --- voce attiva nel menu: sottolineatura rossa che scivola --- */
 .nav__links a{position:relative;padding-block:.35rem}
@@ -1153,6 +1157,20 @@ html.e-scorso .nav__mark{height:34px}
   animation:tratto 1s var(--ease) 1.6s forwards;
 }
 @keyframes tratto{to{transform:scaleX(1)}}
+/* riga di scorrimento in basso a sinistra: "scorri" in mono con una linea che pulsa */
+.hero__scorri{
+  position:absolute;left:clamp(1.5rem,5vw,3rem);bottom:clamp(1.5rem,4vw,3rem);z-index:1;
+  display:flex;align-items:center;gap:.8rem;
+  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.hero__scorri::before{
+  content:"";width:56px;height:1px;background:var(--text-faint);position:relative;overflow:hidden;
+  background:linear-gradient(90deg,var(--accent) 0 40%,rgba(255,255,255,.18) 40%);
+  background-size:250% 100%;animation:scorri 1.8s var(--ease) infinite;
+}
+@keyframes scorri{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@media (max-width:720px){.hero__scorri{display:none}}
 
 /* --- ticker dei servizi: nastro che scorre fra i numeri e la storia --- */
 .ticker{
@@ -1185,22 +1203,33 @@ html.e-scorso .nav__mark{height:34px}
   letter-spacing:-.02em;pointer-events:none;
   transition:color .3s,-webkit-text-stroke-color .3s;
 }
-.settore__row:hover::before,.settore__row[aria-expanded="true"]::before{-webkit-text-stroke-color:var(--accent);color:var(--accent-soft)}
+.settore__row:hover::before{-webkit-text-stroke-color:var(--accent);color:var(--accent-soft)}
 .settore__row:hover{padding-left:clamp(.75rem,2.5vw,1.6rem)}
 .settore__row:hover .settore__icon{background:var(--accent);color:#fff;border-color:var(--accent);transform:rotate(-8deg) scale(1.06)}
 .settore__icon{transition:transform .35s var(--ease),background-color .25s,color .25s,border-color .25s}
 @media (max-width:640px){.settore__row::before{display:none}.settore__row:hover{padding-left:0}}
 
-/* --- card: si staccano dal fondo solo per il colore (niente bordo + ombra +
-       bagliore insieme); al passaggio si alzano appena, senza ombra --- */
+/* --- card con bordo che segue il mouse (offerte, recensioni, tachimetri) --- */
 .offerta,.recensione-card,.stat,.carousel__slide{position:relative}
-.offerta,.recensione-card{transition:transform .35s var(--ease)}
-.offerta:hover,.recensione-card:hover{transform:translateY(-4px)}
+.offerta::after,.recensione-card::after,.stat::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(220,38,38,.16), transparent 60%);
+  opacity:0;transition:opacity .35s;
+}
+.offerta:hover::after,.recensione-card:hover::after,.stat:hover::after{opacity:1}
+.offerta,.recensione-card{transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
+.offerta:hover,.recensione-card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:0 24px 44px -24px rgba(23,19,15,.35)}
+.offerta--big{overflow:hidden}
+.offerta--big::before{
+  content:"";position:absolute;right:-20%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(220,38,38,.14),transparent 62%);pointer-events:none;
+}
+.offerta__prezzo-new{text-shadow:0 0 22px rgba(220,38,38,.25)}
 
 /* --- lavori: le foto sono in bianco e nero e prendono colore al passaggio --- */
-.carousel__slide{transition:transform .45s var(--ease)}
+.carousel__slide{transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
 .carousel__slide img{transition:filter .6s var(--ease),transform .8s var(--ease)}
-.carousel__slide:hover{transform:translateY(-6px)}
+.carousel__slide:hover{transform:translateY(-6px);box-shadow:0 30px 50px -28px rgba(23,19,15,.45)}
 .carousel__slide:hover img{filter:none;transform:scale(1.04)}
 /* barra di avanzamento sotto i caroselli: dice "tra poco scorre" */
 .carosello-progresso{
@@ -1226,8 +1255,8 @@ html.e-scorso .nav__mark{height:34px}
 /* --- foto della storia: cornice che respira al passaggio --- */
 .atelier__media{transition:transform .5s var(--ease)}
 .atelier__media:hover{transform:translateY(-4px)}
-.atelier__media img{transition:transform .8s var(--ease)}
-.atelier__media:hover img{transform:scale(1.02)}
+.atelier__media img{transition:transform .8s var(--ease),box-shadow .5s}
+.atelier__media:hover img{transform:scale(1.02);box-shadow:0 40px 80px -30px rgba(23,19,15,.5)}
 
 /* --- whatsapp: anello che pulsa, ma discreto --- */
 .whatsapp-float::before{
@@ -1236,38 +1265,18 @@ html.e-scorso .nav__mark{height:34px}
 }
 @keyframes anello{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.35);opacity:0}}
 
-/* --- torna su (solo desktop: su telefono c'e' gia' il tocco sulla barra di stato) --- */
+/* --- torna su --- */
 .torna-su{
   position:fixed;right:1.6rem;bottom:5.4rem;z-index:90;
   width:44px;height:44px;border-radius:50%;
   background:var(--bg-2);border:1px solid var(--border-strong);color:var(--text);
   display:flex;align-items:center;justify-content:center;
-  transition:opacity .3s,translate .3s var(--ease),visibility 0s,background-color .2s,color .2s;
+  box-shadow:0 10px 26px -12px rgba(23,19,15,.45);
+  opacity:0;transform:translateY(12px);pointer-events:none;
+  transition:opacity .3s,transform .3s var(--ease),background-color .2s,color .2s;
 }
+.torna-su.visibile{opacity:1;transform:none;pointer-events:auto}
 .torna-su:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-/* --- azioni fisse "solo quando servono" ---
-   Pallino WhatsApp, "torna su" e la barra del telefono restano nascosti finche'
-   si guarda l'hero (o l'intestazione delle pagine interne): li mostra js/main.js
-   con un IntersectionObserver (classe .oltre-hero su <html>). WhatsApp e la
-   barra del telefono si rinascondono quando a schermo ci sono gia' contatti,
-   CTA di chiusura o footer (.azioni-a-vista): stesse azioni, due volte, no.
-   Lo stato nascosto vale solo con .azioni-pronte (JS partito): senza JS
-   restano visibili come prima. Si usa "translate" e non "transform", cosi'
-   l'effetto hover (scale) del pallino WhatsApp non viene sovrascritto. */
-.azioni-pronte :is(.whatsapp-float,.torna-su,.barra-mobile){
-  opacity:0;translate:0 14px;visibility:hidden;pointer-events:none;
-  transition:opacity .3s,translate .35s var(--ease),visibility 0s .35s;
-}
-.azioni-pronte.oltre-hero :is(.whatsapp-float,.torna-su,.barra-mobile),
-.azioni-pronte.oltre-hero.azioni-a-vista .torna-su{
-  opacity:1;translate:0 0;visibility:visible;pointer-events:auto;
-  transition:opacity .3s,translate .35s var(--ease),visibility 0s 0s;
-}
-.azioni-pronte.oltre-hero.azioni-a-vista :is(.whatsapp-float,.barra-mobile){
-  opacity:0;translate:0 14px;visibility:hidden;pointer-events:none;
-  transition:opacity .3s,translate .35s var(--ease),visibility 0s .35s;
-}
 
 /* --- footer: watermark del nome, enorme e in filigrana --- */
 .footer{position:relative;overflow:hidden}
@@ -1302,7 +1311,7 @@ h2{letter-spacing:-.025em}
 @keyframes pop{40%{scale:1.18}100%{scale:1}}  /* "scale" e non transform: il numero usa gia' transform per centrarsi */
 
 @media (prefers-reduced-motion: reduce){
-  body::after,.whatsapp-float::before{animation:none}
+  body::after,.progresso-lettura,.whatsapp-float::before{animation:none}
   .hero__title em::after{transform:scaleX(1);animation:none}
 }
 /* etichetta dell'hero su telefono: una riga sola, senza la seconda parte */
@@ -1318,31 +1327,21 @@ h2{letter-spacing:-.025em}
 .recensioni__track.scorre-da-sola .recensione-card{scroll-snap-align:none;transition-delay:0s !important}
 
 /* =====================================================================
-   TELEFONO (24/09/2026): una sola azione fissa in basso (Chiama), che compare
-   solo dopo l'hero e sparisce vicino a contatti/footer; niente pallino
-   WhatsApp ne' "torna su". A schermo, al massimo: nav + questo pulsante.
-   Pulsanti dell'hero a tutta larghezza, meno aria fra le sezioni.
+   TELEFONO (24/09/2026): pulsanti dell'hero a tutta larghezza, meno aria
+   fra le sezioni, WhatsApp e "torna su" come uniche cose fisse.
    ===================================================================== */
-.barra-mobile{display:none}
 @media (max-width:760px){
-  .barra-mobile{
-    position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom));z-index:95;
-    display:block;
-  }
-  .barra-mobile__cta{
-    display:flex;align-items:center;justify-content:center;gap:.55rem;
-    min-height:50px;padding:0 1.35rem;border-radius:var(--r-pill);
-    font-family:var(--font-display);font-weight:700;font-size:.95rem;
-    background:var(--accent);color:#fff;
-    box-shadow:0 10px 24px -10px rgba(23,19,15,.45);
-  }
-  .barra-mobile__cta i{font-size:1rem}
-  .whatsapp-float,.torna-su{display:none}
+  /* niente barra fissa in basso: restano solo il pallino WhatsApp e "torna su" */
+  .whatsapp-float{right:1rem;bottom:1rem;width:52px;height:52px}
+  .torna-su{right:1.25rem;bottom:calc(1rem + 52px + .9rem);width:40px;height:40px}
   /* hero: i due pulsanti uno sotto l'altro, larghi quanto lo schermo */
   .hero__cta{flex-direction:column;gap:.7rem}
   .hero__cta .btn{width:100%}
   .hero__title{font-size:clamp(2.6rem,12.5vw,3.4rem)}
-  .hero{min-height:calc(100dvh - 72px)}
+  /* niente min-height ridotta qui: la hero deve restare a schermo intero anche su
+     telefono (regola base .hero{min-height:100dvh}), altrimenti si intravede la
+     sezione chiara sotto (stats) prima della fine dello schermo - segnalato dal
+     cliente come "spazio bianco" tra video e sezione successiva (24/09/2026). */
   /* le sezioni respirano un po' meno: su telefono lo scroll e' gia' lungo */
   :root{--section-pad:clamp(3rem,10vw,4.5rem)}
   .section-head{margin-bottom:1.8rem}
@@ -1546,3 +1545,20 @@ h2{letter-spacing:-.025em}
 /* CTA di chiusura: stesso blocco su tutte le pagine interne */
 .storia-cta--chiara{background:var(--bg)}  /* dopo una sezione grigia (FAQ nelle pagine settore) */
 .storia-cta p{color:var(--text-muted);margin:-.8rem auto 1.6rem;max-width:48ch}
+
+/* --- segnaposto foto: varianti (25/09) --- */
+.foto-segnaposto{flex-direction:column}
+.foto-segnaposto small{display:block;margin-top:.4rem;font-size:.7rem;letter-spacing:.06em;text-transform:none;opacity:.8}
+.foto-segnaposto--wide{aspect-ratio:3/2}
+.foto-segnaposto--hero{position:absolute;inset:0;border-radius:0;aspect-ratio:auto;z-index:-2;background:#1a1d22;color:rgba(255,255,255,.55)}
+.galleria .foto-segnaposto{aspect-ratio:4/3}
+.faq .settore__panel-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.faq .settore__panel-wrap.is-open{grid-template-rows:1fr}
+.faq__risposta{padding-top:0}
+@media (max-width:1100px){.footer__inner{grid-template-columns:1.3fr 1fr 1fr 1.1fr}}
+.footer__inner{grid-template-columns:1.3fr .9fr 1fr 1.1fr}
+@media (max-width:760px){.footer__inner{grid-template-columns:1fr}}
+/* hero delle pagine settore: foto scura, quindi testo chiaro (il tema base e' chiaro) */
+.pagina-hero,.pagina-hero h1,.pagina-hero .breadcrumb,.pagina-hero .breadcrumb a{color:#fff}
+.pagina-hero .breadcrumb{opacity:.8}
+.pagina-hero .breadcrumb a:hover{color:var(--accent-hover)}
