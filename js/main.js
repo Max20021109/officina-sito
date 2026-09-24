@@ -42,84 +42,80 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- contachilometri (numero + arco + lancetta) ----------
-     Ogni .gauge parte da 0 e sale fino al valore vero (data-count-to) quando
-     entra in vista, una volta sola: numero, arco rosso e lancetta si muovono
-     insieme, nello stesso frame, usando la stessa progressione "ease-out".
-     Arco e lancetta vanno sempre da 0 a fondo scala (non a una percentuale
-     "realistica" del numero): e' un effetto visivo, non una statistica.
-     Il valore finale e' gia' scritto in HTML (il testo "0" e' solo il punto di
-     partenza dell'animazione), quindi senza JS o con reduce-motion attivo si
-     vede comunque il numero giusto e l'arco/lancetta gia' in posizione finale:
-     l'animazione e' solo un "di piu'", mai un requisito per leggere il dato. */
+     L'HTML parte gia' dallo stato finale (numero vero, arco pieno, lancetta a
+     fondo scala): senza JS, con "riduci animazioni" o per Google si legge
+     subito il dato giusto. Qui, solo se l'animazione puo' davvero partire, si
+     riporta tutto a 0 e poi si anima insieme (numero, arco, lancetta) come una
+     sgasata: la lancetta sale di colpo, torna un po' indietro, riaccelera fino
+     a fondo scala e fa un piccolo rimbalzo prima di fermarsi (vedi SGASATA).
+     Un quadrante dopo l'altro (STAGGER), quando la riga e' in vista.
+     Arco e lancetta vanno sempre da 0 a fondo scala: e' un effetto visivo, non
+     una statistica. L'arco ha pathLength="100", quindi il riempimento e' una
+     percentuale; la lancetta ruota attorno al perno (50,56) del viewBox SVG. */
   const gauges = document.querySelectorAll('.gauge[data-count-to]');
-  if (gauges.length) {
-    const ARC_LENGTH = 167.55;  /* arco a 240 gradi, raggio 40 (vedi CSS .gauge) */
-
+  const stats = document.querySelector('.stats__inner');
+  if (gauges.length && stats && !reduceMotion && 'IntersectionObserver' in window) {
     const setGauge = (el, fraction) => {
       const fill = el.querySelector('.gauge__fill');
       const needle = el.querySelector('.gauge__needle');
-      const drawn = ARC_LENGTH * fraction;
-      if (fill) fill.style.strokeDashoffset = `${ARC_LENGTH - drawn}`;
-      /* -120deg = lancetta a sinistra (0), +120deg = lancetta a destra (fondo scala) */
-      if (needle) needle.style.transform = `translate(-50%,-100%) rotate(${-120 + 240 * fraction}deg)`;
+      if (fill) fill.style.strokeDashoffset = String(100 - 100 * Math.min(1, Math.max(0, fraction)));
+      /* -120 = lancetta a sinistra (0), +120 = lancetta a destra (fondo scala) */
+      if (needle) needle.setAttribute('transform', `rotate(${-120 + 240 * fraction} 50 56)`);
+    };
+    const setNum = (el, value) => {
+      const numEl = el.querySelector('.gauge__num');
+      if (numEl) numEl.textContent = value + (el.dataset.suffix || '');
+    };
+
+    /* azzera: da qui in poi si vede lo 0, e l'animazione lo riporta al valore */
+    gauges.forEach((el) => { setGauge(el, 0); setNum(el, 0); });
+
+    /* La "sgasata": tratti uno dopo l'altro, ognuno con [fine del tratto in
+       frazione del tempo totale, posizione raggiunta (0 = zero, 1 = fondo
+       scala), curva]. La lancetta puo' superare di poco il fondo scala nel
+       rimbalzo (1.03); arco e numero invece si fermano al valore vero. */
+    const inOut = (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    const out = (t) => 1 - Math.pow(1 - t, 3);
+    const SGASATA = [
+      [.30, .72, inOut],  /* accelera: su di colpo fin quasi a tre quarti */
+      [.50, .38, inOut],  /* molla il gas: torna indietro */
+      [.86, 1.03, inOut], /* riaccelera fino a fondo scala, un filo oltre */
+      [1, 1, out],        /* rimbalzo: si assesta sul fondo scala */
+    ];
+    const DURATA = 2300;
+    const posizione = (p) => {
+      let t0 = 0, v0 = 0;
+      for (const [t1, v1, curva] of SGASATA) {
+        if (p <= t1) return v0 + (v1 - v0) * curva((p - t0) / (t1 - t0));
+        t0 = t1; v0 = v1;
+      }
+      return 1;
     };
 
     const animateGauge = (el) => {
       const target = parseInt(el.dataset.countTo, 10);
-      const suffix = el.dataset.suffix || '';
-      const numEl = el.querySelector('.gauge__num');
-      if (reduceMotion || !Number.isFinite(target)) {
-        if (numEl) numEl.textContent = target + suffix;
-        setGauge(el, 1);
-        return;
-      }
-      const duration = 1400;
+      if (!Number.isFinite(target)) { setGauge(el, 1); return; }
       const start = performance.now();
       const step = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3); /* ease-out: parte veloce, rallenta in fondo */
-        if (numEl) numEl.textContent = Math.round(target * eased) + suffix;
-        setGauge(el, eased);
-        if (progress < 1) requestAnimationFrame(step);
+        const p = Math.min((now - start) / DURATA, 1);
+        const f = p < 1 ? posizione(p) : 1;
+        setNum(el, Math.round(target * Math.min(1, f)));
+        setGauge(el, f);
+        if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
     };
 
-    /* Le 4 lancette partono in sequenza (una dopo l'altra, con un piccolo
-       ritardo), non tutte insieme: un solo trigger sulla riga di contachilometri
-       fa scattare animateGauge su ognuno in ordine, con uno stagger tra l'uno
-       e l'altro. Ogni lancetta, una volta partita, va comunque dall'inizio
-       (0) fino al suo valore finale per intero, come le altre. */
+    /* Si osserva tutto il pannello (non il primo quadrante): su telefono, dove
+       i quadranti sono 2x2, parte quando anche la seconda riga e' a schermo,
+       cosi' nessuna lancetta finisce la corsa mentre e' ancora fuori vista. */
     const STAGGER = 260;
-    const runSequence = () => {
-      gauges.forEach((el, i) => {
-        setTimeout(() => animateGauge(el), i * STAGGER);
-      });
-    };
-
-    if ('IntersectionObserver' in window) {
-      /* threshold basso + rootMargin negativo in basso: stessa logica di .will-reveal
-         qui sopra, cosi' su telefono (dove ogni riquadro e' piccolo e scorre veloce)
-         il contatore parte appena il numero e' leggibile, senza bisogno di fermarsi
-         a meta' schermo esatta. Osserviamo solo il primo quadrante: quando la riga
-         entra in vista scatta la sequenza per tutti e 4. */
-      const gaugesIO = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            runSequence();
-            gaugesIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: .2, rootMargin: '0px 0px -10% 0px' });
-      gaugesIO.observe(gauges[0]);
-    } else {
-      /* niente IntersectionObserver disponibile: mostra subito il valore finale */
-      gauges.forEach((el) => {
-        const numEl = el.querySelector('.gauge__num');
-        if (numEl) numEl.textContent = el.dataset.countTo + (el.dataset.suffix || '');
-        setGauge(el, 1);
-      });
-    }
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      gauges.forEach((el, i) => setTimeout(() => animateGauge(el), i * STAGGER));
+    }, { threshold: .6 });
+    io.observe(stats);
   }
 
   /* ---------- settori (home) e domande frequenti (pagine settore): accordion ----------
