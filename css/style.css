@@ -993,9 +993,6 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .footer__brand{display:flex;flex-direction:column;align-items:flex-start;gap:1.15rem}
 .footer__logo{width:auto;height:64px;object-fit:contain}
 .footer__tagline{color:var(--text-muted);font-size:.94rem;line-height:1.6;max-width:32ch}
-/* riga di icone social (WhatsApp + Instagram): in fila, non impilate come gli
-   altri figli di .footer__brand, che e' invece una colonna (24/09/2026) */
-.footer__socials{display:flex;gap:.75rem}
 .footer__social{
   width:2.5rem;height:2.5rem;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
@@ -1303,8 +1300,6 @@ h2{letter-spacing:-.025em}
 .section-head--row p{margin-inline:0}
 
 /* --- mappa: in bianco e nero finche' non ci passi sopra --- */
-.contatti__map iframe{filter:grayscale(1) contrast(1.05);transition:filter .5s}
-.contatti__map:hover iframe{filter:none}
 
 /* --- numeri: il valore pulsa una volta quando arriva a fondo scala --- */
 .gauge__num.arrivato{animation:pop .5s var(--ease)}
@@ -1338,10 +1333,7 @@ h2{letter-spacing:-.025em}
   .hero__cta{flex-direction:column;gap:.7rem}
   .hero__cta .btn{width:100%}
   .hero__title{font-size:clamp(2.6rem,12.5vw,3.4rem)}
-  /* niente min-height ridotta qui: la hero deve restare a schermo intero anche su
-     telefono (regola base .hero{min-height:100dvh}), altrimenti si intravede la
-     sezione chiara sotto (stats) prima della fine dello schermo - segnalato dal
-     cliente come "spazio bianco" tra video e sezione successiva (24/09/2026). */
+  .hero{min-height:calc(100dvh - 72px)}
   /* le sezioni respirano un po' meno: su telefono lo scroll e' gia' lungo */
   :root{--section-pad:clamp(3rem,10vw,4.5rem)}
   .section-head{margin-bottom:1.8rem}
@@ -1562,3 +1554,58 @@ h2{letter-spacing:-.025em}
 .pagina-hero,.pagina-hero h1,.pagina-hero .breadcrumb,.pagina-hero .breadcrumb a{color:#fff}
 .pagina-hero .breadcrumb{opacity:.8}
 .pagina-hero .breadcrumb a:hover{color:var(--accent-hover)}
+
+/* =====================================================================
+   MAPPA A DUE CLICK (25/09/2026): schema disegnato + Google solo su richiesta
+   ===================================================================== */
+.mappa{position:relative;background:#f3f1ec;aspect-ratio:16/11}
+.mappa__schema{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mappa__nome{font-family:var(--font-display);font-size:12px;font-weight:600;fill:rgba(22,23,27,.55);letter-spacing:.02em}
+.mappa__nome--fiume{font-style:italic;font-weight:500;fill:#7f9aa8;font-size:11px}
+.mappa__nome--zona{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;fill:rgba(22,23,27,.5)}
+.mappa__targa text{font-family:var(--font-mono);font-size:11px;font-weight:700;text-anchor:middle}
+.mappa__onda{transform-box:fill-box;transform-origin:center;animation:mappa-onda 2.4s ease-out infinite}
+@keyframes mappa-onda{0%{transform:scale(.4);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+.mappa__pin path{transform-origin:0 0;animation:mappa-pin 2.4s var(--ease) infinite}
+@keyframes mappa-pin{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.mappa__velo{
+  position:absolute;inset:0;display:flex;align-items:flex-end;padding:clamp(.8rem,2vw,1.2rem);
+  background:linear-gradient(180deg,rgba(243,241,236,0) 40%,rgba(243,241,236,.55) 100%);
+}
+.mappa__scheda{
+  width:100%;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--border);border-radius:var(--r-md);padding:.85rem 1rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  box-shadow:0 14px 30px -18px rgba(23,19,15,.4);
+}
+.mappa__testo{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.mappa__eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.mappa__scheda strong{font-family:var(--font-display);font-size:.98rem;line-height:1.3}
+.mappa__nota{font-size:.76rem;color:var(--text-faint);line-height:1.35}
+.mappa__azioni{display:flex;flex-direction:column;gap:.4rem;flex-shrink:0}
+.mappa__azioni .btn{min-height:42px;white-space:nowrap;justify-content:center}
+.mappa.is-caricata .mappa__schema,.mappa.is-caricata .mappa__velo{display:none}
+.mappa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (max-width:560px){
+  /* telefono: lo schema sopra, la scheda sotto (non sovrapposta), pulsanti uno sotto l'altro */
+  .mappa{aspect-ratio:auto;display:flex;flex-direction:column}
+  .mappa__schema{position:static;height:230px}
+  .mappa__velo{position:static;padding:.6rem;background:none}
+  .mappa__scheda{flex-direction:column;align-items:stretch;padding:.9rem;box-shadow:none}
+  .mappa__azioni{flex-direction:column}
+  .mappa.is-caricata{min-height:380px}
+}
+}
+@media (prefers-reduced-motion:reduce){.mappa__onda,.mappa__pin path{animation:none}}
+
+/* h1 delle pagine settore: la localita' e' parte del titolo (SEO locale) ma si legge come sottotitolo */
+.pagina-hero__luogo{display:block;font-size:.42em;font-weight:600;letter-spacing:.02em;text-transform:none;color:rgba(255,255,255,.72);margin-top:.35em}
+
+/* pagine di testo (privacy) e 404 */
+.testo-legale{max-width:72ch}
+.testo-legale h2{font-size:1.25rem;margin:2rem 0 .6rem}
+.testo-legale p{color:var(--text-muted);margin-bottom:.9rem}
+.testo-legale a{color:var(--accent-active);text-decoration:underline;text-underline-offset:.2em}
+.testo-legale__data{font-family:var(--font-mono);font-size:.8rem;color:var(--text-faint);margin-top:2rem}
+a.punto{display:block;color:inherit;transition:transform .3s var(--ease)}
+a.punto:hover{transform:translateY(-4px)}

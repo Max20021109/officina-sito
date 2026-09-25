@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Informativa privacy | Autocar Service</title>
+<meta name="description" content="Informativa sul trattamento dei dati personali del sito Autocar Service, Saint-Marcel (AO).">
+<meta name="theme-color" content="#0b0d10">
+<link rel="canonical" href="https://autocar-service.it/privacy.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Informativa privacy | Autocar Service">
+<meta property="og:description" content="Informativa sul trattamento dei dati personali del sito Autocar Service, Saint-Marcel (AO).">
+<meta property="og:image" content="https://autocar-service.it/assets/img/hero-poster.jpg">
+<meta property="og:locale" content="it_IT">
+<meta name="geo.region" content="IT-23">
+<meta name="geo.placename" content="Saint-Marcel, Valle d'Aosta">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Autocar Service">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="Autocar Service, officina meccanica a Saint-Marcel">
+<meta property="og:url" content="https://autocar-service.it/privacy.html">
+
+<!-- Favicon: sostituisci con il logo reale -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0d10'/%3E%3Cpath d='M50 18 65 27v18l-15 9-15-9V27z' fill='none' stroke='%23e6332a' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e6332a'/%3E%3C/svg%3E">
+
+<!-- Font principali caricati subito: evita il testo che "salta" al primo paint -->
+<link rel="preload" href="assets/vendor/fonts/manrope/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/vendor/fonts/manrope/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="css/style.css?v=20260925b">
+</head>
+<body>
+
+<!-- ============ PRELOADER: l'auto rossa che sfreccia all'apertura ============
+     Foto vera (scontornata, senza sfondo), non un disegno. Solo CSS: entra da
+     sinistra sfocata con le scie, rallenta un attimo al centro, riparte e esce
+     a destra; poi il velo scuro sparisce (animation-fill-mode forwards,
+     pointer-events:none: non blocca mai il sito sotto). Con
+     prefers-reduced-motion e' nascosto di scatto. -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__track">
+    <div class="preloader__scie" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="preloader__auto">
+      <picture>
+        <source srcset="assets/img/auto-preloader.webp" type="image/webp">
+        <img class="preloader__foto" src="assets/img/auto-preloader.png" alt="" width="1400" height="487" decoding="async" fetchpriority="high">
+      </picture>
+      <span class="preloader__ombra"></span>
+    </div>
+  </div>
+</div>
+
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <div class="topbar__info">
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+    <a href="index.html#contatti" class="topbar__cta">Richiedi preventivo <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ============ NAV ============
+     Pagina interna: i link puntano alle sezioni della home (index.html#...),
+     tranne "Chi siamo" e "Lavori" che hanno una pagina propria. -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__brand" aria-label="Autocar Service, torna alla home">
+      <img class="nav__mark" src="assets/img/logo-mark.png?v=20260921o" alt="" width="120" height="38" aria-hidden="true">
+      <span class="nav__brand-text">Autocar<br>Service</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sezioni del sito">
+      <a href="storia.html">Chi siamo</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="index.html#lavori">Lavori</a>
+      <a href="index.html#offerte">Offerte</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="tel:+390165768675" class="nav__phone"><i class="fa-solid fa-phone"></i><span>0165 768675</span></a>
+      <a href="index.html#contatti" class="btn btn--primary btn--sm">Richiedi preventivo</a>
+      <button class="nav__burger" id="navBurger" aria-label="Apri il menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav__mobile" id="navMobile">
+    <a href="storia.html">Chi siamo</a>
+    <a href="index.html#servizi">Servizi</a>
+    <a href="index.html#lavori">Lavori</a>
+    <a href="index.html#offerte">Offerte</a>
+    <a href="index.html#recensioni">Recensioni</a>
+    <a href="index.html#contatti">Contatti</a>
+    <a href="tel:+390165768675" class="nav__mobile-phone"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+    <a href="index.html#contatti" class="btn btn--primary nav__mobile-cta">Richiedi preventivo</a>
+  </div>
+</header>
+
+<main id="contenuto">
+<section class="page-header">
+  <div class="page-header__inner">
+    <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Informativa privacy</span></nav>
+    <h1>Informativa sulla privacy</h1>
+    <p>Come trattiamo i dati di chi ci scrive dal sito, ai sensi dell'art. 13 del Regolamento (UE) 2016/679 (GDPR).</p>
+  </div>
+</section>
+<section class="blocco">
+  <div class="blocco__inner testo-legale">
+    <!-- DA VERIFICARE con il titolare prima della pubblicazione definitiva: ragione sociale, PEC, tempi di conservazione. -->
+    <h2>Titolare del trattamento</h2>
+    <p>Autocar Service di Barcellona Calogero &amp; C. S.n.c. &middot; Zona Industriale, 9 &middot; 11020 Saint-Marcel (AO) &middot; P.IVA/C.F. 01130660077<br>
+    Telefono <a href="tel:+390165768675">0165 768675</a> &middot; email <a href="mailto:autocar-service@libero.it">autocar-service@libero.it</a> &middot; PEC autocar.service@pec.it</p>
+
+    <h2>Quali dati raccogliamo e perch&eacute;</h2>
+    <p>Dal modulo &ldquo;Richiedi un preventivo&rdquo; raccogliamo i dati che ci scrivi: nome, telefono, email, veicolo e il testo della richiesta. Li usiamo <strong>solo per risponderti</strong> e preparare il preventivo che ci hai chiesto (art. 6, par. 1, lett. b GDPR: misure precontrattuali su tua richiesta). Non li usiamo per inviarti pubblicit&agrave; e non li cediamo a nessuno.</p>
+    <p>Se ci chiami o ci scrivi su WhatsApp, valgono le informative di quei servizi per la parte tecnica della comunicazione; noi usiamo i tuoi recapiti solo per gestire la tua richiesta.</p>
+
+    <h2>Cookie e strumenti di terze parti</h2>
+    <p>Questo sito <strong>non usa cookie di profilazione n&eacute; strumenti di analisi</strong>. Caratteri, icone e script sono ospitati sul nostro server. La mappa di Google nella sezione contatti si carica <strong>solo se premi &ldquo;Carica la mappa&rdquo;</strong>: fino a quel momento nessun dato viene inviato a Google. Premendo il pulsante accetti che Google riceva i dati tecnici della tua visita secondo la <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener">sua informativa</a>.</p>
+
+    <h2>Per quanto tempo conserviamo i dati</h2>
+    <p>Le richieste dal sito vengono conservate per il tempo necessario a gestirle e comunque non oltre <strong>12 mesi</strong>, salvo che diventino un rapporto contrattuale (in quel caso valgono gli obblighi fiscali di legge, 10 anni).</p>
+
+    <h2>Chi pu&ograve; vedere i dati</h2>
+    <p>Solo il personale dell'officina che si occupa dei preventivi e il fornitore che ospita il sito e la posta elettronica, come responsabile del trattamento. I dati restano nell'Unione Europea.</p>
+
+    <h2>I tuoi diritti</h2>
+    <p>Puoi chiederci in qualsiasi momento di accedere ai tuoi dati, correggerli, cancellarli, limitarne l'uso o riceverli in formato leggibile (artt. 15-22 GDPR), scrivendo ai recapiti sopra. Se ritieni che il trattamento violi la legge, puoi rivolgerti al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+
+    <h2>Dati dei clienti dell'officina</h2>
+    <p>I dati raccolti in officina (anagrafica, veicolo, schede lavoro) sono trattati per eseguire i lavori richiesti e per gli obblighi fiscali. L'informativa completa &egrave; disponibile in accettazione.</p>
+
+    <p class="testo-legale__data">Ultimo aggiornamento: 25 settembre 2026.</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <span class="footer__watermark" aria-hidden="true">Autocar</span>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img class="footer__logo" src="assets/img/logo.png" alt="Autocar Service" width="220" height="115">
+      <p class="footer__tagline">Officina meccanica, elettrauto e gommista a Saint-Marcel, dal 1986. Preventivo chiaro prima di iniziare.</p>
+      <a href="https://wa.me/393478567108" class="footer__social" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <nav class="footer__col" aria-label="Link del sito">
+      <h3 class="footer__heading">Sezioni</h3>
+      <a href="storia.html">Chi siamo</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="index.html#lavori">Lavori</a>
+      <a href="index.html#offerte">Offerte</a>
+      <a href="index.html#recensioni">Recensioni</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+
+    <nav class="footer__col" aria-label="Settori">
+      <h3 class="footer__heading">Settori</h3>
+      <a href="settore-preparazioni-sportive.html">Preparazioni sportive</a>
+      <a href="settore-officina-meccanica.html">Officina meccanica</a>
+      <a href="settore-gommista.html">Gommista</a>
+      <a href="settore-elettrauto.html">Elettrauto</a>
+      <a href="settore-tuning-montaggio.html">Tuning e montaggio</a>
+      <a href="settore-scarichi.html">Scarichi personalizzati</a>
+    </nav>
+
+    <div class="footer__col footer__col--contatti">
+      <h3 class="footer__heading">Contatti</h3>
+      <a href="tel:+390165768675"><i class="fa-solid fa-phone"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp</a>
+      <a href="mailto:autocar-service@libero.it"><i class="fa-solid fa-envelope"></i> autocar-service@libero.it</a>
+      <span><i class="fa-solid fa-location-dot"></i> Zona Industriale, 9, Saint-Marcel (AO)</span>
+      <span><i class="fa-solid fa-clock"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <p>Autocar Service di Barcellona Calogero &middot; P.IVA/C.F. 01130660077</p>
+    <p>&copy; <span id="year"></span> Autocar Service. Tutti i diritti riservati. &middot; <a href="privacy.html">Privacy</a></p>
+  </div>
+</footer>
+
+
+<a href="https://wa.me/393478567108" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="js/main.js?v=20260925b"></script>
+</body>
+</html>

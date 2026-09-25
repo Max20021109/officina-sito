@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Autocar Service - indirizzo ufficiale: https://www.autocar-service.it -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.autocar-service.it/</loc>
-    <lastmod>2026-09-05</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://autocar-service.it/</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.autocar-service.it/storia.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <loc>https://autocar-service.it/storia.html</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.autocar-service.it/settore-preparazioni-sportive.html</loc>
+    <loc>https://autocar-service.it/settore-preparazioni-sportive.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.autocar-service.it/settore-officina-meccanica.html</loc>
+    <loc>https://autocar-service.it/settore-officina-meccanica.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.autocar-service.it/settore-gommista.html</loc>
+    <loc>https://autocar-service.it/settore-gommista.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.autocar-service.it/settore-elettrauto.html</loc>
+    <loc>https://autocar-service.it/settore-elettrauto.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.autocar-service.it/settore-tuning-montaggio.html</loc>
+    <loc>https://autocar-service.it/settore-tuning-montaggio.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.autocar-service.it/settore-scarichi.html</loc>
+    <loc>https://autocar-service.it/settore-scarichi.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://autocar-service.it/privacy.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>

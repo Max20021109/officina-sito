@@ -1,5 +1,6 @@
-# Autocar Service - https://www.autocar-service.it
 User-agent: *
 Allow: /
+Disallow: /php/
+Disallow: /_to_delete/
 
-Sitemap: https://www.autocar-service.it/sitemap.xml
+Sitemap: https://autocar-service.it/sitemap.xml

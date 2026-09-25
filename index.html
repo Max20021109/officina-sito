@@ -3,44 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<!-- Google Search Console: serve a Google per riconoscere il sito come nostro. Non toglierlo. -->
-<meta name="google-site-verification" content="9nNiemE1TYxqgyX7Ycby-5M1_ZrbX0AaVGcn71Si-qQ" />
 <title>Autocar Service - Officina meccanica e gommista a Saint-Marcel, Valle d'Aosta</title>
 <meta name="description" content="Autocar Service: officina meccanica, elettrauto, gommista e preparazioni sportive a Saint-Marcel (AO), Valle d'Aosta. Preventivo chiaro prima di iniziare.">
 <meta name="theme-color" content="#0b0d10">
-<link rel="canonical" href="https://www.autocar-service.it/">
+<link rel="canonical" href="https://autocar-service.it/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="business.business">
 <meta property="og:title" content="Autocar Service - Officina meccanica e gommista a Saint-Marcel, Valle d'Aosta">
 <meta property="og:description" content="Officina meccanica, elettrauto, gommista e preparazioni sportive per ogni marca. Preventivo chiaro prima di iniziare.">
-<meta property="og:image" content="assets/img/hero-poster.jpg">
+<meta property="og:image" content="https://autocar-service.it/assets/img/hero-poster.jpg">
 <meta property="og:locale" content="it_IT">
-<meta property="og:url" content="https://www.autocar-service.it/">
+<meta name="geo.region" content="IT-23">
+<meta name="geo.placename" content="Saint-Marcel, Valle d'Aosta">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Autocar Service">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="Autocar Service, officina meccanica a Saint-Marcel">
+<meta property="og:url" content="https://autocar-service.it/">
 
 <!-- Favicon: sostituisci con il logo reale -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0d10'/%3E%3Cpath d='M50 18 65 27v18l-15 9-15-9V27z' fill='none' stroke='%23e6332a' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e6332a'/%3E%3C/svg%3E">
 
 <!-- Font auto-ospitati (Manrope per titoli e corpo testo, JetBrains Mono per numeri/orari):
      nessuna richiesta a Google Fonts, il sito funziona anche senza connessione al CDN esterno. -->
+<!-- Font principali caricati subito: evita il testo che "salta" al primo paint -->
+<link rel="preload" href="assets/vendor/fonts/manrope/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/vendor/fonts/manrope/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
 
 <!-- Font Awesome auto-ospitato (libreria icone, niente SVG disegnate a mano) -->
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=20260924i">
+<link rel="stylesheet" href="css/style.css?v=20260925b">
 
 <!-- Dati struttura per Google: aiuta l'indicizzazione locale. Sostituisci ogni valore con quello reale. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
+  "@id": "https://autocar-service.it/#officina",
   "name": "Autocar Service",
+  "legalName": "Autocar Service di Barcellona Calogero & C. S.n.c.",
+  "url": "https://autocar-service.it/",
+  "logo": "https://autocar-service.it/assets/img/logo.png",
+  "image": [
+    "https://autocar-service.it/assets/img/hero-poster.jpg",
+    "https://autocar-service.it/assets/img/lavoro-officina-interno.webp"
+  ],
+  "description": "Officina meccanica, elettrauto, gommista e preparazioni sportive a Saint-Marcel (AO), Valle d'Aosta, dal 1986. Preventivo scritto prima di iniziare.",
   "foundingDate": "1986",
-  "image": "https://www.autocar-service.it/assets/img/hero-poster.jpg",
-  "telephone": "+39-0165-768675",
+  "telephone": "+39 0165 768675",
   "email": "autocar-service@libero.it",
+  "vatID": "IT01130660077",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Zona Industriale, 9",
@@ -49,12 +65,136 @@
     "postalCode": "11020",
     "addressCountry": "IT"
   },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "13:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "15:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:30" }
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Autocar+Service%2C+Zona+Industriale+9%2C+11020+Saint-Marcel+AO",
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Valle d'Aosta"
+    },
+    {
+      "@type": "City",
+      "name": "Aosta"
+    },
+    {
+      "@type": "City",
+      "name": "Saint-Marcel"
+    },
+    {
+      "@type": "City",
+      "name": "Nus"
+    },
+    {
+      "@type": "City",
+      "name": "Châtillon"
+    }
   ],
-  "priceRange": "€€"
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "13:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "15:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "12:30"
+    }
+  ],
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Settori d'intervento",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Preparazioni sportive",
+          "url": "https://autocar-service.it/settore-preparazioni-sportive.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Officina meccanica",
+          "url": "https://autocar-service.it/settore-officina-meccanica.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Gommista",
+          "url": "https://autocar-service.it/settore-gommista.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Elettrauto",
+          "url": "https://autocar-service.it/settore-elettrauto.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tuning e montaggio",
+          "url": "https://autocar-service.it/settore-tuning-montaggio.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Scarichi personalizzati",
+          "url": "https://autocar-service.it/settore-scarichi.html"
+        }
+      }
+    ]
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+39 0165 768675",
+    "contactType": "customer service",
+    "availableLanguage": "it"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://autocar-service.it/#sito",
+  "url": "https://autocar-service.it/",
+  "name": "Autocar Service",
+  "inLanguage": "it",
+  "publisher": {
+    "@id": "https://autocar-service.it/#officina"
+  }
 }
 </script>
 </head>
@@ -104,6 +244,7 @@
       <a href="#storia">Chi siamo</a>
       <a href="#servizi">Servizi</a>
       <a href="#lavori">Lavori</a>
+      <a href="#offerte">Offerte</a>
       <a href="#recensioni">Recensioni</a>
       <a href="#contatti">Contatti</a>
     </nav>
@@ -121,6 +262,7 @@
     <a href="#storia">Chi siamo</a>
     <a href="#servizi">Servizi</a>
     <a href="#lavori">Lavori</a>
+    <a href="#offerte">Offerte</a>
     <a href="#recensioni">Recensioni</a>
     <a href="#contatti">Contatti</a>
     <a href="tel:+390165768675" class="nav__mobile-phone"><i class="fa-solid fa-phone"></i> 0165 768675</a>
@@ -309,7 +451,7 @@
 <section class="storia" id="storia">
   <div class="storia__split">
     <div class="atelier__media will-reveal">
-      <img src="assets/img/storia-officina-porsche.webp" alt="Porsche 911 Turbo Cabriolet sollevata sul ponte in officina durante un intervento" loading="lazy">
+      <img src="assets/img/storia-officina-porsche.webp" alt="Porsche 911 Turbo Cabriolet sollevata sul ponte in officina durante un intervento" loading="lazy" width="1600" height="1067" decoding="async">
       <span class="atelier__tag">Scatto reale, dalla nostra officina</span>
     </div>
     <div class="storia__intro storia__intro--compact will-reveal">
@@ -417,11 +559,11 @@
 <!-- Foto segnaposto: da sostituire con una foto vera di un'auto preparata da Autocar Service
      appena disponibile (vedi BRIEF-CLIENTE.md, punto 5). -->
 <section class="showcase will-reveal">
-  <img src="https://picsum.photos/seed/autocar-preparazioni-2026/1600/900" alt="Auto preparata da Autocar Service" loading="lazy">
+  <img src="https://picsum.photos/seed/autocar-preparazioni-2026/1600/900" alt="Auto preparata da Autocar Service" loading="lazy" width="1600" height="900" decoding="async">
   <div class="showcase__scrim"></div>
   <div class="showcase__content">
     <span class="showcase__eyebrow">Il nostro segno distintivo</span>
-    <h2>La stessa officina, anche per le elaborazioni più serie.</h2>
+    <h2>Non solo tagliandi: qui le auto si preparano davvero.</h2>
     <p>Elaborazioni sportive, scarichi su misura e tuning seguiti dalla progettazione al collaudo, nella stessa officina che si occupa della tua manutenzione di ogni giorno.</p>
     <a href="#contatti" class="btn btn--primary">Parliamo del tuo progetto</a>
   </div>
@@ -443,23 +585,23 @@
   <div class="carousel" id="lavoriCarousel">
     <ul class="carousel__track" id="lavoriTrack">
       <li class="carousel__slide will-reveal">
-        <img src="assets/img/lavoro-officina-interno.webp" alt="Interno dell'officina Autocar Service, con auto sul ponte sollevatore e magazzino cerchi e gomme" loading="lazy">
+        <img src="assets/img/lavoro-officina-interno.webp" alt="Interno dell'officina Autocar Service, con auto sul ponte sollevatore e magazzino cerchi e gomme" loading="lazy" width="800" height="900" decoding="async">
         <div class="carousel__caption"><span>La nostra officina:</span> ponte sollevatore e magazzino cerchi e gomme sempre pronto</div>
       </li>
       <li class="carousel__slide will-reveal">
-        <img src="https://picsum.photos/seed/lavoro-freni-2026/800/900" alt="Sostituzione impianto frenante" loading="lazy">
+        <img src="https://picsum.photos/seed/lavoro-freni-2026/800/900" alt="Sostituzione impianto frenante" loading="lazy" width="800" height="900" decoding="async">
         <div class="carousel__caption"><span>Impianto frenante:</span> dischi e pastiglie sostituiti in giornata</div>
       </li>
       <li class="carousel__slide will-reveal">
-        <img src="assets/img/lavoro-gommista-officina.webp" alt="Zona gommista dell'officina, con attrezzatura per cambio ed equilibratura gomme" loading="lazy">
+        <img src="assets/img/lavoro-gommista-officina.webp" alt="Zona gommista dell'officina, con attrezzatura per cambio ed equilibratura gomme" loading="lazy" width="800" height="900" decoding="async">
         <div class="carousel__caption"><span>Cambio gomme:</span> set stagionale con equilibratura</div>
       </li>
       <li class="carousel__slide will-reveal">
-        <img src="https://picsum.photos/seed/lavoro-diagnosi-2026/800/900" alt="Diagnosi computerizzata su centralina" loading="lazy">
+        <img src="https://picsum.photos/seed/lavoro-diagnosi-2026/800/900" alt="Diagnosi computerizzata su centralina" loading="lazy" width="800" height="900" decoding="async">
         <div class="carousel__caption"><span>Diagnosi centralina:</span> spia motore risolta con lettura errori</div>
       </li>
       <li class="carousel__slide will-reveal">
-        <img src="https://picsum.photos/seed/lavoro-clima-2026/800/900" alt="Ricarica impianto climatizzazione" loading="lazy">
+        <img src="https://picsum.photos/seed/lavoro-clima-2026/800/900" alt="Ricarica impianto climatizzazione" loading="lazy" width="800" height="900" decoding="async">
         <div class="carousel__caption"><span>Climatizzazione:</span> ricarica gas e sanificazione impianto</div>
       </li>
     </ul>
@@ -467,6 +609,40 @@
   </div>
 </section>
 
+<!-- ============ OFFERTE DEL MESE ============ -->
+<section class="offerte" id="offerte">
+  <div class="section-head will-reveal">
+    <h2>Le offerte di questo mese.</h2>
+    <p>Valide questo mese, non cumulabili con altre promozioni.</p>
+  </div>
+
+  <div class="offerte__grid">
+    <article class="offerta offerta--big will-reveal">
+      <span class="offerta__badge">Offerta del mese</span>
+      <h3>Tagliando completo</h3>
+      <p>Olio, filtro olio, filtro aria e controllo dei 40 punti di sicurezza.</p>
+      <div class="offerta__prezzo">
+        <span class="offerta__prezzo-old font-mono">€89</span>
+        <span class="offerta__prezzo-new font-mono">€69</span>
+      </div>
+      <a href="#contatti" class="btn btn--primary">Richiedi preventivo</a>
+    </article>
+
+    <article class="offerta will-reveal">
+      <h3>Controllo freni gratuito</h3>
+      <p>Verifica dischi, pastiglie e liquido freni, senza impegno.</p>
+      <div class="offerta__prezzo"><span class="offerta__prezzo-new font-mono">Gratis</span></div>
+      <a href="#contatti" class="btn btn--outline btn--sm">Richiedi preventivo</a>
+    </article>
+
+    <article class="offerta will-reveal">
+      <h3>Cambio gomme + equilibratura</h3>
+      <p>Montaggio, equilibratura e smaltimento delle gomme usate incluso.</p>
+      <div class="offerta__prezzo"><span class="offerta__prezzo-new font-mono">da €15</span><span class="offerta__prezzo-unit">/ gomma</span></div>
+      <a href="#contatti" class="btn btn--outline btn--sm">Richiedi preventivo</a>
+    </article>
+  </div>
+</section>
 
 <!-- ============ RECENSIONI ============ -->
 <!-- Card di riepilogo Google a sinistra + carosello (scroll automatico + frecce, come il
@@ -656,7 +832,7 @@
 
         <label class="form__checkbox">
           <input type="checkbox" id="privacy" name="privacy" required>
-          <span>Ho letto l'<a href="#">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato.</span>
+          <span>Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato.</span>
         </label>
         <span class="form__error" data-error-for="privacy"></span>
 
@@ -670,13 +846,81 @@
     </div>
 
     <div class="contatti__side will-reveal">
-      <div class="contatti__map">
-        <iframe
-          title="Mappa: come raggiungerci"
-          src="https://www.google.com/maps?q=Autocar+Service%2C+Zona+Industriale+9%2C+11020+Saint-Marcel+AO&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <!-- Mappa "a due click": niente iframe di Google finche' non lo chiede
+           l'utente (Google deposita cookie appena l'iframe si carica, e per
+           una mappa un banner cookie sarebbe assurdo). Quello che si vede e'
+           uno schema disegnato da noi: Dora Baltea, autostrada A5, statale 26
+           e il pin sulla zona industriale. Il click su "Carica la mappa"
+           e' il consenso, e sostituisce lo schema con la mappa vera. -->
+      <div class="contatti__map mappa" id="mappa">
+        <svg class="mappa__schema" viewBox="0 14 640 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="mappa-griglia" width="32" height="32" patternUnits="userSpaceOnUse">
+              <path d="M32 0H0V32" fill="none" stroke="rgba(22,23,27,.045)" stroke-width="1"/>
+            </pattern>
+            <linearGradient id="mappa-monti" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="rgba(22,23,27,.09)"/><stop offset="1" stop-color="rgba(22,23,27,0)"/>
+            </linearGradient>
+          </defs>
+          <rect width="640" height="480" fill="#f3f1ec"/>
+          <rect width="640" height="480" fill="url(#mappa-griglia)"/>
+          <!-- crinale a nord -->
+          <path d="M0 70 L70 26 L128 58 L196 12 L262 52 L330 18 L392 60 L456 14 L520 48 L584 22 L640 56 V0 H0Z" fill="url(#mappa-monti)"/>
+          <g fill="rgba(22,23,27,.035)">
+            <ellipse cx="96" cy="118" rx="70" ry="22"/><ellipse cx="560" cy="100" rx="60" ry="20"/>
+            <ellipse cx="110" cy="360" rx="90" ry="26"/><ellipse cx="540" cy="370" rx="80" ry="28"/>
+          </g>
+          <!-- Dora Baltea -->
+          <path d="M-10 118 C 90 100, 160 140, 250 124 S 400 100, 490 120 S 600 140, 650 122" fill="none" stroke="#c9d6dd" stroke-width="16" stroke-linecap="round"/>
+          <path d="M-10 118 C 90 100, 160 140, 250 124 S 400 100, 490 120 S 600 140, 650 122" fill="none" stroke="#a9bfcb" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" opacity=".7"/>
+          <text x="190" y="150" class="mappa__nome mappa__nome--fiume">Dora Baltea</text>
+          <!-- autostrada A5 -->
+          <path d="M-10 82 C 120 72, 240 92, 360 80 S 560 62, 650 72" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+          <path d="M-10 82 C 120 72, 240 92, 360 80 S 560 62, 650 72" fill="none" stroke="#d9d5cf" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+          <path d="M-10 82 C 120 72, 240 92, 360 80 S 560 62, 650 72" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="14 10"/>
+          <g class="mappa__targa"><rect x="546" y="44" width="34" height="22" rx="4" fill="#2f6f3e"/><text x="563" y="59.5" fill="#fff">A5</text></g>
+          <!-- statale 26 -->
+          <path d="M-10 206 C 100 194, 210 220, 320 206 S 540 180, 650 196" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+          <path d="M-10 206 C 100 194, 210 220, 320 206 S 540 180, 650 196" fill="none" stroke="#e2ddd6" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+          <path d="M-10 206 C 100 194, 210 220, 320 206 S 540 180, 650 196" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="10 12" opacity=".9"/>
+          <g class="mappa__targa"><rect x="60" y="168" width="46" height="22" rx="4" fill="#3b5fa3"/><text x="83" y="183.5" fill="#fff">SS 26</text></g>
+          <text x="20" y="238" class="mappa__nome">&larr; Aosta</text>
+          <text x="620" y="228" class="mappa__nome" text-anchor="end">Ch&acirc;tillon &rarr;</text>
+          <!-- via della zona industriale e capannoni -->
+          <path d="M392 210 C 388 240, 372 262, 356 286" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+          <path d="M392 210 C 388 240, 372 262, 356 286" fill="none" stroke="#e6e2db" stroke-width="7" stroke-linecap="round"/>
+          <g fill="#e4dfd8" stroke="#d3cdc5" stroke-width="1">
+            <rect x="404" y="230" width="44" height="26" rx="2"/><rect x="404" y="262" width="34" height="22" rx="2"/>
+            <rect x="322" y="244" width="26" height="30" rx="2"/><rect x="452" y="236" width="30" height="20" rx="2"/>
+          </g>
+          <rect x="358" y="236" width="40" height="30" rx="2" fill="#dc2626" opacity=".18"/>
+          <text x="412" y="308" class="mappa__nome mappa__nome--zona" text-anchor="middle">Zona Industriale</text>
+          <!-- paese -->
+          <g fill="#e8e4de" stroke="#d6d0c8" stroke-width="1">
+            <rect x="150" y="240" width="14" height="12" rx="1"/><rect x="170" y="246" width="12" height="12" rx="1"/><rect x="156" y="260" width="16" height="12" rx="1"/><rect x="186" y="234" width="12" height="10" rx="1"/>
+          </g>
+          <text x="168" y="290" class="mappa__nome" text-anchor="middle">Saint-Marcel</text>
+          <!-- il pin -->
+          <g class="mappa__pin" transform="translate(378 244)">
+            <circle class="mappa__onda" r="14" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <ellipse cy="4" rx="9" ry="3.5" fill="rgba(22,23,27,.22)"/>
+            <path d="M0 0 C -11 -14 -14 -20 -14 -27 A14 14 0 1 1 14 -27 C 14 -20 11 -14 0 0Z" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+            <circle cy="-27" r="5" fill="#fff"/>
+          </g>
+        </svg>
+        <div class="mappa__velo">
+          <div class="mappa__scheda">
+            <div class="mappa__testo">
+              <span class="mappa__eyebrow"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Dove siamo</span>
+              <strong>Zona Industriale, 9 &middot; Saint-Marcel (AO)</strong>
+              <span class="mappa__nota">Statale 26 fra Aosta e Ch&acirc;tillon. Google Maps si carica solo se lo chiedi: prima nessun cookie di terze parti.</span>
+            </div>
+            <div class="mappa__azioni">
+              <button type="button" class="btn btn--primary btn--sm" id="mappaCarica"><i class="fa-brands fa-google" aria-hidden="true"></i> Carica la mappa</button>
+              <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/dir/?api=1&destination=Autocar+Service%2C+Zona+Industriale+9%2C+11020+Saint-Marcel+AO" target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Indicazioni</a>
+            </div>
+          </div>
+        </div>
       </div>
       <ul class="contatti__info">
         <li><i class="fa-solid fa-location-dot"></i><span>Zona Industriale, 9, Saint-Marcel (AO)</span></li>
@@ -698,10 +942,7 @@
     <div class="footer__brand">
       <img class="footer__logo" src="assets/img/logo.png" alt="Autocar Service" width="220" height="115">
       <p class="footer__tagline">Officina meccanica, elettrauto e gommista a Saint-Marcel, dal 1986. Preventivo chiaro prima di iniziare.</p>
-      <div class="footer__socials">
-        <a href="https://wa.me/393478567108" class="footer__social" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/autocarservice.ao" class="footer__social" target="_blank" rel="noopener" aria-label="Seguici su Instagram"><i class="fa-brands fa-instagram"></i></a>
-      </div>
+      <a href="https://wa.me/393478567108" class="footer__social" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
 
     <nav class="footer__col" aria-label="Link del sito">
@@ -709,6 +950,7 @@
       <a href="#storia">Chi siamo</a>
       <a href="#servizi">Servizi</a>
       <a href="#lavori">Lavori</a>
+      <a href="#offerte">Offerte</a>
       <a href="#recensioni">Recensioni</a>
       <a href="#contatti">Contatti</a>
     </nav>
@@ -735,7 +977,7 @@
 
   <div class="footer__bottom">
     <p>Autocar Service di Barcellona Calogero &middot; P.IVA/C.F. 01130660077</p>
-    <p>&copy; <span id="year"></span> Autocar Service. Tutti i diritti riservati.</p>
+    <p>&copy; <span id="year"></span> Autocar Service. Tutti i diritti riservati. &middot; <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 
@@ -748,6 +990,6 @@
      visibile e funzionante (vedi js/main.js, le animazioni sono un "di piu'", mai un requisito). -->
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20260924i"></script>
+<script src="js/main.js?v=20260925b"></script>
 </body>
 </html>

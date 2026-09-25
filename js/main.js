@@ -133,6 +133,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ---------- mappa a due click: Google solo dopo il consenso (il click) ---------- */
+  const mappa = document.getElementById('mappa');
+  const mappaBtn = document.getElementById('mappaCarica');
+  if (mappa && mappaBtn) {
+    mappaBtn.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.title = 'Mappa Google: come raggiungerci';
+      f.src = 'https://www.google.com/maps?q=Autocar+Service%2C+Zona+Industriale+9%2C+11020+Saint-Marcel+AO&output=embed';
+      f.loading = 'lazy'; f.referrerPolicy = 'no-referrer-when-downgrade'; f.allowFullscreen = true;
+      mappa.appendChild(f);
+      mappa.classList.add('is-caricata');
+    }, { once: true });
+  }
+
   /* ---------- anno in footer ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
