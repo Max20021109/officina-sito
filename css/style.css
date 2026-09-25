@@ -1000,6 +1000,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
   font-size:1.1rem;transition:background-color .2s,color .2s,border-color .2s;
 }
 .footer__social:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.footer__socials{display:flex;gap:.75rem}
 
 .footer__heading{
   font-family:var(--font-display);font-weight:700;font-size:.84rem;letter-spacing:.07em;
@@ -1333,7 +1334,9 @@ h2{letter-spacing:-.025em}
   .hero__cta{flex-direction:column;gap:.7rem}
   .hero__cta .btn{width:100%}
   .hero__title{font-size:clamp(2.6rem,12.5vw,3.4rem)}
-  .hero{min-height:calc(100dvh - 72px)}
+  /* niente min-height fisso qui: sul telefono la hero deve restare a
+     tutto schermo (100dvh) senza il taglio di -72px, altrimenti tra il
+     video e la sezione successiva compare una fascia bianca (24/09/2026) */
   /* le sezioni respirano un po' meno: su telefono lo scroll e' gia' lungo */
   :root{--section-pad:clamp(3rem,10vw,4.5rem)}
   .section-head{margin-bottom:1.8rem}
