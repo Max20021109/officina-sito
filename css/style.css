@@ -1614,67 +1614,47 @@ a.punto{display:block;color:inherit;transition:transform .3s var(--ease)}
 a.punto:hover{transform:translateY(-4px)}
 
 
-/* ================= SPIA "SITO SUL PONTE" (lavori in corso) =================
-   Il sito e' online prima di essere finito (serve a farsi trovare su Google
-   intanto che arrivano foto e testi veri). Invece del solito nastro
-   "under construction" il sito lo dice a modo suo: una spia da cruscotto,
-   ambra, che lampeggia piano in basso a sinistra. Si chiude con la X e
-   per una settimana non torna (localStorage, vedi js/main.js). Non tocca
-   l'indicizzazione: e' un pezzo di pagina come un altro, niente noindex.
-   Non si sovrappone al tasto WhatsApp (sta a destra). */
-.spia{
-  position:fixed;left:1.1rem;bottom:1.1rem;z-index:91;
-  width:min(360px, calc(100vw - 6.6rem));
-  display:grid;grid-template-columns:auto 1fr auto;gap:.85rem;align-items:center;
-  padding:.8rem .7rem .8rem .9rem;
-  background:#16171b;color:#f6f5f2;
-  border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);
-  box-shadow:0 18px 44px -14px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.06);
+/* ================= NASTRO "SITO IN COSTRUZIONE" =================
+   Montato da js/main.js nella prima sezione di <main>. Nastro da cantiere:
+   bordo a righe nero/ambra sopra e sotto, testo che scorre in mezzo (due
+   copie dello stesso testo, la seconda prende il posto della prima: il
+   giro non si vede). Chiave inglese ferma a sinistra, "Chiamaci" a destra.
+   Si ferma al passaggio del mouse e con prefers-reduced-motion. */
+.nastro{
+  --nastro-h:3rem;
+  position:relative;z-index:5;
+  display:flex;align-items:stretch;height:var(--nastro-h);
+  background:#16171b;color:#f6f5f2;overflow:hidden;
+  border-top:7px solid;border-bottom:7px solid;
+  border-image:repeating-linear-gradient(135deg,#f5b400 0 14px,#16171b 14px 28px) 7;
+  box-shadow:0 14px 34px -14px rgba(0,0,0,.6);
   font-family:var(--font-body);
-  opacity:0;transform:translateY(18px);pointer-events:none;
-  transition:opacity .5s var(--ease), transform .6s var(--ease);
 }
-.spia::before{ /* la banda a righe nero/ambra, come il bordo di un ponte sollevatore */
-  content:"";position:absolute;left:0;top:0;bottom:0;width:6px;
-  border-radius:var(--r-md) 0 0 var(--r-md);
-  background:repeating-linear-gradient(135deg,#f5b400 0 7px,#16171b 7px 14px);
+.nastro--hero{position:absolute;left:0;right:0;top:7.6rem}
+@media (max-width:760px){ .nastro--hero{top:6.5rem} }
+.page-header .nastro{margin:-1rem calc(-1 * clamp(1.5rem,5vw,3rem)) 1.8rem}
+.nastro__badge,.nastro__chiama{
+  flex:none;display:flex;align-items:center;gap:.5rem;padding:0 1rem;
+  font-family:var(--font-mono);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
 }
-.spia.is-on{opacity:1;transform:none;pointer-events:auto}
-.spia__led{
-  width:44px;height:44px;border-radius:10px;flex:none;
-  display:grid;place-items:center;font-size:1.15rem;color:#16171b;
-  background:#f5b400;
-  box-shadow:0 0 0 0 rgba(245,180,0,.55), 0 0 22px rgba(245,180,0,.45);
-  animation:spia-lampeggia 2.6s ease-in-out infinite;
+.nastro__badge{background:#f5b400;color:#16171b}
+.nastro__badge i{font-size:1rem}
+.nastro__scorre{flex:1 1 auto;min-width:0;display:flex;align-items:center;overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.nastro__testo{display:flex;white-space:nowrap;animation:nastro-scorre 28s linear infinite;will-change:transform}
+.nastro__testo span{padding-right:.5rem;font-weight:700;font-size:.92rem;letter-spacing:.02em}
+.nastro:hover .nastro__testo{animation-play-state:paused}
+@keyframes nastro-scorre{to{transform:translateX(-50%)}}
+.nastro__chiama{background:var(--accent);color:#fff;text-decoration:none;transition:background-color .2s}
+.nastro__chiama:hover{background:var(--accent-hover)}
+@media (max-width:560px){
+  .nastro{--nastro-h:2.7rem;border-top-width:5px;border-bottom-width:5px}
+  .nastro__badge span,.nastro__chiama span{display:none}
+  .nastro__badge,.nastro__chiama{padding:0 .8rem}
+  .nastro__testo span{font-size:.84rem}
 }
-@keyframes spia-lampeggia{
-  0%,100%{background:#f5b400;box-shadow:0 0 0 0 rgba(245,180,0,.55),0 0 22px rgba(245,180,0,.45)}
-  50%{background:#c48f00;box-shadow:0 0 0 7px rgba(245,180,0,0),0 0 6px rgba(245,180,0,.15)}
-}
-.spia__testo{min-width:0}
-.spia__etichetta{
-  display:block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;
-  text-transform:uppercase;color:#f5b400;margin-bottom:.15rem;
-}
-.spia__titolo{display:block;font-weight:800;font-size:.98rem;line-height:1.15;letter-spacing:-.01em}
-.spia__corpo{display:block;margin-top:.3rem;font-size:.8rem;line-height:1.4;color:rgba(246,245,242,.72)}
-.spia__corpo a{color:#fff;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(245,180,0,.6)}
-.spia__chiudi{
-  align-self:start;flex:none;width:30px;height:30px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.14);background:transparent;color:rgba(246,245,242,.7);
-  display:grid;place-items:center;cursor:pointer;font-size:.8rem;
-  transition:background-color .2s,color .2s;
-}
-.spia__chiudi:hover{background:rgba(255,255,255,.1);color:#fff}
-@media (max-width:640px){
-  .spia{left:.7rem;bottom:.7rem;width:calc(100vw - 5.9rem);padding:.7rem .6rem .7rem .8rem;gap:.65rem}
-  .spia__led{width:38px;height:38px;font-size:1rem}
-  .spia__corpo{font-size:.76rem}
-}
-@media (prefers-reduced-motion: reduce){
-  .spia{transition:none}
-  .spia__led{animation:none}
-}
+@media (prefers-reduced-motion: reduce){ .nastro__testo{animation:none} }
 
 
 /* ================= TIMBRO "FOTO A SCOPO ILLUSTRATIVO" =================

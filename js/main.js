@@ -513,40 +513,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* ---------- spia "sito sul ponte" (lavori in corso) ----------
-   Il sito e' online prima di essere finito: lo si dice con una spia da
-   cruscotto in basso a sinistra (vedi .spia in css/style.css), uguale su
-   tutte le pagine perche' la monta questo script. La X la spegne per sette
-   giorni. Quando il sito sara' completo basta togliere questo blocco. */
+/* ---------- nastro "SITO IN COSTRUZIONE" ----------
+   Il sito e' online prima di essere finito (serve a farsi trovare su Google
+   intanto che arrivano foto e testi). Lo si dice con un nastro da cantiere
+   a righe nero/ambra, subito sotto la barra, che scorre come un pannello a
+   messaggio variabile: a sinistra la chiave inglese ferma, in mezzo il
+   testo che corre, a destra "Chiama" col numero. Su tutte le pagine perche'
+   lo monta questo script dentro la prima sezione di <main>: nella home
+   (hero a tutta altezza) sta appoggiato in alto, nelle altre pagine entra
+   nel flusso prima del titolo. Quando il sito e' finito: via questo blocco
+   e il CSS .nastro. */
 (function () {
-  var CHIAVE = 'autocar_spia_chiusa';
-  var SETTE_GIORNI = 7 * 24 * 60 * 60 * 1000;
-  try {
-    var quando = parseInt(localStorage.getItem(CHIAVE) || '0', 10);
-    if (quando && Date.now() - quando < SETTE_GIORNI) { return; }
-  } catch (e) { /* storage bloccato: la spia si mostra e basta */ }
-
-  var spia = document.createElement('aside');
-  spia.className = 'spia';
-  spia.setAttribute('role', 'status');
-  spia.setAttribute('aria-label', 'Avviso: sito in lavorazione');
-  spia.innerHTML =
-    '<div class="spia__led" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></div>' +
-    '<div class="spia__testo">' +
-      '<span class="spia__etichetta">Spia accesa &middot; lavori in corso</span>' +
-      '<strong class="spia__titolo">Sito sul ponte: lo stiamo ancora montando.</strong>' +
-      '<span class="spia__corpo">Foto dei lavori e qualche pagina sono in arrivo. L&rsquo;officina, quella vera, &egrave; aperta: ' +
-      '<a href="tel:+390165768675">0165 768675</a></span>' +
+  var prima = document.querySelector('main > section');
+  if (!prima) { return; }
+  var frase = 'Sito in costruzione &nbsp;&#9670;&nbsp; stiamo montando le ultime pagine e le foto dei lavori &nbsp;&#9670;&nbsp; l\'officina &egrave; aperta: per qualsiasi cosa chiamaci allo 0165 768675 &nbsp;&#9670;&nbsp; ';
+  var nastro = document.createElement('div');
+  nastro.className = 'nastro' + (prima.classList.contains('hero') || prima.classList.contains('pagina-hero') ? ' nastro--hero' : '');
+  nastro.setAttribute('role', 'status');
+  nastro.innerHTML =
+    '<div class="nastro__badge"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span>Lavori in corso</span></div>' +
+    '<div class="nastro__scorre" aria-label="Sito in costruzione: stiamo montando le ultime pagine. L\'officina e\' aperta, per qualsiasi cosa chiamaci allo 0165 768675">' +
+      '<div class="nastro__testo" aria-hidden="true"><span>' + frase + '</span><span>' + frase + '</span></div>' +
     '</div>' +
-    '<button type="button" class="spia__chiudi" aria-label="Chiudi l\'avviso"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>';
-  document.body.appendChild(spia);
-
-  // Arriva dopo un attimo, non insieme alla pagina: cosi' si nota.
-  window.setTimeout(function () { spia.classList.add('is-on'); }, 1400);
-
-  spia.querySelector('.spia__chiudi').addEventListener('click', function () {
-    spia.classList.remove('is-on');
-    try { localStorage.setItem(CHIAVE, String(Date.now())); } catch (e) {}
-    window.setTimeout(function () { spia.remove(); }, 600);
-  });
+    '<a class="nastro__chiama" href="tel:+390165768675"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiamaci</span></a>';
+  prima.insertBefore(nastro, prima.firstChild);
 })();
