@@ -282,18 +282,56 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .nav__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
+/* ---- MENU MOBILE (5/10/2026) ----
+   Prima era una lista grigia su bianco, col pulsante rosso che perdeva il
+   testo (il colore del link vinceva su quello del bottone). Adesso e' un
+   pannello scuro a tutta altezza sotto la barra: voci grandi e bianche,
+   numerate in ambra, e in fondo le tre cose che uno fa dal telefono —
+   preventivo, chiamata, WhatsApp — come tasti pieni, uno sotto l'altro.
+   Lo scorrimento della pagina si blocca finche' e' aperto (html.menu-aperto). */
 .nav__mobile{
-  display:none;flex-direction:column;gap:.2rem;
-  max-width:var(--container);margin:0 auto;
-  background:var(--bg-2);border-top:1px solid var(--border);
-  padding:.75rem clamp(1.25rem,4vw,2.5rem) 1rem;
-  box-shadow:0 16px 36px -16px rgba(23,19,15,.28);
+  display:none;flex-direction:column;
+  /* Assoluto dentro la barra (che e' fissa e si muove con lo scroll):
+     parte sotto la barra e arriva in fondo allo schermo. */
+  position:absolute;left:0;right:0;top:100%;height:calc(100dvh - 2.35rem - 72px);z-index:99;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  background:#16171b;color:#f6f5f2;
+  padding:.4rem clamp(1.1rem,4vw,2rem) max(1.2rem, env(safe-area-inset-bottom));
 }
-.nav__mobile.is-open{display:flex}
-.nav__mobile a{padding:.85rem 1rem;border-radius:var(--r-sm);color:var(--text-muted);font-size:1.02rem}
-.nav__mobile a:hover{background:var(--bg-1);color:var(--text)}
-.nav__mobile-phone{color:var(--accent) !important;font-family:var(--font-mono);display:flex;align-items:center;gap:.6rem}
-.nav__mobile-cta{width:100%;margin-top:.5rem;justify-content:center}
+@media (max-width:400px){ .nav__mobile{height:calc(100dvh - 2.35rem - 64px)} }
+@media (min-width:761px){ .nav__mobile{height:calc(100dvh - 2.35rem - 88px)} }
+.nav__mobile.is-open{display:flex;animation:menu-entra .25s var(--ease)}
+@keyframes menu-entra{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+html.menu-aperto,html.menu-aperto body{overflow:hidden}
+.nav__mobile-voci{display:flex;flex-direction:column}
+.nav__mobile-voci a{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem .2rem;border-bottom:1px solid rgba(255,255,255,.09);
+  color:#f6f5f2;font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.01em;
+}
+.nav__mobile-voci a:last-child{border-bottom:0}
+.nav__mobile-n{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:#f5b400;width:1.6rem;flex:none}
+.nav__mobile-lab{flex:1 1 auto}
+.nav__mobile-voci a i{color:rgba(246,245,242,.35);font-size:.9rem;transition:transform .2s var(--ease),color .2s}
+.nav__mobile-voci a:active i,.nav__mobile-voci a:hover i{color:#f5b400;transform:translateX(4px)}
+.nav__mobile-voci a[aria-current="page"] .nav__mobile-lab{color:#f5b400}
+.nav__mobile-azioni{display:flex;flex-direction:column;gap:.65rem;margin-top:1.4rem}
+.nav__mobile-btn{
+  display:flex;align-items:center;justify-content:center;gap:.65rem;
+  min-height:3.4rem;padding:.8rem 1rem;border-radius:var(--r-md);
+  font-weight:800;font-size:1.02rem;letter-spacing:.01em;text-decoration:none;
+  border:1.5px solid transparent;transition:transform .15s,filter .2s;
+}
+.nav__mobile-btn:active{transform:scale(.985);filter:brightness(1.1)}
+.nav__mobile-btn i{font-size:1.1rem}
+.nav__mobile-btn--rosso{background:var(--accent);color:#fff}
+.nav__mobile-btn--bianco{background:transparent;color:#fff;border-color:rgba(255,255,255,.35);font-family:var(--font-mono);font-weight:700}
+.nav__mobile-btn--wa{background:#25D366;color:#0b0d10}
+.nav__mobile-info{
+  margin:1.4rem 0 0;display:flex;flex-direction:column;gap:.4rem;
+  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.02em;color:rgba(246,245,242,.55);
+}
+.nav__mobile-info i{color:#f5b400;width:1.1rem;text-align:center;margin-right:.3rem}
 
 @media (max-width:920px){
   .nav__links{display:none}

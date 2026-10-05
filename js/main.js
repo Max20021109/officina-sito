@@ -159,11 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mobileMenu.classList.toggle('is-open');
       burger.setAttribute('aria-expanded', String(isOpen));
       burger.setAttribute('aria-label', isOpen ? 'Chiudi il menu' : 'Apri il menu');
+      document.documentElement.classList.toggle('menu-aperto', isOpen);   // la pagina sotto non scorre
     });
     mobileMenu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         mobileMenu.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
+        document.documentElement.classList.remove('menu-aperto');
       });
     });
   }
