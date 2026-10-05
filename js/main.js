@@ -511,3 +511,42 @@ document.addEventListener('DOMContentLoaded', () => {
      con un piccolo transition-delay a cascata (vedi CSS) per quando piu' di una
      compare insieme su schermi larghi. */
 });
+
+
+/* ---------- spia "sito sul ponte" (lavori in corso) ----------
+   Il sito e' online prima di essere finito: lo si dice con una spia da
+   cruscotto in basso a sinistra (vedi .spia in css/style.css), uguale su
+   tutte le pagine perche' la monta questo script. La X la spegne per sette
+   giorni. Quando il sito sara' completo basta togliere questo blocco. */
+(function () {
+  var CHIAVE = 'autocar_spia_chiusa';
+  var SETTE_GIORNI = 7 * 24 * 60 * 60 * 1000;
+  try {
+    var quando = parseInt(localStorage.getItem(CHIAVE) || '0', 10);
+    if (quando && Date.now() - quando < SETTE_GIORNI) { return; }
+  } catch (e) { /* storage bloccato: la spia si mostra e basta */ }
+
+  var spia = document.createElement('aside');
+  spia.className = 'spia';
+  spia.setAttribute('role', 'status');
+  spia.setAttribute('aria-label', 'Avviso: sito in lavorazione');
+  spia.innerHTML =
+    '<div class="spia__led" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></div>' +
+    '<div class="spia__testo">' +
+      '<span class="spia__etichetta">Spia accesa &middot; lavori in corso</span>' +
+      '<strong class="spia__titolo">Sito sul ponte: lo stiamo ancora montando.</strong>' +
+      '<span class="spia__corpo">Foto dei lavori e qualche pagina sono in arrivo. L&rsquo;officina, quella vera, &egrave; aperta: ' +
+      '<a href="tel:+390165768675">0165 768675</a></span>' +
+    '</div>' +
+    '<button type="button" class="spia__chiudi" aria-label="Chiudi l\'avviso"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>';
+  document.body.appendChild(spia);
+
+  // Arriva dopo un attimo, non insieme alla pagina: cosi' si nota.
+  window.setTimeout(function () { spia.classList.add('is-on'); }, 1400);
+
+  spia.querySelector('.spia__chiudi').addEventListener('click', function () {
+    spia.classList.remove('is-on');
+    try { localStorage.setItem(CHIAVE, String(Date.now())); } catch (e) {}
+    window.setTimeout(function () { spia.remove(); }, 600);
+  });
+})();
