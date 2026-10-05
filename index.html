@@ -36,7 +36,7 @@
 <!-- Font Awesome auto-ospitato (libreria icone, niente SVG disegnate a mano) -->
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=20261005a">
+<link rel="stylesheet" href="css/style.css?v=20261005b">
 
 <!-- Dati struttura per Google: aiuta l'indicizzazione locale. Sostituisci ogni valore con quello reale. -->
 <script type="application/ld+json">
@@ -556,9 +556,10 @@
 <!-- ============ VETRINA PREPARAZIONI SPORTIVE ============ -->
 <!-- Foto segnaposto: da sostituire con una foto vera di un'auto preparata da Autocar Service
      appena disponibile (vedi BRIEF-CLIENTE.md, punto 5). -->
-<section class="showcase will-reveal">
+<section class="showcase showcase--segnaposto will-reveal">
   <img src="https://picsum.photos/seed/autocar-preparazioni-2026/1600/900" alt="Auto preparata da Autocar Service" loading="lazy" width="1600" height="900" decoding="async">
   <div class="showcase__scrim"></div>
+  <div class="timbro timbro--grande" aria-hidden="true"><span class="timbro__sigillo">Foto a scopo illustrativo</span><span class="timbro__nota">Le foto delle nostre preparazioni arrivano a breve</span></div>
   <div class="showcase__content">
     <span class="showcase__eyebrow">Il nostro segno distintivo</span>
     <h2>La stessa officina, anche per le elaborazioni più serie.</h2>
@@ -572,7 +573,7 @@
   <div class="section-head section-head--row will-reveal">
     <div>
       <h2>Gli ultimi interventi in officina.</h2>
-      <p>Una selezione dei lavori seguiti nelle ultime settimane.</p>
+      <p>Alcune foto sono ancora segnaposto: stiamo raccogliendo quelle vere, scattate in officina.</p>
     </div>
     <div class="lavori__nav">
       <button class="carousel-btn" id="lavoriPrev" aria-label="Lavoro precedente"><i class="fa-solid fa-arrow-left"></i></button>
@@ -586,21 +587,24 @@
         <img src="assets/img/lavoro-officina-interno.webp" alt="Interno dell'officina Autocar Service, con auto sul ponte sollevatore e magazzino cerchi e gomme" loading="lazy" width="800" height="900" decoding="async">
         <div class="carousel__caption"><span>La nostra officina:</span> ponte sollevatore e magazzino cerchi e gomme sempre pronto</div>
       </li>
-      <li class="carousel__slide will-reveal">
+      <li class="carousel__slide carousel__slide--segnaposto will-reveal">
         <img src="https://picsum.photos/seed/lavoro-freni-2026/800/900" alt="Sostituzione impianto frenante" loading="lazy" width="800" height="900" decoding="async">
-        <div class="carousel__caption"><span>Impianto frenante:</span> dischi e pastiglie sostituiti in giornata</div>
+        <div class="timbro" aria-hidden="true"><span class="timbro__sigillo">Foto a scopo illustrativo</span><span class="timbro__nota">La foto vera di questo lavoro arriva a breve</span></div>
+        <div class="carousel__caption"><span>Impianto frenante:</span> dischi e pastiglie. Foto del lavoro in arrivo.</div>
       </li>
       <li class="carousel__slide will-reveal">
         <img src="assets/img/lavoro-gommista-officina.webp" alt="Zona gommista dell'officina, con attrezzatura per cambio ed equilibratura gomme" loading="lazy" width="800" height="900" decoding="async">
         <div class="carousel__caption"><span>Cambio gomme:</span> set stagionale con equilibratura</div>
       </li>
-      <li class="carousel__slide will-reveal">
+      <li class="carousel__slide carousel__slide--segnaposto will-reveal">
         <img src="https://picsum.photos/seed/lavoro-diagnosi-2026/800/900" alt="Diagnosi computerizzata su centralina" loading="lazy" width="800" height="900" decoding="async">
-        <div class="carousel__caption"><span>Diagnosi centralina:</span> spia motore risolta con lettura errori</div>
+        <div class="timbro" aria-hidden="true"><span class="timbro__sigillo">Foto a scopo illustrativo</span><span class="timbro__nota">La foto vera di questo lavoro arriva a breve</span></div>
+        <div class="carousel__caption"><span>Diagnosi centralina:</span> lettura errori e spie. Foto del lavoro in arrivo.</div>
       </li>
-      <li class="carousel__slide will-reveal">
+      <li class="carousel__slide carousel__slide--segnaposto will-reveal">
         <img src="https://picsum.photos/seed/lavoro-clima-2026/800/900" alt="Ricarica impianto climatizzazione" loading="lazy" width="800" height="900" decoding="async">
-        <div class="carousel__caption"><span>Climatizzazione:</span> ricarica gas e sanificazione impianto</div>
+        <div class="timbro" aria-hidden="true"><span class="timbro__sigillo">Foto a scopo illustrativo</span><span class="timbro__nota">La foto vera di questo lavoro arriva a breve</span></div>
+        <div class="carousel__caption"><span>Climatizzazione:</span> ricarica e sanificazione. Foto del lavoro in arrivo.</div>
       </li>
     </ul>
     <div class="carosello-progresso" aria-hidden="true"><i></i></div>
@@ -944,6 +948,7 @@
   <div class="footer__bottom">
     <p>Autocar Service di Barcellona Calogero &middot; P.IVA/C.F. 01130660077</p>
     <p>&copy; <span id="year"></span> Autocar Service. Tutti i diritti riservati. &middot; <a href="privacy.html">Privacy</a></p>
+    <p class="footer__credit">Powered by <a href="https://massimo-franco.netlify.app/" target="_blank" rel="noopener author">Massimo Franco</a></p>
   </div>
 </footer>
 

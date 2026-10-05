@@ -1675,3 +1675,54 @@ a.punto:hover{transform:translateY(-4px)}
   .spia{transition:none}
   .spia__led{animation:none}
 }
+
+
+/* ================= TIMBRO "FOTO A SCOPO ILLUSTRATIVO" =================
+   Le foto che non sono ancora di Autocar (segnaposto) lo dicono sopra la
+   foto stessa, con un timbro da officina: sigillo a doppio bordo, ambra,
+   un filo storto come un timbro messo a mano, e sotto una riga che dice che
+   quella vera arriva. La foto sotto resta ma spenta (grigia, un po' sfocata)
+   cosi' non puo' passare per un lavoro fatto qui. Quando arriva la foto
+   vera: si toglie --segnaposto e il <div class="timbro">, basta. */
+.carousel__slide--segnaposto{position:relative}
+.carousel__slide--segnaposto img{filter:grayscale(100%) contrast(.85) brightness(.8) blur(1.5px);transform:scale(1.03)}
+.carousel__slide--segnaposto:hover img{filter:grayscale(100%) contrast(.85) brightness(.8) blur(1.5px)}
+.timbro{
+  position:absolute;left:0;right:0;top:0;height:0;padding-top:calc(4.6 / 4 * 100%);pointer-events:none;
+}
+.carousel__slide--segnaposto .timbro{display:block}
+.timbro__sigillo,.timbro__nota{position:absolute;left:50%}
+.timbro__sigillo{
+  top:46%;transform:translate(-50%,-50%) rotate(-7deg);
+  padding:.5rem .9rem;white-space:nowrap;
+  font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:#f5b400;border:2px solid #f5b400;outline:2px solid #f5b400;outline-offset:3px;border-radius:4px;
+  background:rgba(22,23,27,.55);
+  box-shadow:0 10px 30px -10px rgba(0,0,0,.7);
+  mask-image:radial-gradient(120% 90% at 50% 50%, #000 70%, rgba(0,0,0,.75) 100%);
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 50%, #000 70%, rgba(0,0,0,.75) 100%);
+}
+.timbro__nota{
+  bottom:1rem;transform:translateX(-50%);width:max-content;max-width:88%;text-align:center;
+  padding:.4rem .7rem;border-radius:var(--r-pill);
+  font-size:.74rem;line-height:1.3;color:#f6f5f2;background:rgba(22,23,27,.78);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+/* la vetrina preparazioni: timbro grande, in alto a destra, fuori dal testo */
+.showcase--segnaposto img{filter:grayscale(100%) brightness(.55) blur(2px);transform:scale(1.03)}
+.timbro--grande{
+  position:absolute;inset:auto auto 1.4rem 1.4rem;height:auto;padding:0;
+  display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;z-index:2;
+}
+.timbro--grande .timbro__sigillo{position:static;transform:rotate(-4deg);font-size:.82rem;margin-left:.4rem}
+.timbro--grande .timbro__nota{position:static;transform:none;max-width:none}
+@media (min-width:900px){
+  .timbro--grande{inset:2rem 2.5rem auto auto;align-items:flex-end}
+  .timbro--grande .timbro__sigillo{transform:rotate(4deg);margin:0 .4rem 0 0}
+}
+
+
+/* --- credito in fondo: chi ha fatto il sito --- */
+.footer__credit{flex-basis:100%;margin-top:.2rem}
+.footer__credit a{color:var(--text-muted);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.18);transition:color .2s,border-color .2s}
+.footer__credit a:hover{color:#fff;border-color:var(--accent)}
