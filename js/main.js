@@ -155,13 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('navBurger');
   const mobileMenu = document.getElementById('navMobile');
   if (burger && mobileMenu) {
+    // Il sipario sta dentro <header class="nav"> nell'HTML, ma la barra e'
+    // fissa e si sposta con lo scroll (transform): un figlio position:fixed
+    // verrebbe misurato sulla barra, non sullo schermo, e la topbar (z-index
+    // piu' alto) gli coprirebbe la X. Spostato sotto <body> prima di tutto.
+    document.body.appendChild(mobileMenu);
     burger.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('is-open');
       burger.setAttribute('aria-expanded', String(isOpen));
       burger.setAttribute('aria-label', isOpen ? 'Chiudi il menu' : 'Apri il menu');
       document.documentElement.classList.toggle('menu-aperto', isOpen);   // la pagina sotto non scorre
     });
-    mobileMenu.querySelectorAll('a').forEach(a => {
+    mobileMenu.querySelectorAll('a, [data-chiudi-menu]').forEach(a => {
       a.addEventListener('click', () => {
         mobileMenu.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');

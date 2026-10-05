@@ -283,55 +283,103 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter
 .nav__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ---- MENU MOBILE (5/10/2026) ----
-   Prima era una lista grigia su bianco, col pulsante rosso che perdeva il
-   testo (il colore del link vinceva su quello del bottone). Adesso e' un
-   pannello scuro a tutta altezza sotto la barra: voci grandi e bianche,
-   numerate in ambra, e in fondo le tre cose che uno fa dal telefono —
-   preventivo, chiamata, WhatsApp — come tasti pieni, uno sotto l'altro.
+   Un sipario a tutto schermo, scuro come la hero: copre anche la barra e la
+   topbar (ha la sua riga in cima con logo e X). Le voci sono enormi, in
+   maiuscolo come il titolo della hero, ed entrano una dopo l'altra dal
+   basso; l'auto rossa del preloader (la stessa, scontornata) sfreccia
+   dentro da destra e si parcheggia in fondo, dietro ai tasti. In basso
+   preventivo / telefono / WhatsApp pieni, uno sotto l'altro.
    Lo scorrimento della pagina si blocca finche' e' aperto (html.menu-aperto). */
 .nav__mobile{
   display:none;flex-direction:column;
-  /* Assoluto dentro la barra (che e' fissa e si muove con lo scroll):
-     parte sotto la barra e arriva in fondo allo schermo. */
-  position:absolute;left:0;right:0;top:100%;height:calc(100dvh - 2.35rem - 72px);z-index:99;
-  overflow-y:auto;-webkit-overflow-scrolling:touch;
-  background:#16171b;color:#f6f5f2;
-  padding:.4rem clamp(1.1rem,4vw,2rem) max(1.2rem, env(safe-area-inset-bottom));
+  position:fixed;inset:0;z-index:300;
+  overflow:hidden;
+  background:#0b0d10;color:#f6f5f2;
+  padding:0 clamp(1.1rem,4vw,2rem) max(1rem, env(safe-area-inset-bottom));
+  isolation:isolate;
 }
-@media (max-width:400px){ .nav__mobile{height:calc(100dvh - 2.35rem - 64px)} }
-@media (min-width:761px){ .nav__mobile{height:calc(100dvh - 2.35rem - 88px)} }
-.nav__mobile.is-open{display:flex;animation:menu-entra .25s var(--ease)}
-@keyframes menu-entra{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.nav__mobile::before{ /* lo stesso bagliore rosso della hero, in basso a destra */
+  content:"";position:absolute;right:-20%;bottom:-10%;width:70vw;height:70vw;max-width:520px;max-height:520px;z-index:-2;
+  background:radial-gradient(circle,rgba(220,38,38,.28),transparent 62%);
+}
+.nav__mobile::after{ /* la griglia della hero, leggerissima */
+  content:"";position:absolute;inset:0;z-index:-2;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);
+}
+.nav__mobile.is-open{display:flex;animation:menu-entra .32s var(--ease)}
+@keyframes menu-entra{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0)}}
 html.menu-aperto,html.menu-aperto body{overflow:hidden}
-.nav__mobile-voci{display:flex;flex-direction:column}
-.nav__mobile-voci a{
-  display:flex;align-items:center;gap:1rem;
-  padding:1rem .2rem;border-bottom:1px solid rgba(255,255,255,.09);
-  color:#f6f5f2;font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.01em;
+.nav__mobile-top{
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;flex:none;border-bottom:1px solid rgba(255,255,255,.1);
 }
-.nav__mobile-voci a:last-child{border-bottom:0}
-.nav__mobile-n{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:#f5b400;width:1.6rem;flex:none}
+.nav__mobile-marchio{display:flex;align-items:center;gap:.8rem;font-family:var(--font-display);font-weight:700;font-size:.95rem;line-height:1.15;letter-spacing:.03em;text-transform:uppercase;color:#f6f5f2}
+.nav__mobile-marchio img{height:30px;width:auto;filter:brightness(0) invert(1)}
+.nav__mobile-chiudi{
+  width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);
+  color:#fff;font-size:1.1rem;display:grid;place-items:center;cursor:pointer;transition:background-color .2s,transform .2s;
+}
+.nav__mobile-chiudi:active{transform:rotate(90deg);background:rgba(255,255,255,.14)}
+.nav__mobile-voci{display:flex;flex-direction:column;margin-top:.6rem}
+.nav__mobile-voci a{
+  display:flex;align-items:baseline;gap:.8rem;
+  padding:.72rem 0;
+  color:#f6f5f2;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(2.1rem,9.5vw,3.2rem);letter-spacing:-.03em;text-transform:uppercase;line-height:1;
+  opacity:0;transform:translateY(26px);
+}
+.nav__mobile.is-open .nav__mobile-voci a{animation:voce-entra .5s var(--ease) forwards}
+.nav__mobile.is-open .nav__mobile-voci a:nth-child(1){animation-delay:.12s}
+.nav__mobile.is-open .nav__mobile-voci a:nth-child(2){animation-delay:.18s}
+.nav__mobile.is-open .nav__mobile-voci a:nth-child(3){animation-delay:.24s}
+.nav__mobile.is-open .nav__mobile-voci a:nth-child(4){animation-delay:.30s}
+.nav__mobile.is-open .nav__mobile-voci a:nth-child(5){animation-delay:.36s}
+@keyframes voce-entra{to{opacity:1;transform:none}}
+.nav__mobile-n{font-family:var(--font-mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--accent);width:1.7rem;flex:none;transform:translateY(-.9em)}
 .nav__mobile-lab{flex:1 1 auto}
-.nav__mobile-voci a i{color:rgba(246,245,242,.35);font-size:.9rem;transition:transform .2s var(--ease),color .2s}
-.nav__mobile-voci a:active i,.nav__mobile-voci a:hover i{color:#f5b400;transform:translateX(4px)}
-.nav__mobile-voci a[aria-current="page"] .nav__mobile-lab{color:#f5b400}
-.nav__mobile-azioni{display:flex;flex-direction:column;gap:.65rem;margin-top:1.4rem}
+.nav__mobile-voci a i{display:none}
+.nav__mobile-voci a:active .nav__mobile-lab{color:var(--accent)}
+.nav__mobile-voci a[aria-current="page"] .nav__mobile-lab{color:transparent;-webkit-text-stroke:1.5px #f6f5f2}
+.nav__mobile-auto{
+  position:absolute;right:-8%;bottom:15.2rem;width:min(88vw,460px);height:auto;z-index:-1;
+  opacity:0;transform:translateX(60vw);
+  filter:drop-shadow(0 30px 40px rgba(0,0,0,.6));pointer-events:none;
+}
+.nav__mobile.is-open .nav__mobile-auto{animation:auto-arriva .9s cubic-bezier(.2,.9,.25,1) .35s forwards}
+@keyframes auto-arriva{0%{opacity:0;transform:translateX(60vw) skewX(-6deg)}60%{opacity:1}100%{opacity:1;transform:translateX(0)}}
+.nav__mobile-azioni{display:flex;flex-direction:column;gap:.55rem;margin-top:auto;position:relative;z-index:1}
 .nav__mobile-btn{
   display:flex;align-items:center;justify-content:center;gap:.65rem;
-  min-height:3.4rem;padding:.8rem 1rem;border-radius:var(--r-md);
-  font-weight:800;font-size:1.02rem;letter-spacing:.01em;text-decoration:none;
+  min-height:3.2rem;padding:.75rem 1rem;border-radius:var(--r-md);
+  font-weight:800;font-size:1rem;letter-spacing:.01em;text-decoration:none;
   border:1.5px solid transparent;transition:transform .15s,filter .2s;
+  opacity:0;transform:translateY(16px);
 }
-.nav__mobile-btn:active{transform:scale(.985);filter:brightness(1.1)}
-.nav__mobile-btn i{font-size:1.1rem}
-.nav__mobile-btn--rosso{background:var(--accent);color:#fff}
-.nav__mobile-btn--bianco{background:transparent;color:#fff;border-color:rgba(255,255,255,.35);font-family:var(--font-mono);font-weight:700}
+.nav__mobile.is-open .nav__mobile-btn{animation:voce-entra .45s var(--ease) forwards}
+.nav__mobile.is-open .nav__mobile-btn:nth-child(1){animation-delay:.42s}
+.nav__mobile.is-open .nav__mobile-btn:nth-child(2){animation-delay:.48s}
+.nav__mobile.is-open .nav__mobile-btn:nth-child(3){animation-delay:.54s}
+.nav__mobile-btn:active{transform:scale(.985);filter:brightness(1.08)}
+.nav__mobile-btn i{font-size:1.05rem}
+.nav__mobile-btn--rosso{background:var(--accent);color:#fff;box-shadow:0 14px 34px -12px rgba(220,38,38,.7)}
+.nav__mobile-btn--bianco{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.28);font-family:var(--font-mono);font-weight:700;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .nav__mobile-btn--wa{background:#25D366;color:#0b0d10}
 .nav__mobile-info{
-  margin:1.4rem 0 0;display:flex;flex-direction:column;gap:.4rem;
-  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.02em;color:rgba(246,245,242,.55);
+  margin:.9rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem 1rem;position:relative;z-index:1;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.02em;color:rgba(246,245,242,.5);
 }
-.nav__mobile-info i{color:#f5b400;width:1.1rem;text-align:center;margin-right:.3rem}
+.nav__mobile-info i{color:var(--accent);width:1rem;text-align:center;margin-right:.25rem}
+@media (max-height:700px){
+  .nav__mobile-voci a{font-size:clamp(1.7rem,7.5vw,2.4rem);padding:.5rem 0}
+  .nav__mobile-auto{width:min(62vw,320px);bottom:12.5rem}
+  .nav__mobile-info{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .nav__mobile.is-open,.nav__mobile.is-open .nav__mobile-voci a,.nav__mobile.is-open .nav__mobile-btn,.nav__mobile.is-open .nav__mobile-auto{animation:none;opacity:1;transform:none}
+}
 
 @media (max-width:920px){
   .nav__links{display:none}
