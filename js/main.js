@@ -526,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
 (function () {
   var prima = document.querySelector('main > section');
   if (!prima) { return; }
+  if (document.querySelector('.cantiere')) { return; }   // in home c'e' il pannello grande
   var frase = 'Sito in costruzione &nbsp;&#9670;&nbsp; stiamo montando le ultime pagine e le foto dei lavori &nbsp;&#9670;&nbsp; l\'officina &egrave; aperta: per qualsiasi cosa chiamaci allo 0165 768675 &nbsp;&#9670;&nbsp; ';
   var nastro = document.createElement('div');
   nastro.className = 'nastro' + (prima.classList.contains('hero') || prima.classList.contains('pagina-hero') ? ' nastro--hero' : '');

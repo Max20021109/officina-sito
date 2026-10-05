@@ -36,7 +36,7 @@
 <!-- Font Awesome auto-ospitato (libreria icone, niente SVG disegnate a mano) -->
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=20261005c">
+<link rel="stylesheet" href="css/style.css?v=20261005f">
 
 <!-- Dati struttura per Google: aiuta l'indicizzazione locale. Sostituisci ogni valore con quello reale. -->
 <script type="application/ld+json">
@@ -271,7 +271,7 @@
 <main id="contenuto">
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="top">
+<section class="hero hero--cantiere" id="top">
   <div class="hero__media">
     <!-- Video di sfondo: una clip generica (componenti meccanici, non filmata in officina),
          auto-ospitata come file mp4 (assets/video/hero.mp4), non un video girato da Autocar
@@ -303,6 +303,35 @@
       <a href="#contatti" class="btn btn--primary btn--lg">Richiedi preventivo</a>
       <a href="tel:+390165768675" class="btn btn--ghost btn--lg"><i class="fa-solid fa-phone"></i> Chiama ora</a>
     </div>
+  </div>
+
+
+  <!-- ============ CANTIERE: "SITO IN COSTRUZIONE" sopra la hero ============
+       Il sito e' online prima di essere finito (per farsi trovare su Google intanto
+       che arrivano foto e testi veri). Questo pannello copre la hero per intero:
+       stesso video sotto, piu' scuro, nastri a righe nero/ambra che scorrono in alto
+       e in basso, titolo grande, e i due tasti che contano (preventivo e telefono).
+       La hero vera resta nell'HTML sotto (h1 e testo, per Google e per quando si
+       toglie questo blocco). Quando il sito e' finito: via questo <div> e il CSS
+       .cantiere, basta. -->
+  <div class="cantiere" id="cantiere" role="region" aria-label="Sito in costruzione">
+    <div class="cantiere__nastro cantiere__nastro--alto" aria-hidden="true"><div class="cantiere__nastro-testo"><span>Sito in costruzione &nbsp;&#9670;&nbsp; lavori in corso &nbsp;&#9670;&nbsp; l'officina &egrave; aperta &nbsp;&#9670;&nbsp; </span><span>Sito in costruzione &nbsp;&#9670;&nbsp; lavori in corso &nbsp;&#9670;&nbsp; l'officina &egrave; aperta &nbsp;&#9670;&nbsp; </span></div></div>
+
+    <div class="cantiere__content">
+      <span class="cantiere__eyebrow"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Autocar Service &middot; Saint-Marcel</span>
+      <p class="cantiere__title"><span class="reveal-line"><span>Sito in</span></span><span class="reveal-line"><span><em>costruzione</em>.</span></span></p>
+      <p class="cantiere__text">Stiamo montando le ultime pagine e le foto dei lavori. <strong>L&rsquo;officina, quella vera, &egrave; aperta</strong>: per un preventivo o qualsiasi cosa, siamo qui.</p>
+      <div class="cantiere__cta">
+        <a href="#contatti" class="btn btn--primary btn--lg">Richiedi preventivo</a>
+        <a href="tel:+390165768675" class="btn btn--ghost btn--lg"><i class="fa-solid fa-phone"></i> Chiama ora</a>
+      </div>
+      <div class="cantiere__avanz" aria-hidden="true">
+        <span class="cantiere__avanz-et">Montaggio in corso</span>
+        <span class="cantiere__avanz-barra"><i></i></span>
+      </div>
+    </div>
+
+    <div class="cantiere__nastro cantiere__nastro--basso" aria-hidden="true"><div class="cantiere__nastro-testo"><span>Per qualsiasi cosa chiamaci allo 0165 768675 &nbsp;&#9670;&nbsp; Lun-Ven 8:00-13:00 e 15:00-19:00 &nbsp;&#9670;&nbsp; Zona Industriale 9, Saint-Marcel &nbsp;&#9670;&nbsp; </span><span>Per qualsiasi cosa chiamaci allo 0165 768675 &nbsp;&#9670;&nbsp; Lun-Ven 8:00-13:00 e 15:00-19:00 &nbsp;&#9670;&nbsp; Zona Industriale 9, Saint-Marcel &nbsp;&#9670;&nbsp; </span></div></div>
   </div>
 
   <span class="hero__scorri" aria-hidden="true">Scorri</span>
@@ -961,6 +990,6 @@
      visibile e funzionante (vedi js/main.js, le animazioni sono un "di piu'", mai un requisito). -->
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20261005c"></script>
+<script src="js/main.js?v=20261005d"></script>
 </body>
 </html>
