@@ -1,6 +1,48 @@
+# Autocar Service - sito vetrina (autocar-service.it)
+# Motori di ricerca e assistenti AI sono i benvenuti: il sito esiste per farsi
+# trovare. Il gestionale (gestionale.autocar-service.it) ha il SUO robots.txt,
+# che nega tutto: qui non c'entra.
+
 User-agent: *
 Allow: /
 Disallow: /php/
 Disallow: /_to_delete/
+
+# Assistenti AI e i loro crawler (ChatGPT / OpenAI, Copilot / Bing, Claude,
+# Perplexity, Gemini). Dichiarati uno per uno: alcuni hosting li bloccano a
+# livello di firewall se il robots.txt non li nomina.
+User-agent: GPTBot
+Allow: /
+Disallow: /php/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /php/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /php/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /php/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /php/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /php/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /php/
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
 
 Sitemap: https://autocar-service.it/sitemap.xml

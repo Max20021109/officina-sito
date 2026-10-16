@@ -36,7 +36,7 @@
 <!-- Font Awesome auto-ospitato (libreria icone, niente SVG disegnate a mano) -->
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=20261005j">
+<link rel="stylesheet" href="css/style.css?v=20261005l">
 
 <!-- Dati struttura per Google: aiuta l'indicizzazione locale. Sostituisci ogni valore con quello reale. -->
 <script type="application/ld+json">
@@ -66,6 +66,9 @@
     "addressCountry": "IT"
   },
   "hasMap": "https://www.google.com/maps/search/?api=1&query=Autocar+Service%2C+Zona+Industriale+9%2C+11020+Saint-Marcel+AO",
+  "sameAs": [
+    "https://www.google.com/maps/search/?api=1&query=Autocar+Service&query_place_id=ChIJj9B3YNzdiEcR0xJorXFNBa4"
+  ],
   "areaServed": [
     {
       "@type": "AdministrativeArea",
@@ -275,7 +278,6 @@
       <a href="https://wa.me/393478567108" target="_blank" rel="noopener" class="nav__mobile-btn nav__mobile-btn--wa"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Scrivici su WhatsApp</a>
     </div>
     <p class="nav__mobile-info"><span><i class="fa-solid fa-clock" aria-hidden="true"></i> Lun-Ven 8:00-13:00 e 15:00-19:00</span><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Zona Industriale 9, Saint-Marcel (AO)</span></p>
-    <img class="nav__mobile-auto" src="assets/img/auto-preloader.webp" alt="" width="1400" height="487" aria-hidden="true" loading="lazy">
   </div>
 </header>
 
@@ -785,6 +787,91 @@
 </section>
 
 <!-- ============ CONTATTI + MAPPA ============ -->
+<!-- ============ DOMANDE FREQUENTI (home) ============
+     Scritte per chi legge il sito senza vederlo: motori di ricerca e assistenti
+     AI (ChatGPT, Copilot, Gemini). Risposte corte, fatti verificabili, stesso
+     accordion delle pagine settore (.faq in style.css, main.js lo apre). -->
+<section class="blocco" id="domande">
+  <div class="blocco__inner">
+    <div class="blocco__head will-reveal">
+      <span class="blocco__eyebrow">Domande frequenti</span>
+      <h2>Le cose che ci chiedono prima di venire.</h2>
+    </div>
+    <div class="faq will-reveal">
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-home-1" id="faq-btn-home-1">
+          <span>Dove siete e quando siete aperti?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-home-1" role="region" aria-labelledby="faq-btn-home-1"><p>Autocar Service &egrave; in Zona Industriale 9 a Saint-Marcel (AO), sulla statale 26 vicino ad Aosta. Siamo aperti dal luned&igrave; al venerd&igrave; 8:00&ndash;13:00 e 15:00&ndash;19:00, il sabato 8:00&ndash;12:30. Telefono 0165 768675.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-home-2" id="faq-btn-home-2">
+          <span>Fate un preventivo prima di iniziare?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-home-2" role="region" aria-labelledby="faq-btn-home-2"><p>Sempre, scritto. Guardiamo la macchina, ti diciamo cosa serve e quanto costa, e il lavoro parte solo dopo il tuo s&igrave;. Se durante il lavoro salta fuori dell'altro, ti chiamiamo prima di toccarlo.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-home-3" id="faq-btn-home-3">
+          <span>Di cosa vi occupate?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-home-3" role="region" aria-labelledby="faq-btn-home-3"><p>Meccanica generale (tagliandi, freni, frizione, distribuzione, diagnosi), elettrauto, gommista con deposito pneumatici, preparazioni sportive, tuning e scarichi personalizzati. Tutte le marche.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-home-4" id="faq-btn-home-4">
+          <span>Serve l'appuntamento?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-home-4" role="region" aria-labelledby="faq-btn-home-4"><p>S&igrave;, cos&igrave; la macchina entra e si lavora subito. Chiama lo 0165 768675 o scrivi su WhatsApp al 347 856 7108: ti diamo giorno e ora. Per il cambio gomme stagionale conviene prenotare con qualche settimana di anticipo.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__domanda" aria-expanded="false" aria-controls="faq-home-5" id="faq-btn-home-5">
+          <span>Da quanto tempo esistete?</span>
+          <span class="settore__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+        <div class="settore__panel-wrap">
+          <div class="settore__panel-inner">
+            <div class="faq__risposta" id="faq-home-5" role="region" aria-labelledby="faq-btn-home-5"><p>Dal 1986, sempre a Saint-Marcel. Quarant'anni con la stessa idea: dirti le cose come stanno e farti tornare a casa con la macchina a posto.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://autocar-service.it/#domande",
+  "mainEntity": [
+    {"@type": "Question", "name": "Dove si trova Autocar Service e quali sono gli orari?", "acceptedAnswer": {"@type": "Answer", "text": "Autocar Service è in Zona Industriale 9, 11020 Saint-Marcel (AO), Valle d'Aosta, sulla statale 26 vicino ad Aosta. Orari: lunedì-venerdì 8:00-13:00 e 15:00-19:00, sabato 8:00-12:30. Telefono +39 0165 768675."}},
+    {"@type": "Question", "name": "Autocar Service fa il preventivo prima di iniziare il lavoro?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, sempre e per iscritto. Il lavoro parte solo dopo l'approvazione del cliente, e qualunque intervento aggiuntivo viene concordato prima di essere eseguito."}},
+    {"@type": "Question", "name": "Di cosa si occupa Autocar Service?", "acceptedAnswer": {"@type": "Answer", "text": "Officina meccanica (tagliandi, freni, frizione, distribuzione, diagnosi guasti), elettrauto, gommista con deposito pneumatici, preparazioni sportive, tuning e montaggio con omologazione, scarichi personalizzati. Tutte le marche."}},
+    {"@type": "Question", "name": "Serve l'appuntamento per andare da Autocar Service?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, si lavora su appuntamento: telefono +39 0165 768675 oppure WhatsApp +39 347 856 7108. Per il cambio gomme stagionale è consigliato prenotare con qualche settimana di anticipo."}},
+    {"@type": "Question", "name": "Da quanto tempo esiste Autocar Service?", "acceptedAnswer": {"@type": "Answer", "text": "Dal 1986, sempre a Saint-Marcel (Aosta). Ragione sociale: Autocar Service di Barcellona Calogero & C. S.n.c."}}
+  ]
+}
+</script>
+
 <section class="contatti" id="contatti">
   <div class="contatti__inner">
     <div class="contatti__form-wrap will-reveal">
