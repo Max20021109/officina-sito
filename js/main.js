@@ -166,7 +166,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // verrebbe misurato sulla barra, non sullo schermo, e la topbar (z-index
     // piu' alto) gli coprirebbe la X. Spostato sotto <body> prima di tutto.
     document.body.appendChild(mobileMenu);
+    /* i sei settori come card fotografiche dentro al menu (25/10/2026) */
+    if (!mobileMenu.querySelector('.nav__mobile-settori')) {
+      const S = [['settore-officina-meccanica', 'officina-meccanica', 'Officina meccanica'], ['settore-gommista', 'gommista', 'Gommista'],
+        ['settore-elettrauto', 'elettrauto', 'Elettrauto'], ['settore-preparazioni-sportive', 'preparazioni-sportive', 'Preparazioni sportive'],
+        ['settore-scarichi', 'scarichi', 'Scarichi'], ['settore-tuning-montaggio', 'tuning-montaggio', 'Tuning e montaggio']];
+      const box = document.createElement('div');
+      box.className = 'nav__mobile-settori';
+      box.innerHTML = '<h3>I settori</h3><div class="nav__mobile-settori__griglia">' + S.map(x =>
+        '<a class="nav__mobile-settore" href="' + x[0] + '.html"><img src="assets/img/foto/sx-' + x[1] + '-card.webp" alt="" loading="lazy" width="800" height="560"><span>' + x[2] + '</span></a>').join('') + '</div>';
+      const voci = mobileMenu.querySelector('.nav__mobile-voci');
+      if (voci) { voci.after(box); }
+      box.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('is-open'); burger.setAttribute('aria-expanded', 'false'); document.documentElement.classList.remove('menu-aperto'); }));
+    }
     burger.addEventListener('click', () => {
+      /* il cerchio si apre dal tasto; il tasto resta dov'e' e diventa "Chiudi" */
+      const r = burger.getBoundingClientRect();
+      mobileMenu.style.setProperty('--mx', (r.left + r.width / 2) + 'px');
+      mobileMenu.style.setProperty('--my', (r.top + r.height / 2) + 'px');
+      mobileMenu.style.setProperty('--by', r.top + 'px');
+      mobileMenu.style.setProperty('--bx', (window.innerWidth - r.right) + 'px');
       const isOpen = mobileMenu.classList.toggle('is-open');
       burger.setAttribute('aria-expanded', String(isOpen));
       burger.setAttribute('aria-label', isOpen ? 'Chiudi il menu' : 'Apri il menu');
