@@ -1946,3 +1946,8 @@ html.lb-aperto{overflow:hidden}
 @media (max-width:960px){
   .clips .clip.will-reveal,.reveal-ready .clips .clip.will-reveal{transform:scale(var(--k,1))!important;opacity:var(--o,1)!important}
 }
+
+/* foto vere al posto dei segnaposto (25/10/2026) */
+.staff__foto{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-lg);display:block;box-shadow:0 26px 50px -30px rgba(23,19,15,.45)}
+@media (max-width:560px){.staff__foto{aspect-ratio:4/3}}
+.soccorso .btn i{margin-right:.5rem}
