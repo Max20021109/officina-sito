@@ -821,3 +821,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 })();
+
+/* ---------- APERTO / CHIUSO nella hero (25/10/2026) ----------
+   Orari: lun-ven 8:00-13:00 e 15:00-19:00, ora italiana. Niente festivi:
+   se serve, si aggiunge una lista di date qui sotto. */
+(function () {
+  var el = document.getElementById('statoOfficina');
+  if (!el) { return; }
+  var t;
+  try {
+    var p = new Intl.DateTimeFormat('it-IT', { timeZone: 'Europe/Rome', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    var g = {}; p.forEach(function (x) { g[x.type] = x.value; });
+    var giorno = ['dom', 'lun', 'mar', 'mer', 'gio', 'ven', 'sab'].indexOf(g.weekday.slice(0, 3).toLowerCase());
+    var m = parseInt(g.hour, 10) % 24 * 60 + parseInt(g.minute, 10);
+    var feriale = giorno >= 1 && giorno <= 5;
+    var aperto = feriale && ((m >= 480 && m < 780) || (m >= 900 && m < 1140));
+    if (aperto) {
+      var fine = m < 780 ? '13:00' : '19:00';
+      t = 'Aperto ora &middot; fino alle ' + fine; el.classList.add('aperto');
+    } else {
+      var prossimo;
+      if (feriale && m < 480) { prossimo = 'oggi alle 8:00'; }
+      else if (feriale && m >= 780 && m < 900) { prossimo = 'alle 15:00'; }
+      else if (giorno >= 1 && giorno <= 4) { prossimo = 'domani alle 8:00'; }
+      else { prossimo = 'luned&igrave; alle 8:00'; }
+      t = 'Chiuso &middot; riapriamo ' + prossimo; el.classList.add('chiuso');
+    }
+    el.querySelector('span').innerHTML = t;
+  } catch (e) { /* resta l'orario scritto */ }
+})();

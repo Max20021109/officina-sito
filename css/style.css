@@ -2178,3 +2178,96 @@ html.lb-aperto{overflow:hidden}
   .nav__mobile,.nav__mobile.is-open{transition:none}
   .nav__mobile-voci a,.nav__mobile-settori,.nav__mobile-azioni{transition:none;opacity:1;transform:none}
 }
+
+/* =====================================================================
+   HERO DELLA HOME, NUOVA VERSIONE (25/10/2026)
+   Il nome in grande come le pagine dei settori, stato aperto/chiuso vero,
+   e i sei settori come indice in fondo al video.
+   ===================================================================== */
+.hero{flex-direction:column;align-items:stretch;justify-content:flex-end;padding-top:8.4rem}
+.hero__content{padding-bottom:clamp(1.6rem,4vw,2.6rem)}
+.hero__eyebrow{flex-wrap:wrap;gap:.7rem 1.2rem;font-family:var(--font-mono);font-weight:500;font-size:.76rem;letter-spacing:.14em;color:rgba(242,243,245,.75);margin-bottom:1.4rem}
+.hero__eyebrow::before{display:none}
+.hero__stato{display:inline-flex;align-items:center;gap:.55rem;padding:.45rem .85rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);backdrop-filter:blur(6px);color:#fff}
+.hero__stato i{width:.55rem;height:.55rem;border-radius:999px;background:#8b9098}
+.hero__stato.aperto i{background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:statoPulse 2s infinite}
+.hero__stato.chiuso i{background:#e3342a}
+@keyframes statoPulse{70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.hero__dove{display:inline-flex;align-items:center}
+.hero__title{font-size:clamp(3.6rem,13vw,11.5rem);line-height:.84;letter-spacing:-.05em;font-weight:800;max-width:none;margin:0}
+.hero__title em{color:transparent;-webkit-text-stroke:2px #e3342a;text-shadow:none;font-size:1em}
+.hero__subtitle{max-width:50ch;margin-top:1.4rem;color:rgba(242,243,245,.8)}
+.hero__cta{align-items:center;margin-top:1.8rem;gap:.8rem}
+.hero__cta .btn i{margin-right:.5rem}
+.hero__link{display:inline-flex;align-items:center;gap:.5rem;margin-left:.6rem;color:#fff;font-weight:700;border-bottom:2px solid #e3342a;padding-bottom:.15rem}
+.hero__link i{transition:transform .3s var(--ease)}
+.hero__link:hover i{transform:translateX(4px)}
+.hero__indice{position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid rgba(255,255,255,.14);background:rgba(7,8,10,.55);backdrop-filter:blur(8px)}
+.hero__indice a{position:relative;display:flex;flex-direction:column;gap:.35rem;padding:1.1rem clamp(.9rem,1.6vw,1.4rem);color:#fff;font-weight:700;font-size:.95rem;border-right:1px solid rgba(255,255,255,.1);overflow:hidden;transition:background .35s}
+.hero__indice a:last-child{border-right:0}
+.hero__indice a span{font-family:var(--font-mono);font-size:.72rem;color:#ff6b5e;font-weight:500}
+.hero__indice a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#e3342a;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.hero__indice a:hover{background:rgba(227,52,42,.12)}
+.hero__indice a:hover::after{transform:scaleX(1)}
+.hero__scrim{background:
+  linear-gradient(0deg,rgba(7,8,10,.96) 0%,rgba(7,8,10,.55) 35%,rgba(7,8,10,.2) 65%,rgba(7,8,10,.55) 100%),
+  linear-gradient(90deg,rgba(7,8,10,.75) 0%,rgba(7,8,10,.15) 65%,rgba(7,8,10,.3) 100%)}
+@media (max-width:900px){
+  .hero__indice{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:46%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .hero__indice::-webkit-scrollbar{display:none}
+  .hero__indice a{scroll-snap-align:start}
+}
+@media (max-width:560px){
+  .hero__title{font-size:clamp(3.4rem,19vw,5.2rem)}
+  .hero__cta{flex-direction:row;flex-wrap:wrap}
+  .hero__cta .btn{flex:1 1 calc(50% - .4rem);justify-content:center;padding-inline:.8rem}
+  .hero__link{margin:.4rem 0 0}
+  .hero__dove{display:none}
+}
+/* il macchinario si deve vedere: velo piu' leggero a destra e in alto */
+.hero .hero__video{opacity:1}
+.hero__scrim{background:
+  linear-gradient(0deg,rgba(7,8,10,.95) 0%,rgba(7,8,10,.45) 30%,rgba(7,8,10,0) 60%),
+  linear-gradient(90deg,rgba(7,8,10,.72) 0%,rgba(7,8,10,.25) 45%,rgba(7,8,10,0) 70%)}
+@media (max-width:560px){.hero__scrim{background:linear-gradient(0deg,rgba(7,8,10,.95) 0%,rgba(7,8,10,.6) 45%,rgba(7,8,10,.15) 75%,rgba(7,8,10,.35) 100%)}}
+.hero__eyebrow span+span::before{content:none}
+@media (max-width:560px){.hero__eyebrow span+span{display:inline}.hero__eyebrow .hero__dove{display:none}}
+/* tasto Menu piu' sobrio sulla barra bianca; voci del menu piu' piccole (25/10/2026) */
+.nav__burger{background:transparent;color:var(--text,#16171b);border:1px solid rgba(23,19,15,.18);box-shadow:none;height:2.4rem}
+.nav__burger span{background:#e3342a}
+.nav__burger[aria-expanded="true"]{background:transparent}
+.nav__mobile-voci a{font-size:clamp(1.35rem,5.6vw,1.75rem);padding:.75rem 0;letter-spacing:-.01em}
+.nav__mobile-n{transform:translateY(-.35em)}
+.nav__mobile-chiudi{height:2.4rem;background:transparent;border:1px solid rgba(255,255,255,.25);box-shadow:none}
+.nav__mobile-chiudi i{color:#e3342a}
+
+/* =====================================================================
+   CARATTERI NUOVI (25/10/2026)
+   Titoli: Archivo largo (Expanded), pesante, da motorsport.
+   Testo: Inter Tight, compatto e pulito. Tutti e due ospitati qui.
+   ===================================================================== */
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;
+  src:url(../assets/vendor/fonts/archivo/archivo-latin-wdth-normal.woff2) format('woff2-variations');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;
+  src:url(../assets/vendor/fonts/archivo/archivo-latin-ext-wdth-normal.woff2) format('woff2-variations');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+A720-A7FF}
+@font-face{font-family:'Inter Tight';font-style:normal;font-display:swap;font-weight:100 900;
+  src:url(../assets/vendor/fonts/inter-tight/inter-tight-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-display:swap;font-weight:100 900;
+  src:url(../assets/vendor/fonts/inter-tight/inter-tight-latin-ext-wght-normal.woff2) format('woff2-variations');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+A720-A7FF}
+:root{--font-display:'Archivo','Segoe UI',sans-serif;--font-body:'Inter Tight','Segoe UI',system-ui,sans-serif}
+body{font-family:var(--font-body)}
+h1,h2,h3,.hero__title,.sx-hero__titolo,.sx-cta h2,.nav__mobile-voci a,.sx-intro__frase,.sx-testa h2,.section-head h2{font-family:var(--font-display);font-stretch:112%}
+.hero__title,.sx-hero__titolo,.sx-cta h2,.nav__mobile-voci a{font-stretch:125%;font-weight:800;letter-spacing:-.035em}
+.hero__title{font-size:clamp(3.2rem,11vw,9.8rem)}
+.sx-hero__titolo{font-size:clamp(2.6rem,8.6vw,8rem)}
+.sx-intro__frase,.sx-testa h2{letter-spacing:-.03em}
+.btn,.nav__links a{font-family:var(--font-body)}
+@media (max-width:560px){.hero__title{font-size:clamp(2.7rem,15vw,4.3rem)}.sx-hero__titolo{font-size:clamp(2.2rem,11.5vw,3.6rem)}}
+@media (max-width:560px){.hero__title{font-size:12.2vw}.sx-hero__titolo{font-stretch:100%;font-size:clamp(2rem,9.4vw,3.4rem)}}
+@media (min-width:561px) and (max-width:1100px){.sx-hero__titolo{font-size:clamp(2.6rem,7.4vw,6rem)}}
+@media (min-width:1101px){.sx-hero__titolo{font-size:clamp(4rem,6.6vw,7.4rem)}}
+@media (min-width:1101px){.sx-hero__titolo{font-size:clamp(4rem,6.6vw,6.7rem)}}
