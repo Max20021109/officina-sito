@@ -626,3 +626,43 @@ document.addEventListener('DOMContentLoaded', () => {
     if (Math.abs(dx) > 45) { passa(dx < 0 ? 1 : -1); }
   }, { passive: true });
 })();
+
+/* ---------- VIDEO DALL'OFFICINA (ottobre 2026) ----------
+   In home i video si caricano e partono solo quando si vedono, e si fermano
+   quando escono dallo schermo: niente megabyte scaricati per niente.
+   Il tasto in basso a destra li ferma/riparte. Con "riduci movimento"
+   attivo nel sistema non partono da soli (si vede il fotogramma). */
+(function () {
+  var piano = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var clips = document.querySelectorAll('.clip');
+  function carica(v) { if (v.dataset.src && !v.getAttribute('src')) { v.src = v.dataset.src; } }
+  function icona(b, inPausa) {
+    b.innerHTML = '<i class="fa-solid ' + (inPausa ? 'fa-play' : 'fa-pause') + '" aria-hidden="true"></i>';
+    b.setAttribute('aria-label', inPausa ? 'Fai partire il video' : 'Metti in pausa il video');
+  }
+  clips.forEach(function (c) {
+    var v = c.querySelector('video'), b = c.querySelector('.clip__pausa');
+    c._fermo = piano;
+    if (b) {
+      icona(b, piano);
+      b.addEventListener('click', function () {
+        c._fermo = !c._fermo;
+        if (c._fermo) { v.pause(); } else { carica(v); v.play().catch(function () {}); }
+        icona(b, c._fermo);
+      });
+    }
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (voci) {
+      voci.forEach(function (e) {
+        var c = e.target, v = c.querySelector('video');
+        if (e.isIntersecting) { if (!c._fermo) { carica(v); v.play().catch(function () {}); } }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.35 });
+    clips.forEach(function (c) { io.observe(c); });
+  } else {
+    clips.forEach(function (c) { if (!c._fermo) { var v = c.querySelector('video'); carica(v); v.play().catch(function () {}); } });
+  }
+  if (piano) { document.querySelectorAll('.pagina-hero__clip video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); }); }
+})();

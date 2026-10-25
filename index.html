@@ -611,67 +611,38 @@
   </div>
 </section>
 
-<!-- ============ LAVORI (CAROUSEL) ============ -->
+<!-- ============ LAVORI: VIDEO DALL'OFFICINA (ottobre 2026) ============
+     Video veri girati in officina, tagliati in spezzoni da pochi secondi, senza audio.
+     Partono da soli solo quando si vedono (js/main.js, "VIDEO DALL'OFFICINA"). -->
 <section class="lavori" id="lavori">
   <div class="section-head section-head--row will-reveal">
     <div>
       <h2>Gli ultimi interventi in officina.</h2>
-      <p>Foto vere, scattate in officina tra un lavoro e l&rsquo;altro. Le targhe sono oscurate.</p>
-    </div>
-    <div class="lavori__nav">
-      <button class="carousel-btn" id="lavoriPrev" aria-label="Lavoro precedente"><i class="fa-solid fa-arrow-left"></i></button>
-      <button class="carousel-btn" id="lavoriNext" aria-label="Lavoro successivo"><i class="fa-solid fa-arrow-right"></i></button>
+      <p>Niente foto di catalogo: video veri, girati dai nostri meccanici mentre lavorano.</p>
     </div>
   </div>
 
-  <div class="carousel" id="lavoriCarousel">
-    <ul class="carousel__track" id="lavoriTrack">
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/lavoro-officina-interno.webp" alt="Interno dell&#x27;officina Autocar Service, con auto sul ponte sollevatore e magazzino cerchi e gomme" loading="lazy" width="800" height="900" decoding="async">
-        <div class="carousel__caption"><span>La nostra officina:</span> ponte sollevatore e magazzino cerchi e gomme sempre pronto</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-stelvio-active-sound.webp" alt="Alfa Romeo Stelvio vista da dietro, con la scatola del kit Maxhaust sul carrello" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Alfa Romeo Stelvio:</span> montaggio del kit active sound Maxhaust</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-macan-diagnosi.webp" alt="Abitacolo di una Porsche Macan con gli strumenti di diagnosi collegati" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Diagnosi:</span> Porsche Macan collegata agli strumenti di diagnosi</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/lavoro-gommista-officina.webp" alt="Zona gommista dell&#x27;officina, con attrezzatura per cambio ed equilibratura gomme" loading="lazy" width="800" height="900" decoding="async">
-        <div class="carousel__caption"><span>Cambio gomme:</span> set stagionale con equilibratura</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-testata.webp" alt="Testata di un motore smontata sul banco di lavoro, con alberi a camme e punterie" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Motore:</span> testata smontata sul banco di lavoro</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-rs6-freni.webp" alt="Ruota anteriore di un&#x27;Audi RS6 con pinza rossa e dischi carboceramici" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Audi RS6:</span> cerchi da 22 pollici e freni carboceramici</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-centralina.webp" alt="Centralina motore e schema elettrico appoggiati sul frontale di un&#x27;auto in officina" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Elettrauto:</span> centralina e schema elettrico sul banco</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-levante.webp" alt="Meccanico al lavoro sotto il cofano di una Maserati Levante bianca" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Maserati Levante:</span> al lavoro sotto il cofano</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-911-sollevatore.webp" alt="Porsche 911 grigia sollevata sul ponte in officina" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Porsche 911:</span> sul sollevatore in officina</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-jaguar.webp" alt="Jaguar F-Type blu opaco con il cofano aperto in officina" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Jaguar F-Type:</span> cofano aperto, in lavorazione</div>
-      </li>
-      <li class="carousel__slide will-reveal">
-        <img src="assets/img/foto/lavoro-fiesta-st.webp" alt="Due meccanici fanno la diagnosi con il tablet su una Ford Fiesta ST blu" loading="lazy" width="800" height="920" decoding="async">
-        <div class="carousel__caption"><span>Ford Fiesta ST:</span> diagnosi con il tablet direttamente in officina</div>
-      </li>
-    </ul>
-    <div class="carosello-progresso" aria-hidden="true"><i></i></div>
+  <div class="clips">
+      <figure class="clip will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-gommista.jpg" data-src="assets/video/video-gommista.mp4" aria-label="Video: Smontagomme ed equilibratura"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">Gommista</span>Smontagomme ed equilibratura</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
+      <figure class="clip will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-cambio-automatico.jpg" data-src="assets/video/video-cambio-automatico.mp4" aria-label="Video: Coppa dell'olio smontata e pulita"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">Sotto il ponte</span>Coppa dell&rsquo;olio smontata e pulita</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
+      <figure class="clip will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-meccanica.jpg" data-src="assets/video/video-meccanica.mp4" aria-label="Video: Smontaggio e pulizia dei componenti"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">Al banco</span>Smontaggio e pulizia dei componenti</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
+      <figure class="clip will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-jeep.jpg" data-src="assets/video/video-jeep.mp4" aria-label="Video: Jeep Wrangler preparata"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">In officina</span>Jeep Wrangler preparata</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
   </div>
 </section>
 
