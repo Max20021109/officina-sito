@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
      semplicemente trasparente e si vede lo sfondo statico (griglia + bagliore)
      che sta sempre dietro. */
   const heroVideo = document.querySelector('.hero__video');
+  /* sul telefono (schermo in verticale) la versione verticale del video */
+  if (heroVideo && heroVideo.dataset.verticale && window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches) {
+    if (heroVideo.dataset.posterVerticale) { heroVideo.poster = heroVideo.dataset.posterVerticale; }
+    heroVideo.src = heroVideo.dataset.verticale;
+    heroVideo.load();
+  }
   if (heroVideo) {
     if (reduceMotion) {
       heroVideo.removeAttribute('autoplay');
@@ -656,6 +662,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var io = new IntersectionObserver(function (voci) {
       voci.forEach(function (e) {
         var c = e.target, v = c.querySelector('video');
+        // sul telefono decide il blocco sotto (parte solo il video al centro)
+        if (window.matchMedia('(max-width: 960px)').matches) { if (!e.isIntersecting) { v.pause(); } return; }
         if (e.isIntersecting) { if (!c._fermo) { carica(v); v.play().catch(function () {}); } }
         else { v.pause(); }
       });
@@ -665,4 +673,131 @@ document.addEventListener('DOMContentLoaded', () => {
     clips.forEach(function (c) { if (!c._fermo) { var v = c.querySelector('video'); carica(v); v.play().catch(function () {}); } });
   }
   if (piano) { document.querySelectorAll('.pagina-hero__clip video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); }); }
+})();
+
+/* ---------- VIDEO: telefono, effetto sullo scroll e visore grande (25/10/2026) ----------
+   - Sul telefono i video scorrono col dito uno alla volta: quello al centro
+     e' grande e parte, quelli di lato si rimpiccioliscono e si fermano.
+   - Su PC, scorrendo la pagina, le schede salgono a velocita' diverse.
+   - Toccando un video si apre grande a tutto schermo, stile storie:
+     tocco a destra/sinistra o swipe per il video dopo/prima, giu' o X per chiudere. */
+(function () {
+  var box = document.getElementById('clips');
+  if (!box) { return; }
+  var cards = Array.prototype.slice.call(box.querySelectorAll('.clip'));
+  var piano = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tel = window.matchMedia('(max-width: 960px)');
+
+  /* pallini sotto (solo telefono) */
+  var punti = document.createElement('div'); punti.className = 'clip__punti'; punti.setAttribute('aria-hidden', 'true');
+  cards.forEach(function () { punti.appendChild(document.createElement('i')); });
+  box.parentNode.insertBefore(punti, box.nextSibling);
+
+  function carica(v) { if (v.dataset.src && !v.getAttribute('src')) { v.src = v.dataset.src; } }
+
+  /* telefono: scala/opacita' secondo la distanza dal centro, parte solo quello al centro */
+  var corrente = -1;
+  function suTelefono() {
+    var r = box.getBoundingClientRect(), centro = r.left + r.width / 2, migliore = 0, dmin = 1e9;
+    cards.forEach(function (c, i) {
+      var cr = c.getBoundingClientRect(), d = Math.abs(cr.left + cr.width / 2 - centro) / cr.width;
+      if (d < dmin) { dmin = d; migliore = i; }
+      if (!piano) { var t = Math.min(1, d); c.style.setProperty('--k', (1 - 0.12 * t).toFixed(3)); c.style.setProperty('--o', (1 - 0.45 * t).toFixed(3)); }
+    });
+    if (migliore !== corrente) {
+      corrente = migliore;
+      punti.querySelectorAll('i').forEach(function (p, i) { p.classList.toggle('on', i === migliore); });
+      var vis = box.getBoundingClientRect(); var inVista = vis.top < window.innerHeight && vis.bottom > 0;
+      cards.forEach(function (c, i) {
+        var v = c.querySelector('video');
+        if (i === migliore && inVista && !c._fermo) { carica(v); v.play().catch(function () {}); } else { v.pause(); }
+      });
+    }
+  }
+  /* PC: parallasse leggera, schede pari e dispari a velocita' diverse */
+  function suPc() {
+    if (piano) { return; }
+    var r = box.getBoundingClientRect(), h = window.innerHeight;
+    if (r.bottom < 0 || r.top > h) { return; }
+    var p = (r.top + r.height / 2 - h / 2) / h; // -1..1 circa
+    cards.forEach(function (c, i) { c.style.transform = 'translateY(' + (p * (i % 2 ? -46 : 22)).toFixed(1) + 'px)'; });
+  }
+  var attesa = false;
+  function aggiorna() {
+    attesa = false;
+    if (tel.matches) { cards.forEach(function (c) { c.style.transform = ''; }); suTelefono(); } else { cards.forEach(function (c) { c.style.removeProperty('--k'); c.style.removeProperty('--o'); }); suPc(); }
+  }
+  function chiedi() { if (!attesa) { attesa = true; requestAnimationFrame(aggiorna); } }
+  box.addEventListener('scroll', function () { corrente = tel.matches ? corrente : -1; chiedi(); }, { passive: true });
+  window.addEventListener('scroll', function () { if (tel.matches) { corrente = -1; } chiedi(); }, { passive: true });
+  window.addEventListener('resize', chiedi);
+  aggiorna();
+
+  /* visore grande */
+  var vv = document.createElement('div'); vv.className = 'vv'; vv.hidden = true;
+  vv.setAttribute('role', 'dialog'); vv.setAttribute('aria-modal', 'true'); vv.setAttribute('aria-label', 'Video a tutto schermo');
+  vv.innerHTML = '<div class="vv__palco"><div class="vv__barre">' + cards.map(function () { return '<i><b></b></i>'; }).join('') + '</div>' +
+    '<button type="button" class="vv__zona vv__zona--prima" aria-label="Video precedente"></button>' +
+    '<button type="button" class="vv__zona vv__zona--dopo" aria-label="Video successivo"></button>' +
+    '<div class="vv__cap"></div></div>' +
+    '<button type="button" class="vv__chiudi" aria-label="Chiudi">&times;</button>' +
+    '<button type="button" class="vv__freccia vv__freccia--prima" aria-label="Video precedente"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>' +
+    '<button type="button" class="vv__freccia vv__freccia--dopo" aria-label="Video successivo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>';
+  document.body.appendChild(vv);
+  var palco = vv.querySelector('.vv__palco'), cap = vv.querySelector('.vv__cap'), barre = vv.querySelectorAll('.vv__barre i');
+  var idx = 0, vid = null, giro = 0, prima = null;
+
+  function mostra(n) {
+    idx = (n + cards.length) % cards.length;
+    var c = cards[idx], sv = c.querySelector('video'), src = sv.dataset.src || sv.getAttribute('src');
+    if (vid) { vid.remove(); }
+    var v = vid = document.createElement('video');
+    v.loop = false; vid.muted = true; vid.playsInline = true; vid.setAttribute('playsinline', ''); vid.autoplay = true; vid.preload = 'auto';
+    vid.poster = sv.getAttribute('poster') || ''; vid.src = src;
+    palco.insertBefore(vid, palco.firstChild);
+    giro = 0;
+    v.addEventListener('timeupdate', function () {
+      if (v !== vid) { return; }
+      var b = barre[idx] && barre[idx].querySelector('b'); if (b && v.duration) { b.style.width = (v.currentTime / v.duration * 100) + '%'; }
+    });
+    v.addEventListener('ended', function () { if (v !== vid) { return; } giro++; if (giro < 2) { v.currentTime = 0; v.play().catch(function () {}); } else { mostra(idx + 1); } });
+    vid.play().catch(function () {});
+    barre.forEach(function (b, i) { b.classList.toggle('fatto', i < idx); var x = b.querySelector('b'); if (i !== idx) { x.style.width = i < idx ? '100%' : '0'; } });
+    var tag = c.querySelector('.clip__tag'), testo = c.querySelector('.clip__cap').cloneNode(true);
+    if (testo.querySelector('.clip__tag')) { testo.querySelector('.clip__tag').remove(); }
+    cap.innerHTML = '<span>' + (tag ? tag.textContent : '') + '</span>' + testo.textContent.trim();
+  }
+  function apri(n) {
+    prima = document.activeElement;
+    cards.forEach(function (c) { c.querySelector('video').pause(); });
+    vv.hidden = false; document.documentElement.classList.add('lb-aperto');
+    mostra(n); vv.querySelector('.vv__chiudi').focus();
+  }
+  function chiudi() {
+    if (vid) { vid.pause(); vid.remove(); vid = null; }
+    vv.hidden = true; document.documentElement.classList.remove('lb-aperto');
+    corrente = -1; chiedi();
+    if (prima && prima.focus) { prima.focus(); }
+  }
+  cards.forEach(function (c, i) {
+    c.addEventListener('click', function (e) { if (e.target.closest('.clip__pausa')) { return; } apri(i); });
+  });
+  vv.querySelector('.vv__chiudi').addEventListener('click', chiudi);
+  vv.querySelector('.vv__zona--prima').addEventListener('click', function () { mostra(idx - 1); });
+  vv.querySelector('.vv__zona--dopo').addEventListener('click', function () { mostra(idx + 1); });
+  vv.querySelector('.vv__freccia--prima').addEventListener('click', function () { mostra(idx - 1); });
+  vv.querySelector('.vv__freccia--dopo').addEventListener('click', function () { mostra(idx + 1); });
+  vv.addEventListener('click', function (e) { if (e.target === vv) { chiudi(); } });
+  document.addEventListener('keydown', function (e) {
+    if (vv.hidden) { return; }
+    if (e.key === 'Escape') { chiudi(); } else if (e.key === 'ArrowRight') { mostra(idx + 1); } else if (e.key === 'ArrowLeft') { mostra(idx - 1); }
+  });
+  var x0 = null, y0 = null;
+  vv.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  vv.addEventListener('touchend', function (e) {
+    if (x0 === null) { return; }
+    var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    if (dy > 90 && Math.abs(dy) > Math.abs(dx)) { chiudi(); }
+    else if (Math.abs(dx) > 50) { mostra(idx + (dx < 0 ? 1 : -1)); }
+  }, { passive: true });
 })();

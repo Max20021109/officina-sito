@@ -36,7 +36,7 @@
 <!-- Font Awesome auto-ospitato (libreria icone, niente SVG disegnate a mano) -->
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=20261005l">
+<link rel="stylesheet" href="css/style.css?v=20261025b">
 
 <!-- Dati struttura per Google: aiuta l'indicizzazione locale. Sostituisci ogni valore con quello reale. -->
 <script type="application/ld+json">
@@ -301,9 +301,13 @@
       <div class="hero__grid"></div>
       <div class="hero__glow"></div>
     </div>
+    <!-- Video vero dell'officina (25/10/2026): cambio gomme, in bianco e nero
+         con il rosso che resta. Sul telefono si carica la versione verticale
+         (data-verticale, vedi js/main.js). -->
     <video class="hero__video" autoplay muted loop playsinline
-           poster="assets/img/hero-poster.jpg" aria-hidden="true">
-      <source src="assets/video/hero.mp4" type="video/mp4">
+           poster="assets/video/hero-officina.jpg" aria-hidden="true"
+           data-verticale="assets/video/hero-officina-verticale.mp4" data-poster-verticale="assets/video/hero-officina-verticale.jpg">
+      <source src="assets/video/hero-officina.mp4" type="video/mp4">
     </video>
     <div class="hero__scrim"></div>
   </div>
@@ -618,29 +622,33 @@
   <div class="section-head section-head--row will-reveal">
     <div>
       <h2>Gli ultimi interventi in officina.</h2>
-      <p>Niente foto di catalogo: video veri, girati dai nostri meccanici mentre lavorano.</p>
+      <p>Niente foto di catalogo: video veri, girati dai nostri meccanici mentre lavorano. Tocca un video per vederlo grande.</p>
     </div>
   </div>
 
-  <div class="clips">
+  <div class="clips" id="clips">
       <figure class="clip will-reveal">
         <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-gommista.jpg" data-src="assets/video/video-gommista.mp4" aria-label="Video: Smontagomme ed equilibratura"></video>
         <figcaption class="clip__cap"><span class="clip__tag">Gommista</span>Smontagomme ed equilibratura</figcaption>
+        <button type="button" class="clip__apri" aria-label="Guarda il video a tutto schermo"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
         <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
       </figure>
       <figure class="clip will-reveal">
         <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-cambio-automatico.jpg" data-src="assets/video/video-cambio-automatico.mp4" aria-label="Video: Coppa dell'olio smontata e pulita"></video>
         <figcaption class="clip__cap"><span class="clip__tag">Sotto il ponte</span>Coppa dell&rsquo;olio smontata e pulita</figcaption>
+        <button type="button" class="clip__apri" aria-label="Guarda il video a tutto schermo"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
         <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
       </figure>
       <figure class="clip will-reveal">
         <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-meccanica.jpg" data-src="assets/video/video-meccanica.mp4" aria-label="Video: Smontaggio e pulizia dei componenti"></video>
         <figcaption class="clip__cap"><span class="clip__tag">Al banco</span>Smontaggio e pulizia dei componenti</figcaption>
+        <button type="button" class="clip__apri" aria-label="Guarda il video a tutto schermo"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
         <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
       </figure>
       <figure class="clip will-reveal">
         <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-jeep.jpg" data-src="assets/video/video-jeep.mp4" aria-label="Video: Jeep Wrangler preparata"></video>
         <figcaption class="clip__cap"><span class="clip__tag">In officina</span>Jeep Wrangler preparata</figcaption>
+        <button type="button" class="clip__apri" aria-label="Guarda il video a tutto schermo"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
         <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
       </figure>
   </div>
@@ -1083,6 +1091,6 @@
      visibile e funzionante (vedi js/main.js, le animazioni sono un "di piu'", mai un requisito). -->
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20261005j"></script>
+<script src="js/main.js?v=20261025b"></script>
 </body>
 </html>
