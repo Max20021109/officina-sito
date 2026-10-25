@@ -4,6 +4,8 @@
 # --- un solo indirizzo: https, senza www ---
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # in locale (Laragon: localhost, 127.0.0.1, *.test) niente redirect, se no si finisce sul sito online
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1|[a-z0-9.-]+\.test)(:[0-9]+)?$ [NC]
   RewriteCond %{HTTPS} off [OR]
   RewriteCond %{HTTP_HOST} ^www\. [NC]
   RewriteRule ^ https://autocar-service.it%{REQUEST_URI} [R=301,L]
@@ -35,7 +37,9 @@ ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set X-Frame-Options "SAMEORIGIN"
+  # il sito si puo' mostrare in un riquadro solo dentro se stesso e nell'anteprima "dal vivo" del portfolio di Massimo
+  # (prima c'era X-Frame-Options SAMEORIGIN, che bloccava anche l'anteprima)
+  Header always set Content-Security-Policy "frame-ancestors 'self' https://massimo-franco.netlify.app https://massimo-franco.pages.dev http://localhost http://massimo-franco-app.test"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 

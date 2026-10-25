@@ -1821,3 +1821,28 @@ a.punto:hover{transform:translateY(-4px)}
 @media (prefers-reduced-motion: reduce){
   .cantiere__nastro-testo,.cantiere__avanz-barra i{animation:none}
 }
+
+/* ================= FOTO A TUTTO SCHERMO (ottobre 2026) ================= */
+.galleria__apri{display:block;border-radius:var(--r-lg);overflow:hidden;cursor:zoom-in}
+.galleria__apri img{display:block;transition:transform .7s var(--ease),filter .5s var(--ease)}
+.galleria__apri:hover img,.galleria__apri:focus-visible img{transform:scale(1.04);filter:brightness(1.06)}
+html.lb-aperto{overflow:hidden}
+.lb{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+    padding:clamp(.75rem,3vw,2.5rem);background:rgba(8,9,11,.94);backdrop-filter:blur(6px)}
+.lb[hidden]{display:none}
+.lb__fig{margin:0;display:flex;flex-direction:column;align-items:center;gap:.8rem;max-width:min(1400px,100%);max-height:100%}
+.lb__img{max-width:100%;max-height:calc(100vh - 7rem);object-fit:contain;border-radius:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.8)}
+.lb__img--su{animation:lbSu .45s var(--ease) both}
+@keyframes lbSu{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.lb__cap{color:#e9eaec;font-size:.98rem;text-align:center;max-width:60ch}
+.lb__chiudi,.lb__freccia{position:absolute;display:grid;place-items:center;width:3rem;height:3rem;border-radius:999px;
+    border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font-size:1.1rem;cursor:pointer;
+    transition:background .25s,transform .25s}
+.lb__chiudi:hover,.lb__freccia:hover{background:rgba(255,255,255,.18);transform:scale(1.06)}
+.lb__chiudi{top:1rem;right:1rem;font-size:1.8rem;line-height:1}
+.lb__freccia--prima{left:1rem;top:50%;margin-top:-1.5rem}
+.lb__freccia--dopo{right:1rem;top:50%;margin-top:-1.5rem}
+.lb--una .lb__freccia,.lb--una .lb__conta{display:none}
+.lb__conta{position:absolute;top:1.6rem;left:1.4rem;color:rgba(255,255,255,.7);font-family:'JetBrains Mono',monospace;font-size:.85rem}
+@media (max-width:640px){.lb__freccia{top:auto;bottom:1rem;margin-top:0}.lb__img{max-height:calc(100vh - 9rem)}}
+@media (prefers-reduced-motion:reduce){.lb__img--su{animation:none}.galleria__apri img{transition:none}}

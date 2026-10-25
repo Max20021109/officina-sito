@@ -546,3 +546,83 @@ document.addEventListener('DOMContentLoaded', () => {
     '<a class="nastro__chiama" href="tel:+390165768675"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiamaci</span></a>';
   prima.insertBefore(nastro, prima.firstChild);
 })();
+
+/* ---------- FOTO A TUTTO SCHERMO (ottobre 2026) ----------
+   Le foto vere dell'officina si aprono grandi: nelle gallerie dei settori
+   (link con data-lightbox) e nel carosello "lavori" della home. Frecce e
+   swipe per passare alla foto dopo, Esc o clic fuori per chiudere.
+   Senza JavaScript i link delle gallerie aprono semplicemente la foto. */
+(function () {
+  var gruppi = [];
+  document.querySelectorAll('.galleria').forEach(function (g) {
+    gruppi.push(Array.prototype.slice.call(g.querySelectorAll('a[data-lightbox]')).map(function (a) {
+      var img = a.querySelector('img');
+      return { el: a, src: a.getAttribute('href'), alt: img ? img.alt : '', cap: (a.closest('figure') && a.closest('figure').querySelector('figcaption')) ? a.closest('figure').querySelector('figcaption').textContent : '' };
+    }));
+  });
+  var track = document.getElementById('lavoriTrack');
+  if (track) {
+    gruppi.push(Array.prototype.slice.call(track.querySelectorAll('.carousel__slide img')).map(function (img) {
+      var cap = img.parentElement.querySelector('.carousel__caption');
+      return { el: img, src: img.getAttribute('src'), alt: img.alt, cap: cap ? cap.textContent.replace(/\s+/g, ' ').trim() : '' };
+    }));
+  }
+  gruppi = gruppi.filter(function (g) { return g.length; });
+  if (!gruppi.length) { return; }
+
+  var box = document.createElement('div');
+  box.className = 'lb'; box.hidden = true;
+  box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', 'Foto a tutto schermo');
+  box.innerHTML =
+    '<button type="button" class="lb__chiudi" aria-label="Chiudi">&times;</button>' +
+    '<button type="button" class="lb__freccia lb__freccia--prima" aria-label="Foto precedente"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>' +
+    '<figure class="lb__fig"><img class="lb__img" alt=""><figcaption class="lb__cap"></figcaption></figure>' +
+    '<button type="button" class="lb__freccia lb__freccia--dopo" aria-label="Foto successiva"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>' +
+    '<span class="lb__conta" aria-hidden="true"></span>';
+  document.body.appendChild(box);
+  var img = box.querySelector('.lb__img'), cap = box.querySelector('.lb__cap'), conta = box.querySelector('.lb__conta');
+  var gruppo = null, i = 0, prima = null;
+
+  function mostra() {
+    var v = gruppo[i];
+    img.classList.remove('lb__img--su'); void img.offsetWidth;
+    img.src = v.src; img.alt = v.alt; cap.textContent = v.cap;
+    conta.textContent = (i + 1) + ' / ' + gruppo.length;
+    img.classList.add('lb__img--su');
+    box.classList.toggle('lb--una', gruppo.length < 2);
+  }
+  function apri(g, n) {
+    gruppo = g; i = n; prima = document.activeElement;
+    box.hidden = false; document.documentElement.classList.add('lb-aperto');
+    mostra(); box.querySelector('.lb__chiudi').focus();
+  }
+  function chiudi() {
+    box.hidden = true; document.documentElement.classList.remove('lb-aperto');
+    if (prima && prima.focus) { prima.focus(); }
+  }
+  function passa(d) { i = (i + d + gruppo.length) % gruppo.length; mostra(); }
+
+  gruppi.forEach(function (g) {
+    g.forEach(function (v, n) {
+      if (v.el.tagName === 'IMG') { v.el.style.cursor = 'zoom-in'; }
+      v.el.addEventListener('click', function (e) { e.preventDefault(); apri(g, n); });
+    });
+  });
+  box.querySelector('.lb__chiudi').addEventListener('click', chiudi);
+  box.querySelector('.lb__freccia--prima').addEventListener('click', function () { passa(-1); });
+  box.querySelector('.lb__freccia--dopo').addEventListener('click', function () { passa(1); });
+  box.addEventListener('click', function (e) { if (e.target === box || e.target.classList.contains('lb__fig')) { chiudi(); } });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) { return; }
+    if (e.key === 'Escape') { chiudi(); }
+    else if (e.key === 'ArrowRight') { passa(1); }
+    else if (e.key === 'ArrowLeft') { passa(-1); }
+  });
+  var x0 = null;
+  box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchend', function (e) {
+    if (x0 === null) { return; }
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 45) { passa(dx < 0 ? 1 : -1); }
+  }, { passive: true });
+})();
