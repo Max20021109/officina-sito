@@ -31,7 +31,7 @@
 <link rel="preload" href="assets/vendor/fonts/manrope/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=20261025c">
+<link rel="stylesheet" href="css/style.css?v=20261025e">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -172,120 +172,143 @@
   </div>
 </header>
 
-<main id="contenuto">
+<main id="contenuto" class="sx-pagina">
 
-<!-- ============ HERO DELLA PAGINA ============
-     Foto vera dell'officina (ottobre 2026), targhe sfocate. -->
-<section class="pagina-hero pagina-hero--clip">
-  <img class="pagina-hero__foto" src="assets/img/foto/settore-gommista.webp" alt="Zona gommista con equilibratrice e smontagomme sotto l&#x27;insegna Autocar Service" width="1600" height="900" fetchpriority="high" decoding="async">
-  <div class="pagina-hero__inner">
-    <div class="pagina-hero__testo">
+<!-- ============ HERO DEL SETTORE (ottobre 2026) ============
+     Sfondo vero dell'officina in bianco e nero con il rosso acceso, a tutto schermo. -->
+<section class="sx-hero">
+  <div class="sx-hero__media"><video class="sx-hero__bg" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-officina.jpg" aria-hidden="true" data-verticale="assets/video/hero-officina-verticale.mp4" data-poster-verticale="assets/video/hero-officina-verticale.jpg"><source src="assets/video/hero-officina.mp4" type="video/mp4"></video></div>
+  <div class="sx-hero__velo" aria-hidden="true"></div>
+  <div class="sx-hero__inner">
     <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="index.html#servizi">Servizi</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Gommista</span></nav>
-    <span class="pagina-hero__eyebrow"><i class="fa-solid fa-record-vinyl" aria-hidden="true"></i> Settore</span>
-    <h1>Gommista <span class="pagina-hero__luogo">a Saint-Marcel, a un quarto d'ora da Aosta</span></h1>
-    <p>Cambio stagionale, equilibratura, convergenza e deposito gomme. Appuntamento e via.</p>
+    <span class="sx-hero__eyebrow"><i class="fa-solid fa-record-vinyl" aria-hidden="true"></i> Settore 02 / 06</span>
+    <h1 class="sx-hero__titolo"><span class="reveal-line"><span>Gommista</span></span></h1>
+    <p class="sx-hero__luogo">a Saint-Marcel, a un quarto d'ora da Aosta</p>
+    <p class="sx-hero__sub">Cambio stagionale, equilibratura, convergenza e deposito gomme. Appuntamento e via.</p>
+    <div class="sx-hero__cta">
+      <a href="tel:+390165768675" class="btn btn--primary btn--lg"><i class="fa-solid fa-phone" aria-hidden="true"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" class="btn btn--ghost btn--lg" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Scrivici su WhatsApp</a>
     </div>
-    <figure class="pagina-hero__clip">
-      <video muted loop playsinline autoplay preload="metadata" poster="assets/video/video-gommista.jpg" aria-label="Video: Smontagomme ed equilibratura"><source src="assets/video/video-gommista.mp4" type="video/mp4"></video>
-      <figcaption>Smontagomme ed equilibratura</figcaption>
-    </figure>
+  </div>
+  <div class="sx-nastro" aria-hidden="true"><div class="sx-nastro__testo"><span>Cambio stagionale</span><i aria-hidden="true">&#9670;</i><span>Deposito gomme</span><i aria-hidden="true">&#9670;</i><span>Convergenza e assetto</span><i aria-hidden="true">&#9670;</i><span>Riparazione forature</span><i aria-hidden="true">&#9670;</i><span>Cerchi e sensori</span><i aria-hidden="true">&#9670;</i><span>Cambio stagionale</span><i aria-hidden="true">&#9670;</i><span>Deposito gomme</span><i aria-hidden="true">&#9670;</i><span>Convergenza e assetto</span><i aria-hidden="true">&#9670;</i><span>Riparazione forature</span><i aria-hidden="true">&#9670;</i><span>Cerchi e sensori</span><i aria-hidden="true">&#9670;</i></div></div>
+</section>
+
+<!-- ============ IN UNA FRASE ============ -->
+<section class="sx-intro">
+  <div class="sx-intro__inner">
+    <h2 class="sx-intro__frase will-reveal">Gomme giuste, montate bene. <em>In valle fa la differenza.</em></h2>
+    <div class="sx-intro__lato will-reveal">
+      <p>Cambio stagionale, equilibratura e convergenza con attrezzatura moderna, anche su cerchi grandi e auto ribassate. Le tue gomme restano da noi, al coperto, fino al prossimo cambio.</p>
+      <ul class="sx-fatti">
+        <li><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Preventivo scritto prima di iniziare</li>
+        <li><i class="fa-solid fa-car-side" aria-hidden="true"></i> Tutte le marche, dall&rsquo;utilitaria alla sportiva</li>
+        <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Saint-Marcel, dal 1986</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- ============ COSA FACCIAMO ============
-     DA SOSTITUIRE: i punti sono di esempio, da confermare con l'officina. -->
-<section class="blocco">
-  <div class="blocco__inner">
-    <div class="blocco__head will-reveal">
-      <span class="blocco__eyebrow">Cosa facciamo</span>
-      <h2>Gli interventi di questo settore.</h2>
+<!-- ============ COSA FACCIAMO ============ -->
+<section class="sx-servizi">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Cosa facciamo</span>
+      <h2>Il lavoro, voce per voce.</h2>
     </div>
-    <div class="punti">
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-snowflake"></i></span>
+    <ol class="sx-lista">
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">01</span>
         <h3>Cambio stagionale</h3>
         <p>Estive e invernali montate e equilibrate, con controllo di pressione e usura.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-warehouse"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-snowflake"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">02</span>
         <h3>Deposito gomme</h3>
         <p>Le tue gomme al coperto tra un cambio e l&#x27;altro, etichettate e pronte per l&#x27;appuntamento.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-warehouse"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">03</span>
         <h3>Convergenza e assetto</h3>
         <p>Geometria delle ruote per un&#x27;auto che va dritta e gomme che durano di piu&#x27;.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-screwdriver"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">04</span>
         <h3>Riparazione forature</h3>
         <p>Riparazione a norma quando e&#x27; possibile, sostituzione quando serve.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-circle-dot"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-screwdriver"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">05</span>
         <h3>Cerchi e sensori</h3>
         <p>Montaggio su cerchi in lega, sensori di pressione (TPMS) e valvole.</p>
-      </article>
-    </div>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-circle-dot"></i></span>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ IL LAVORO CHE CI RAPPRESENTA DI PIU' ============
-     DA SOSTITUIRE: caso di esempio (nessun cliente reale). Sostituire foto, auto,
-     problema, intervento e risultato con un lavoro vero. -->
-<section class="atelier">
-  <div class="atelier__inner will-reveal">
-    <div class="atelier__media">
-      <img src="assets/img/foto/at-gommista.webp" alt="Porsche 911 sul sollevatore in officina" width="1200" height="1400" loading="lazy" decoding="async">
-      <span class="atelier__tag">Foto reale &middot; caso di esempio</span>
+<!-- ============ DALL'OFFICINA: foto e video veri ============ -->
+<section class="sx-media">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa sx-testa--riga will-reveal">
+      <div>
+        <span class="sx-eyebrow">Dall&rsquo;officina</span>
+        <h2>Auto vere, scatti veri.</h2>
+      </div>
+      <p>Niente foto di catalogo: sono le auto che passano dalla nostra officina. Tocca una foto per vederla grande.</p>
     </div>
-    <div class="atelier__content">
-      <span class="atelier__eyebrow">Il lavoro che ci rappresenta di piu'</span>
-      <h2>Un caso seguito dall'inizio alla fine.</h2>
-      <dl class="caso__scheda">
-        <div><dt>L'auto</dt><dd>SUV familiare, 2020</dd></div>
-        <div><dt>Il problema</dt><dd>Vibrazione al volante sopra i 100 km/h e usura irregolare delle anteriori.</dd></div>
-        <div><dt>Cosa abbiamo fatto</dt><dd>Equilibratura fine, controllo dei cerchi, convergenza completa e rotazione delle gomme.</dd></div>
-        <div><dt>Il risultato</dt><dd>Volante fermo in autostrada e gomme che si consumano in modo uniforme.</dd></div>
-      </dl>
-      <a href="index.html#contatti" class="btn btn--primary">Hai un caso simile? Scrivici</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GALLERIA ============
-     Foto vere (ottobre 2026), targhe sfocate. Per aggiungerne una basta copiare una <figure>. -->
-<section class="blocco blocco--scuro">
-  <div class="blocco__inner">
-    <div class="blocco__head will-reveal">
-      <span class="blocco__eyebrow">Dalla nostra officina</span>
-      <h2>Alcuni lavori in foto.</h2>
-      <p>Scatti veri, fatti durante il lavoro: niente foto di catalogo.</p>
-    </div>
-    <div class="galleria">
-      <figure class="will-reveal">
-        <a href="assets/img/foto/gal-911-gomme.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-911-gomme.webp" alt="Porsche 911 in officina" width="1200" height="900" loading="lazy" decoding="async"></a>
+    <div class="galleria sx-griglia">
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/gal-911-gomme.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-911-gomme.webp" alt="Porsche 911 in officina" loading="lazy" decoding="async"></a>
         <figcaption>Porsche 911 in officina</figcaption>
       </figure>
-      <figure class="will-reveal">
-        <a href="assets/img/foto/gal-911-sollevatore.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-911-sollevatore.webp" alt="Porsche 911 sul sollevatore" width="1200" height="900" loading="lazy" decoding="async"></a>
-        <figcaption>Porsche 911 sul sollevatore</figcaption>
+      <figure class="clip sx-tile will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-gommista.jpg" data-src="assets/video/video-gommista.mp4" aria-label="Video: Smontagomme ed equilibratura"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">Video</span>Smontagomme ed equilibratura</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
       </figure>
-      <figure class="will-reveal">
-        <a href="assets/img/foto/gal-rs6-ruota.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-rs6-ruota.webp" alt="Audi RS6 in officina" width="1200" height="900" loading="lazy" decoding="async"></a>
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/storia-gomme.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/storia-gomme.webp" alt="Il reparto gomme" loading="lazy" decoding="async"></a>
+        <figcaption>Il reparto gomme</figcaption>
+      </figure>
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/gal-rs6-ruota.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-rs6-ruota.webp" alt="Audi RS6 in officina" loading="lazy" decoding="async"></a>
         <figcaption>Audi RS6 in officina</figcaption>
+      </figure>
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/gal-911-sollevatore.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-911-sollevatore.webp" alt="Porsche 911 sul sollevatore" loading="lazy" decoding="async"></a>
+        <figcaption>Porsche 911 sul sollevatore</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- ============ DOMANDE FREQUENTI ============
-     DA SOSTITUIRE: tre domande di esempio. -->
-<section class="blocco">
-  <div class="blocco__inner">
-    <div class="blocco__head will-reveal">
-      <span class="blocco__eyebrow">Domande frequenti</span>
-      <h2>Le cose che ci chiedono piu' spesso.</h2>
+<!-- ============ COME LAVORIAMO ============ -->
+<section class="sx-metodo">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Come lavoriamo</span>
+      <h2>Quattro passi, nessuna sorpresa.</h2>
+    </div>
+    <ol class="sx-passi">
+      <li class="will-reveal"><span>01</span><h3>Ci senti</h3><p>Chiami, scrivi su WhatsApp o passi in officina: fissiamo quando portare l&rsquo;auto.</p></li>
+      <li class="will-reveal"><span>02</span><h3>Controlliamo</h3><p>Guardiamo l&rsquo;auto e ti spieghiamo cosa abbiamo trovato, con parole semplici.</p></li>
+      <li class="will-reveal"><span>03</span><h3>Preventivo scritto</h3><p>Sai prima cosa si fa e quanto costa. Si parte solo quando sei d&rsquo;accordo.</p></li>
+      <li class="will-reveal"><span>04</span><h3>Riconsegna</h3><p>Ti ridiamo l&rsquo;auto spiegandoti cosa abbiamo fatto, con i pezzi sostituiti se li vuoi vedere.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ DOMANDE FREQUENTI ============ -->
+<section class="sx-faq">
+  <div class="sx-sezione__inner sx-faq__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Domande frequenti</span>
+      <h2>Le cose che ci chiedono pi&ugrave; spesso.</h2>
+      <p>Non trovi la tua? <a href="tel:+390165768675">Chiamaci</a>, ti rispondiamo noi.</p>
     </div>
     <div class="faq will-reveal">
       <div class="faq__item">
@@ -325,12 +348,57 @@
   </div>
 </section>
 
-<!-- ============ CTA DI CHIUSURA ============ -->
-<section class="storia-cta">
-  <div class="storia-cta__inner will-reveal">
-    <h2>Parliamo della tua auto.</h2>
-    <p>Preventivo scritto prima di iniziare, risposta entro 24 ore.</p>
-    <a href="index.html#contatti" class="btn btn--primary btn--lg">Richiedi un preventivo</a>
+<!-- ============ GLI ALTRI SETTORI ============ -->
+<section class="sx-altri">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Sotto lo stesso tetto</span>
+      <h2>Gli altri settori dell&rsquo;officina.</h2>
+    </div>
+    <div class="sx-altri__griglia">
+      <a class="sx-altro will-reveal" href="settore-officina-meccanica.html">
+        <img src="assets/img/foto/sx-officina-meccanica-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">01</span>
+        <span class="sx-altro__nome">Officina meccanica</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-elettrauto.html">
+        <img src="assets/img/foto/sx-elettrauto-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">03</span>
+        <span class="sx-altro__nome">Elettrauto</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-preparazioni-sportive.html">
+        <img src="assets/img/foto/sx-preparazioni-sportive-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">04</span>
+        <span class="sx-altro__nome">Preparazioni sportive</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-scarichi.html">
+        <img src="assets/img/foto/sx-scarichi-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">05</span>
+        <span class="sx-altro__nome">Scarichi</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-tuning-montaggio.html">
+        <img src="assets/img/foto/sx-tuning-montaggio-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">06</span>
+        <span class="sx-altro__nome">Tuning e montaggio</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHIUSURA ============ -->
+<section class="sx-cta">
+  <div class="sx-cta__inner will-reveal">
+    <h2>Porta la tua auto<br>da noi.</h2>
+    <div class="sx-cta__lato">
+      <a href="tel:+390165768675" class="sx-cta__tel"><i class="fa-solid fa-phone" aria-hidden="true"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" class="btn btn--light btn--lg" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Scrivici su WhatsApp</a>
+      <p>Zona Industriale 9, Saint-Marcel (AO) &middot; Lun-Ven 8:00-13:00 e 15:00-19:00</p>
+    </div>
   </div>
 </section>
 
@@ -394,6 +462,6 @@
 
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20261025c"></script>
+<script src="js/main.js?v=20261025e"></script>
 </body>
 </html>

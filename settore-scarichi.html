@@ -31,7 +31,7 @@
 <link rel="preload" href="assets/vendor/fonts/manrope/manrope-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=20261025c">
+<link rel="stylesheet" href="css/style.css?v=20261025e">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -172,114 +172,143 @@
   </div>
 </header>
 
-<main id="contenuto">
+<main id="contenuto" class="sx-pagina">
 
-<!-- ============ HERO DELLA PAGINA ============
-     Foto vera dell'officina (ottobre 2026), targhe sfocate. -->
-<section class="pagina-hero">
-  <img class="pagina-hero__foto" src="assets/img/foto/settore-scarichi.webp" alt="Alfa Romeo Stelvio con il cofano aperto e il kit active sound Maxhaust" width="1600" height="900" fetchpriority="high" decoding="async">
-  <div class="pagina-hero__inner">
-    <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="index.html#servizi">Servizi</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Scarichi personalizzati</span></nav>
-    <span class="pagina-hero__eyebrow"><i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i> Settore</span>
-    <h1>Scarichi personalizzati <span class="pagina-hero__luogo">a Saint-Marcel, Valle d'Aosta</span></h1>
-    <p>Linee di scarico costruite e adattate in officina: suono, prestazioni e materiali scelti insieme.</p>
+<!-- ============ HERO DEL SETTORE (ottobre 2026) ============
+     Sfondo vero dell'officina in bianco e nero con il rosso acceso, a tutto schermo. -->
+<section class="sx-hero">
+  <div class="sx-hero__media"><picture><source media="(max-width:760px) and (orientation:portrait)" srcset="assets/img/foto/sx-scarichi-m.webp"><img class="sx-hero__bg" src="assets/img/foto/sx-scarichi.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture></div>
+  <div class="sx-hero__velo" aria-hidden="true"></div>
+  <div class="sx-hero__inner">
+    <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="index.html#servizi">Servizi</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Scarichi</span></nav>
+    <span class="sx-hero__eyebrow"><i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i> Settore 05 / 06</span>
+    <h1 class="sx-hero__titolo"><span class="reveal-line"><span>Scarichi personalizzati</span></span></h1>
+    <p class="sx-hero__luogo">a Saint-Marcel, Valle d'Aosta</p>
+    <p class="sx-hero__sub">Linee di scarico costruite e adattate in officina: suono, prestazioni e materiali scelti insieme.</p>
+    <div class="sx-hero__cta">
+      <a href="tel:+390165768675" class="btn btn--primary btn--lg"><i class="fa-solid fa-phone" aria-hidden="true"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" class="btn btn--ghost btn--lg" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Scrivici su WhatsApp</a>
+    </div>
+  </div>
+  <div class="sx-nastro" aria-hidden="true"><div class="sx-nastro__testo"><span>Scarichi su misura</span><i aria-hidden="true">&#9670;</i><span>Suono e valvole</span><i aria-hidden="true">&#9670;</i><span>Collettori e catalizzatori</span><i aria-hidden="true">&#9670;</i><span>Riparazioni</span><i aria-hidden="true">&#9670;</i><span>Rumore nei limiti</span><i aria-hidden="true">&#9670;</i><span>Scarichi su misura</span><i aria-hidden="true">&#9670;</i><span>Suono e valvole</span><i aria-hidden="true">&#9670;</i><span>Collettori e catalizzatori</span><i aria-hidden="true">&#9670;</i><span>Riparazioni</span><i aria-hidden="true">&#9670;</i><span>Rumore nei limiti</span><i aria-hidden="true">&#9670;</i></div></div>
+</section>
+
+<!-- ============ IN UNA FRASE ============ -->
+<section class="sx-intro">
+  <div class="sx-intro__inner">
+    <h2 class="sx-intro__frase will-reveal">Il suono giusto, <em>costruito sulla tua auto.</em></h2>
+    <div class="sx-intro__lato will-reveal">
+      <p>Linee su misura, valvole e terminali scelti con te: il suono che vuoi, nei limiti di legge, con materiali che durano.</p>
+      <ul class="sx-fatti">
+        <li><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Preventivo scritto prima di iniziare</li>
+        <li><i class="fa-solid fa-car-side" aria-hidden="true"></i> Tutte le marche, dall&rsquo;utilitaria alla sportiva</li>
+        <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Saint-Marcel, dal 1986</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- ============ COSA FACCIAMO ============
-     DA SOSTITUIRE: i punti sono di esempio, da confermare con l'officina. -->
-<section class="blocco">
-  <div class="blocco__inner">
-    <div class="blocco__head will-reveal">
-      <span class="blocco__eyebrow">Cosa facciamo</span>
-      <h2>Gli interventi di questo settore.</h2>
+<!-- ============ COSA FACCIAMO ============ -->
+<section class="sx-servizi">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Cosa facciamo</span>
+      <h2>Il lavoro, voce per voce.</h2>
     </div>
-    <div class="punti">
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-fire-flame-curved"></i></span>
+    <ol class="sx-lista">
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">01</span>
         <h3>Scarichi su misura</h3>
         <p>Linee in acciaio inox costruite e saldate in officina sulla tua auto, non a catalogo.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-volume-high"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-fire-flame-curved"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">02</span>
         <h3>Suono e valvole</h3>
         <p>Terminali, valvole comandate e silenziatori per avere il suono che vuoi, quando vuoi.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-gauge"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-volume-high"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">03</span>
         <h3>Collettori e catalizzatori</h3>
         <p>Collettori sportivi e catalizzatori metallici abbinati alla mappa motore.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-gauge"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">04</span>
         <h3>Riparazioni</h3>
         <p>Saldature, sostituzione di tratti corrosi e flessibili senza cambiare tutta la linea.</p>
-      </article>
-      <article class="punto will-reveal">
-        <span class="punto__icona" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+      </li>
+      <li class="sx-servizio will-reveal">
+        <span class="sx-servizio__num">05</span>
         <h3>Rumore nei limiti</h3>
         <p>Misuriamo i decibel prima e dopo: lo scarico deve piacere a te, non ai vigili.</p>
-      </article>
-    </div>
+        <span class="sx-servizio__icona" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
+      </li>
+    </ol>
   </div>
 </section>
 
-<!-- ============ IL LAVORO CHE CI RAPPRESENTA DI PIU' ============
-     DA SOSTITUIRE: caso di esempio (nessun cliente reale). Sostituire foto, auto,
-     problema, intervento e risultato con un lavoro vero. -->
-<section class="atelier">
-  <div class="atelier__inner will-reveal">
-    <div class="atelier__media">
-      <img src="assets/img/foto/at-scarichi.webp" alt="Alfa Romeo Stelvio in officina" width="1200" height="1400" loading="lazy" decoding="async">
-      <span class="atelier__tag">Foto reale &middot; caso di esempio</span>
+<!-- ============ DALL'OFFICINA: foto e video veri ============ -->
+<section class="sx-media">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa sx-testa--riga will-reveal">
+      <div>
+        <span class="sx-eyebrow">Dall&rsquo;officina</span>
+        <h2>Auto vere, scatti veri.</h2>
+      </div>
+      <p>Niente foto di catalogo: sono le auto che passano dalla nostra officina. Tocca una foto per vederla grande.</p>
     </div>
-    <div class="atelier__content">
-      <span class="atelier__eyebrow">Il lavoro che ci rappresenta di piu'</span>
-      <h2>Un caso seguito dall'inizio alla fine.</h2>
-      <dl class="caso__scheda">
-        <div><dt>L'auto</dt><dd>Hot hatch, 2019</dd></div>
-        <div><dt>Il problema</dt><dd>Il proprietario voleva un suono piu&#x27; pieno senza il rimbombo in autostrada.</dd></div>
-        <div><dt>Cosa abbiamo fatto</dt><dd>Linea completa in inox con valvola comandata, silenziatore centrale progettato per tagliare le frequenze fastidiose.</dd></div>
-        <div><dt>Il risultato</dt><dd>Suono sportivo con valvola aperta, abitacolo silenzioso a valvola chiusa, decibel nei limiti.</dd></div>
-      </dl>
-      <a href="index.html#contatti" class="btn btn--primary">Hai un caso simile? Scrivici</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GALLERIA ============
-     Foto vere (ottobre 2026), targhe sfocate. Per aggiungerne una basta copiare una <figure>. -->
-<section class="blocco blocco--scuro">
-  <div class="blocco__inner">
-    <div class="blocco__head will-reveal">
-      <span class="blocco__eyebrow">Dalla nostra officina</span>
-      <h2>Alcuni lavori in foto.</h2>
-      <p>Scatti veri, fatti durante il lavoro: niente foto di catalogo.</p>
-    </div>
-    <div class="galleria">
-      <figure class="will-reveal">
-        <a href="assets/img/foto/gal-stelvio-retro.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-stelvio-retro.webp" alt="Alfa Romeo Stelvio con il kit active sound Maxhaust pronto per il montaggio" width="1200" height="900" loading="lazy" decoding="async"></a>
-        <figcaption>Alfa Romeo Stelvio con il kit active sound Maxhaust pronto per il montaggio</figcaption>
+    <div class="galleria sx-griglia">
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/gal-stelvio-retro.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-stelvio-retro.webp" alt="Alfa Romeo Stelvio con il kit Maxhaust" loading="lazy" decoding="async"></a>
+        <figcaption>Alfa Romeo Stelvio con il kit Maxhaust</figcaption>
       </figure>
-      <figure class="will-reveal">
-        <a href="assets/img/foto/gal-maxhaust.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-maxhaust.webp" alt="Il kit Maxhaust: generatore di suono e centralina" width="1200" height="900" loading="lazy" decoding="async"></a>
-        <figcaption>Il kit Maxhaust: generatore di suono e centralina</figcaption>
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/gal-maxhaust.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-maxhaust.webp" alt="Il kit active sound Maxhaust" loading="lazy" decoding="async"></a>
+        <figcaption>Il kit active sound Maxhaust</figcaption>
       </figure>
-      <figure class="will-reveal">
-        <a href="assets/img/foto/gal-stelvio-cofano.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-stelvio-cofano.webp" alt="La Stelvio in officina durante il montaggio" width="1200" height="900" loading="lazy" decoding="async"></a>
-        <figcaption>La Stelvio in officina durante il montaggio</figcaption>
+      <figure class="clip sx-tile will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-meccanica.jpg" data-src="assets/video/video-meccanica.mp4" aria-label="Video: Al banco"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">Video</span>Al banco</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/gal-stelvio-cofano.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-stelvio-cofano.webp" alt="La Stelvio in officina" loading="lazy" decoding="async"></a>
+        <figcaption>La Stelvio in officina</figcaption>
+      </figure>
+      <figure class="sx-tile will-reveal">
+        <a href="assets/img/foto/gal-rs6.webp" class="galleria__apri" data-lightbox><img src="assets/img/foto/gal-rs6.webp" alt="Audi RS6 in officina" loading="lazy" decoding="async"></a>
+        <figcaption>Audi RS6 in officina</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- ============ DOMANDE FREQUENTI ============
-     DA SOSTITUIRE: tre domande di esempio. -->
-<section class="blocco">
-  <div class="blocco__inner">
-    <div class="blocco__head will-reveal">
-      <span class="blocco__eyebrow">Domande frequenti</span>
-      <h2>Le cose che ci chiedono piu' spesso.</h2>
+<!-- ============ COME LAVORIAMO ============ -->
+<section class="sx-metodo">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Come lavoriamo</span>
+      <h2>Quattro passi, nessuna sorpresa.</h2>
+    </div>
+    <ol class="sx-passi">
+      <li class="will-reveal"><span>01</span><h3>Ci senti</h3><p>Chiami, scrivi su WhatsApp o passi in officina: fissiamo quando portare l&rsquo;auto.</p></li>
+      <li class="will-reveal"><span>02</span><h3>Controlliamo</h3><p>Guardiamo l&rsquo;auto e ti spieghiamo cosa abbiamo trovato, con parole semplici.</p></li>
+      <li class="will-reveal"><span>03</span><h3>Preventivo scritto</h3><p>Sai prima cosa si fa e quanto costa. Si parte solo quando sei d&rsquo;accordo.</p></li>
+      <li class="will-reveal"><span>04</span><h3>Riconsegna</h3><p>Ti ridiamo l&rsquo;auto spiegandoti cosa abbiamo fatto, con i pezzi sostituiti se li vuoi vedere.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ DOMANDE FREQUENTI ============ -->
+<section class="sx-faq">
+  <div class="sx-sezione__inner sx-faq__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Domande frequenti</span>
+      <h2>Le cose che ci chiedono pi&ugrave; spesso.</h2>
+      <p>Non trovi la tua? <a href="tel:+390165768675">Chiamaci</a>, ti rispondiamo noi.</p>
     </div>
     <div class="faq will-reveal">
       <div class="faq__item">
@@ -319,12 +348,57 @@
   </div>
 </section>
 
-<!-- ============ CTA DI CHIUSURA ============ -->
-<section class="storia-cta">
-  <div class="storia-cta__inner will-reveal">
-    <h2>Parliamo della tua auto.</h2>
-    <p>Preventivo scritto prima di iniziare, risposta entro 24 ore.</p>
-    <a href="index.html#contatti" class="btn btn--primary btn--lg">Richiedi un preventivo</a>
+<!-- ============ GLI ALTRI SETTORI ============ -->
+<section class="sx-altri">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa will-reveal">
+      <span class="sx-eyebrow">Sotto lo stesso tetto</span>
+      <h2>Gli altri settori dell&rsquo;officina.</h2>
+    </div>
+    <div class="sx-altri__griglia">
+      <a class="sx-altro will-reveal" href="settore-officina-meccanica.html">
+        <img src="assets/img/foto/sx-officina-meccanica-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">01</span>
+        <span class="sx-altro__nome">Officina meccanica</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-gommista.html">
+        <img src="assets/img/foto/sx-gommista-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">02</span>
+        <span class="sx-altro__nome">Gommista</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-elettrauto.html">
+        <img src="assets/img/foto/sx-elettrauto-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">03</span>
+        <span class="sx-altro__nome">Elettrauto</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-preparazioni-sportive.html">
+        <img src="assets/img/foto/sx-preparazioni-sportive-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">04</span>
+        <span class="sx-altro__nome">Preparazioni sportive</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="sx-altro will-reveal" href="settore-tuning-montaggio.html">
+        <img src="assets/img/foto/sx-tuning-montaggio-card.webp" alt="" loading="lazy" decoding="async" width="800" height="560">
+        <span class="sx-altro__num">06</span>
+        <span class="sx-altro__nome">Tuning e montaggio</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHIUSURA ============ -->
+<section class="sx-cta">
+  <div class="sx-cta__inner will-reveal">
+    <h2>Porta la tua auto<br>da noi.</h2>
+    <div class="sx-cta__lato">
+      <a href="tel:+390165768675" class="sx-cta__tel"><i class="fa-solid fa-phone" aria-hidden="true"></i> 0165 768675</a>
+      <a href="https://wa.me/393478567108" class="btn btn--light btn--lg" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Scrivici su WhatsApp</a>
+      <p>Zona Industriale 9, Saint-Marcel (AO) &middot; Lun-Ven 8:00-13:00 e 15:00-19:00</p>
+    </div>
   </div>
 </section>
 
@@ -388,6 +462,6 @@
 
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20261025c"></script>
+<script src="js/main.js?v=20261025e"></script>
 </body>
 </html>

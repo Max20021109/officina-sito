@@ -526,32 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* ---------- nastro "SITO IN COSTRUZIONE" ----------
-   Il sito e' online prima di essere finito (serve a farsi trovare su Google
-   intanto che arrivano foto e testi). Lo si dice con un nastro da cantiere
-   a righe nero/ambra, subito sotto la barra, che scorre come un pannello a
-   messaggio variabile: a sinistra la chiave inglese ferma, in mezzo il
-   testo che corre, a destra "Chiama" col numero. Su tutte le pagine perche'
-   lo monta questo script dentro la prima sezione di <main>: nella home
-   (hero a tutta altezza) sta appoggiato in alto, nelle altre pagine entra
-   nel flusso prima del titolo. Quando il sito e' finito: via questo blocco
-   e il CSS .nastro. */
-(function () {
-  var prima = document.querySelector('main > section');
-  if (!prima) { return; }
-  if (document.querySelector('.cantiere')) { return; }   // in home c'e' il pannello grande
-  var frase = 'Sito in costruzione &nbsp;&#9670;&nbsp; stiamo montando le ultime pagine e le foto dei lavori &nbsp;&#9670;&nbsp; l\'officina &egrave; aperta: per qualsiasi cosa chiamaci allo 0165 768675 &nbsp;&#9670;&nbsp; ';
-  var nastro = document.createElement('div');
-  nastro.className = 'nastro' + (prima.classList.contains('hero') || prima.classList.contains('pagina-hero') ? ' nastro--hero' : '');
-  nastro.setAttribute('role', 'status');
-  nastro.innerHTML =
-    '<div class="nastro__badge"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span>Lavori in corso</span></div>' +
-    '<div class="nastro__scorre" aria-label="Sito in costruzione: stiamo montando le ultime pagine. L\'officina e\' aperta, per qualsiasi cosa chiamaci allo 0165 768675">' +
-      '<div class="nastro__testo" aria-hidden="true"><span>' + frase + '</span><span>' + frase + '</span></div>' +
-    '</div>' +
-    '<a class="nastro__chiama" href="tel:+390165768675"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Chiamaci</span></a>';
-  prima.insertBefore(nastro, prima.firstChild);
-})();
+
 
 /* ---------- FOTO A TUTTO SCHERMO (ottobre 2026) ----------
    Le foto vere dell'officina si aprono grandi: nelle gallerie dei settori
@@ -663,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
       voci.forEach(function (e) {
         var c = e.target, v = c.querySelector('video');
         // sul telefono decide il blocco sotto (parte solo il video al centro)
-        if (window.matchMedia('(max-width: 960px)').matches) { if (!e.isIntersecting) { v.pause(); } return; }
+        if (c.closest('#clips') && window.matchMedia('(max-width: 960px)').matches) { if (!e.isIntersecting) { v.pause(); } return; }
         if (e.isIntersecting) { if (!c._fermo) { carica(v); v.play().catch(function () {}); } }
         else { v.pause(); }
       });
@@ -800,4 +775,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dy > 90 && Math.abs(dy) > Math.abs(dx)) { chiudi(); }
     else if (Math.abs(dx) > 50) { mostra(idx + (dx < 0 ? 1 : -1)); }
   }, { passive: true });
+})();
+
+/* ---------- PAGINE SETTORE (25/10/2026) ----------
+   Video di sfondo verticale sul telefono, parallasse leggera dello sfondo
+   e titolo che entra dal basso. */
+(function () {
+  var hero = document.querySelector('.sx-hero');
+  if (!hero) { return; }
+  var piano = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var v = hero.querySelector('video.sx-hero__bg');
+  if (v && v.dataset.verticale && window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches) {
+    v.poster = v.dataset.posterVerticale || v.poster; v.src = v.dataset.verticale; v.load();
+  }
+  if (v) { if (piano) { v.removeAttribute('autoplay'); v.pause(); } else { v.play().catch(function () {}); } }
+  var media = hero.querySelector('.sx-hero__media'), inner = hero.querySelector('.sx-hero__inner');
+  if (!piano && media) {
+    var att = false;
+    window.addEventListener('scroll', function () {
+      if (att) { return; } att = true;
+      requestAnimationFrame(function () {
+        att = false; var y = window.scrollY; if (y > window.innerHeight * 1.2) { return; }
+        media.style.transform = 'translate3d(0,' + (y * 0.28).toFixed(1) + 'px,0)';
+        if (inner) { inner.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.85))); }
+      });
+    }, { passive: true });
+  }
 })();
