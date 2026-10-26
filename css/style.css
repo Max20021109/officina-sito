@@ -2271,3 +2271,31 @@ h1,h2,h3,.hero__title,.sx-hero__titolo,.sx-cta h2,.nav__mobile-voci a,.sx-intro_
 @media (min-width:561px) and (max-width:1100px){.sx-hero__titolo{font-size:clamp(2.6rem,7.4vw,6rem)}}
 @media (min-width:1101px){.sx-hero__titolo{font-size:clamp(4rem,6.6vw,7.4rem)}}
 @media (min-width:1101px){.sx-hero__titolo{font-size:clamp(4rem,6.6vw,6.7rem)}}
+
+/* =====================================================================
+   SEO LOCALE (26/10/2026): carro attrezzi, zone servite, "Vicino ad Aosta"
+   ===================================================================== */
+.atelier__link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.1rem;margin-left:.2rem;font-weight:700;color:inherit;text-decoration:underline;text-decoration-color:#e3342a;text-underline-offset:.3em}
+.atelier__link i{color:#e3342a;transition:transform .3s}
+.atelier__link:hover i{transform:translateX(4px)}
+.atelier__content .atelier__link{display:flex;width:max-content}
+/* zone servite (pagina carro) */
+.sx-zone{background:var(--sx-bianco);color:#0b0c0f;padding:var(--section-pad) 0}
+.sx-zone .sx-testa--riga p{opacity:1;color:#55585f}
+.sx-zone__lista{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.sx-zone__lista li{font-family:var(--font-display);font-stretch:112%;font-weight:700;font-size:clamp(1rem,1.6vw,1.2rem);padding:.7rem 1.15rem;border:1.5px solid rgba(11,12,15,.14);border-radius:999px;background:#fff}
+.sx-zone__lista li:first-child{background:var(--sx-rosso);border-color:var(--sx-rosso);color:#fff}
+/* home: vicino ad Aosta */
+.vicino{--sx-rosso:#e3342a;background:#07080a;color:#fff;padding:var(--section-pad) 0}
+.vicino__inner{max-width:var(--container);margin-inline:auto;padding-inline:clamp(1.25rem,4vw,2rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.vicino__testa h2{font-family:var(--font-display);font-stretch:112%;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.03;letter-spacing:-.03em;margin:.9rem 0 1.1rem}
+.vicino__testa h2 em{font-style:normal;color:#ff6a5f}
+.vicino__testa p{opacity:.72;max-width:46ch;line-height:1.6}
+.vicino__griglia{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.7rem,1.3vw,1rem)}
+@media (max-width:960px){
+  .vicino__inner{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .vicino__griglia{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:62vw;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.4rem;scrollbar-width:none}
+  .vicino .sx-altro{scroll-snap-align:start}
+}

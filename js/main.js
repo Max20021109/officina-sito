@@ -822,9 +822,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 
-/* ---------- APERTO / CHIUSO nella hero (25/10/2026) ----------
-   Orari: lun-ven 8:00-13:00 e 15:00-19:00, ora italiana. Niente festivi:
-   se serve, si aggiunge una lista di date qui sotto. */
+/* ---------- APERTO / CHIUSO nella hero (25/10/2026, sabato aggiunto 26/10) ----------
+   Orari: lun-ven 8:00-13:00 e 15:00-19:00, sabato 8:00-12:30, ora italiana.
+   Niente festivi: se serve, si aggiunge una lista di date qui sotto. */
 (function () {
   var el = document.getElementById('statoOfficina');
   if (!el) { return; }
@@ -835,15 +835,17 @@ document.addEventListener('DOMContentLoaded', () => {
     var giorno = ['dom', 'lun', 'mar', 'mer', 'gio', 'ven', 'sab'].indexOf(g.weekday.slice(0, 3).toLowerCase());
     var m = parseInt(g.hour, 10) % 24 * 60 + parseInt(g.minute, 10);
     var feriale = giorno >= 1 && giorno <= 5;
-    var aperto = feriale && ((m >= 480 && m < 780) || (m >= 900 && m < 1140));
+    var sabato = giorno === 6;
+    var aperto = (feriale && ((m >= 480 && m < 780) || (m >= 900 && m < 1140))) || (sabato && m >= 480 && m < 750);
     if (aperto) {
-      var fine = m < 780 ? '13:00' : '19:00';
+      var fine = sabato ? '12:30' : (m < 780 ? '13:00' : '19:00');
       t = 'Aperto ora &middot; fino alle ' + fine; el.classList.add('aperto');
     } else {
       var prossimo;
-      if (feriale && m < 480) { prossimo = 'oggi alle 8:00'; }
+      if ((feriale || sabato) && m < 480) { prossimo = 'oggi alle 8:00'; }
       else if (feriale && m >= 780 && m < 900) { prossimo = 'alle 15:00'; }
       else if (giorno >= 1 && giorno <= 4) { prossimo = 'domani alle 8:00'; }
+      else if (giorno === 5) { prossimo = 'sabato alle 8:00'; }
       else { prossimo = 'luned&igrave; alle 8:00'; }
       t = 'Chiuso &middot; riapriamo ' + prossimo; el.classList.add('chiuso');
     }
