@@ -19,7 +19,7 @@
 html,body{height:100%;background:#07080a}
 .lk{position:relative;min-height:100dvh;display:flex;flex-direction:column;color:#fff;overflow:hidden;isolation:isolate;
   padding:max(1.4rem,env(safe-area-inset-top)) 1.4rem max(1.6rem,env(safe-area-inset-bottom))}
-.lk__bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.lk__bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
 .lk::before{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(180deg,rgba(7,8,10,.55) 0%,rgba(7,8,10,.35) 30%,rgba(7,8,10,.82) 62%,#07080a 100%)}
 .lk__logo{width:min(230px,62vw);height:auto;margin:0 auto;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.6))}
@@ -67,11 +67,16 @@ html,body{height:100%;background:#07080a}
 .lk__social a{font-size:.74rem;gap:.35rem}
 .lk__firma{margin-top:min(1rem,1.8svh);font-size:.66rem}
 @media (max-height:600px){.lk__sub{display:none}.lk__social a{font-size:0;gap:0}}
+
+/* iPhone (Safari/Chrome iOS): con il video in autoplay dietro, al primo caricamento i testi
+   a volte non vengono disegnati finche' non si ricarica. Ogni blocco va su un livello suo. */
+.lk__logo,.lk__corpo{position:relative;z-index:1;transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0);will-change:transform}
+.lk h1,.lk__eyebrow,.lk__sub,.lk__social,.lk__firma{-webkit-transform:translate3d(0,0,0)}
 </style>
 </head>
 <body>
 <main class="lk">
-  <video class="lk__bg" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-officina-verticale.jpg" aria-hidden="true">
+  <video class="lk__bg" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-officina-verticale.jpg" aria-hidden="true">
     <source src="assets/video/hero-officina-verticale.mp4?v=2" type="video/mp4">
   </video>
 
