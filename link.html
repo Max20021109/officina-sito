@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Autocar Service | Recensioni, WhatsApp e social</title>
+<meta name="description" content="Autocar Service, Saint-Marcel (AO): lascia una recensione, scrivici su WhatsApp, seguici su TikTok e Instagram.">
+<!-- Pagina del QR code della TV in sala d'attesa: non serve su Google -->
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#07080a">
+<link rel="canonical" href="https://autocar-service.it/link.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b0d10'/%3E%3Cpath d='M50 18 65 27v18l-15 9-15-9V27z' fill='none' stroke='%23e6332a' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23e6332a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<style>
+@font-face{font-family:"Archivo";src:url(assets/vendor/fonts/archivo/archivo-latin-wdth-normal.woff2) format("woff2-variations");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url(assets/vendor/fonts/inter-tight/inter-tight-latin-wght-normal.woff2) format("woff2-variations");font-weight:100 900;font-display:swap}
+:root{--nero:#07080a;--nero2:#111318;--rosso:#e3342a;--bianco:#f4f4f2;--grigio:#9a9ca3}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--nero);color:var(--bianco)}
+body{font-family:"Inter Tight",system-ui,sans-serif;min-height:100dvh;display:flex;justify-content:center;padding:max(28px,env(safe-area-inset-top)) 18px 40px;
+  background:radial-gradient(70% 45% at 50% 0%,rgba(227,52,42,.28),transparent 70%),var(--nero)}
+main{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center}
+.logo{width:240px;height:auto;margin:6px 0 4px}
+.dove{margin-top:10px;margin-bottom:30px;font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grigio);margin-bottom:26px;text-align:center}
+.link{width:100%;display:flex;align-items:center;gap:14px;padding:22px 20px;border-radius:18px;background:var(--nero2);border:1px solid rgba(255,255,255,.08);
+  color:var(--bianco);text-decoration:none;margin-bottom:12px;transition:transform .15s,border-color .15s}
+.link:active{transform:scale(.98)}
+.link:hover{border-color:rgba(227,52,42,.6)}
+.link i.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.25rem;background:rgba(255,255,255,.06);flex:none}
+.link span{flex:1;display:flex;flex-direction:column}
+.link b{font-family:"Archivo",sans-serif;font-stretch:112%;font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.link small{color:var(--grigio);font-size:.85rem;margin-top:2px}
+.link .fa-arrow-right{color:var(--grigio);font-size:.9rem}
+.link--top{background:var(--rosso);border-color:var(--rosso)}
+.link--top i.ico{background:rgba(0,0,0,.18)}
+.link--top small,.link--top .fa-arrow-right{color:rgba(255,255,255,.85)}
+.stelle{color:#ffcf3d;letter-spacing:2px;font-size:.8rem}
+main{min-height:calc(100dvh - 68px)}
+.cima{display:flex;flex-direction:column;align-items:center}
+.centro{flex:1;width:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px 0}
+h1{font-family:"Archivo",sans-serif;font-stretch:125%;font-weight:800;font-size:1.9rem;letter-spacing:-.03em;text-transform:uppercase;text-align:center;line-height:1.05}
+.sotto{color:var(--grigio);text-align:center;margin:10px 0 22px}
+.social{width:100%;display:flex;justify-content:center;gap:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08)}
+.soc{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--bianco);text-decoration:none;font-size:.8rem}
+.soc i{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;background:var(--nero2);border:1px solid rgba(255,255,255,.1);transition:border-color .15s,transform .15s}
+.soc:active i{transform:scale(.94)}
+.soc:hover i{border-color:var(--rosso)}
+.soc .fa-whatsapp{color:#25d366}
+.soc .fa-instagram{color:#ff5a8a}
+.sito{margin-top:16px;font-family:ui-monospace,monospace;font-size:.78rem;letter-spacing:.12em;color:var(--grigio);text-decoration:none}
+.soc b{font-weight:600}
+.griglia{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;aspect-ratio:1;border-radius:18px;background:var(--nero2);border:1px solid rgba(255,255,255,.08);color:var(--bianco);text-decoration:none;transition:transform .15s,border-color .15s}
+.tile:active{transform:scale(.97)}
+.tile:hover{border-color:rgba(227,52,42,.6)}
+.tile i{font-size:1.9rem}
+.tile .fa-whatsapp{color:#25d366}
+.tile b{font-family:"Archivo",sans-serif;font-stretch:112%;font-weight:800;font-size:.92rem}
+.orari{margin-top:22px;text-align:center;color:var(--grigio);font-size:.9rem;line-height:1.6}
+.orari b{color:var(--bianco);font-weight:600}
+</style>
+</head>
+<body>
+<main>
+  <header class="cima">
+  <img class="logo" src="assets/img/logo.png" alt="Autocar Service, officina meccanica e gommista" width="240" height="125">
+  <p class="dove">Saint-Marcel &middot; Aosta</p>
+  </header>
+  <section class="centro">
+    <h1>Ti siamo piaciuti?</h1>
+    <p class="sotto">Lasciaci una recensione su Google: ci aiuta tantissimo.</p>
+
+  <a class="link link--top" href="https://search.google.com/local/writereview?placeid=ChIJj9B3YNzdiEcR0xJorXFNBa4" target="_blank" rel="noopener">
+    <i class="ico fa-brands fa-google" aria-hidden="true"></i>
+    <span><b>Lascia una recensione</b><small><span class="stelle">&#9733;&#9733;&#9733;&#9733;&#9733;</span></small></span>
+    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+  </a>
+  <a class="link" href="https://autocar-service.it/">
+    <i class="ico fa-solid fa-globe" aria-hidden="true"></i>
+    <span><b>Visita il sito</b><small>autocar-service.it</small></span>
+    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+  </a>
+  </section>
+  <nav class="social" aria-label="Contatti e social">
+    <a class="soc" href="https://wa.me/393478567108" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+    <a class="soc" href="https://www.tiktok.com/@autocarservice.ao" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+    <a class="soc" href="https://www.instagram.com/autocarservice.ao" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+  </nav>
+</main>
+</body>
+</html>
