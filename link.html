@@ -50,6 +50,23 @@ html,body{height:100%;background:#07080a}
 .soc--wa{color:#25d366}.soc--ig{color:#ff5a8a}
 .lk__firma{display:block;text-align:center;margin-top:1.5rem;font-size:.72rem;letter-spacing:.04em;color:rgba(255,255,255,.4);text-decoration:none}
 .lk__firma:hover{color:rgba(255,255,255,.7)}
+
+/* tutto in una schermata anche con le barre del browser (Safari/Chrome mobile) */
+.lk{min-height:100svh;height:100svh;padding:max(.9rem,env(safe-area-inset-top)) 1.2rem max(.9rem,env(safe-area-inset-bottom))}
+.lk__logo{width:min(190px,24svh,52vw)}
+.lk__corpo{margin-top:auto;display:flex;flex-direction:column}
+.lk__eyebrow{font-size:.66rem}
+.lk h1{font-size:clamp(1.9rem,min(10vw,6.2svh),3.2rem);margin:.5rem 0 .5rem}
+.lk__sub{font-size:.92rem;margin-bottom:min(1.1rem,2svh)}
+.card{padding:min(.95rem,1.8svh) 1rem;margin-bottom:min(.7rem,1.3svh);border-radius:20px}
+.card__ico{width:min(3rem,6.4svh);height:min(3rem,6.4svh);border-radius:14px}
+.card__testo b{font-size:1.04rem}
+.card__testo small{font-size:.8rem}
+.lk__social{margin-top:min(1rem,1.8svh);padding-top:min(1rem,1.8svh)}
+.soc{width:min(3rem,6.2svh);height:min(3rem,6.2svh);border-radius:14px;font-size:1.2rem}
+.lk__social a{font-size:.74rem;gap:.35rem}
+.lk__firma{margin-top:min(1rem,1.8svh);font-size:.66rem}
+@media (max-height:600px){.lk__sub{display:none}.lk__social a{font-size:0;gap:0}}
 </style>
 </head>
 <body>
