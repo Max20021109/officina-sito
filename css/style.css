@@ -2299,3 +2299,26 @@ h1,h2,h3,.hero__title,.sx-hero__titolo,.sx-cta h2,.nav__mobile-voci a,.sx-intro_
   .vicino__griglia{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:62vw;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.4rem;scrollbar-width:none}
   .vicino .sx-altro{scroll-snap-align:start}
 }
+
+/* ---------- novembre 2026: striscia video "Uno scarico nasce qui" e video nell'hero ---------- */
+.sx-film{background:var(--sx-nero);color:#fff;padding:var(--section-pad) 0 calc(var(--section-pad) + clamp(1rem,4vw,3.5rem));position:relative;overflow:hidden}
+.sx-film::before{content:"";position:absolute;width:70vw;height:70vw;left:50%;top:45%;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(227,52,42,.16),transparent);pointer-events:none}
+.sx-film__riga{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.8rem,1.6vw,1.4rem)}
+.sx-film__clip{border-radius:24px;box-shadow:0 30px 60px -30px rgba(0,0,0,.8);outline:1px solid rgba(255,255,255,.08)}
+.sx-film__clip:nth-child(2){transform:translateY(clamp(1rem,4vw,3.5rem))}
+.sx-film__clip .clip__tag{color:#ff6a5f}
+.sx-film__clip::after{content:"";position:absolute;inset:auto 0 0 0;height:55%;z-index:1;pointer-events:none;
+  background:linear-gradient(transparent,rgba(7,8,10,.85))}
+@media (max-width:760px){
+  .sx-film{padding-bottom:var(--section-pad)}
+  .sx-film__riga{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;
+    margin-inline:calc(-1 * clamp(1.25rem,4vw,2rem));padding-inline:clamp(1.25rem,4vw,2rem);scrollbar-width:none}
+  .sx-film__riga::-webkit-scrollbar{display:none}
+  .sx-film__clip{scroll-snap-align:center}
+  .sx-film__clip:nth-child(2){transform:none}
+}
+.sx-hero__vid{display:none}
+@media (max-width:760px) and (orientation:portrait){
+  .sx-hero__vid{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+}

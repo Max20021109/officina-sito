@@ -31,7 +31,7 @@
 <link rel="preload" href="assets/vendor/fonts/inter-tight/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/vendor/fonts/fonts.css">
 <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=20261026b">
+<link rel="stylesheet" href="css/style.css?v=20261106">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -177,7 +177,7 @@
 <!-- ============ HERO DEL SETTORE (ottobre 2026) ============
      Sfondo vero dell'officina in bianco e nero con il rosso acceso, a tutto schermo. -->
 <section class="sx-hero">
-  <div class="sx-hero__media"><picture><source media="(max-width:760px) and (orientation:portrait)" srcset="assets/img/foto/sx-scarichi-m.webp"><img class="sx-hero__bg" src="assets/img/foto/sx-scarichi.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture></div>
+  <div class="sx-hero__media"><picture><source media="(max-width:760px) and (orientation:portrait)" srcset="assets/img/foto/sx-scarichi-m.webp"><img class="sx-hero__bg" src="assets/img/foto/sx-scarichi.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async"></picture><video class="sx-hero__vid" muted loop playsinline preload="none" poster="assets/video/hero-scarichi-m.jpg" data-src="assets/video/hero-scarichi-m.mp4" aria-hidden="true"></video></div>
   <div class="sx-hero__velo" aria-hidden="true"></div>
   <div class="sx-hero__inner">
     <nav class="breadcrumb" aria-label="Percorso"><a href="index.html">Home</a> <span aria-hidden="true">&rsaquo;</span> <a href="index.html#servizi">Servizi</a> <span aria-hidden="true">&rsaquo;</span> <span aria-current="page">Scarichi</span></nav>
@@ -251,6 +251,36 @@
 </section>
 
 <!-- ============ DALL'OFFICINA: foto e video veri ============ -->
+<!-- ============ DALLA SALDATURA AL MONTAGGIO (video veri, 11/2026) ============ -->
+<section class="sx-film">
+  <div class="sx-sezione__inner">
+    <div class="sx-testa sx-testa--riga will-reveal">
+      <div>
+        <span class="sx-eyebrow">Fatto in officina</span>
+        <h2>Uno scarico nasce qui.</h2>
+      </div>
+      <p>La linea si taglia, si salda e si prova sull&rsquo;auto, tutto da noi. Le riprese sono dei nostri meccanici, mentre lavorano.</p>
+    </div>
+    <div class="sx-film__riga">
+      <figure class="clip sx-film__clip will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-scarichi-saldatura.jpg" data-src="assets/video/video-scarichi-saldatura.mp4" aria-label="Video: La linea si salda al banco, pezzo per pezzo"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">01 &middot; Saldatura</span>La linea si salda al banco, pezzo per pezzo</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
+      <figure class="clip sx-film__clip will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-scarichi-tubi.jpg" data-src="assets/video/video-scarichi-tubi.mp4" aria-label="Video: Silenziatore e tubi in acciaio inox"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">02 &middot; Inox</span>Silenziatore e tubi in acciaio inox</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
+      <figure class="clip sx-film__clip will-reveal">
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-scarichi-booster.jpg" data-src="assets/video/video-scarichi-booster.mp4" aria-label="Video: Lo scarico con booster va sull'auto"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">03 &middot; Montaggio</span>Lo scarico con booster va sull&rsquo;auto</figcaption>
+        <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section class="sx-media">
   <div class="sx-sezione__inner">
     <div class="sx-testa sx-testa--riga will-reveal">
@@ -270,8 +300,8 @@
         <figcaption>Il kit active sound Maxhaust</figcaption>
       </figure>
       <figure class="clip sx-tile will-reveal">
-        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-meccanica.jpg" data-src="assets/video/video-meccanica.mp4" aria-label="Video: Al banco"></video>
-        <figcaption class="clip__cap"><span class="clip__tag">Video</span>Al banco</figcaption>
+        <video class="clip__video" muted loop playsinline preload="none" poster="assets/video/video-scarichi-tubi.jpg" data-src="assets/video/video-scarichi-tubi.mp4" aria-label="Video: Silenziatore saldato sulla linea"></video>
+        <figcaption class="clip__cap"><span class="clip__tag">Inox</span>Silenziatore saldato sulla linea</figcaption>
         <button type="button" class="clip__pausa" aria-label="Metti in pausa il video"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
       </figure>
       <figure class="sx-tile will-reveal">
@@ -463,6 +493,6 @@
 
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
-<script src="js/main.js?v=20261026b"></script>
+<script src="js/main.js?v=20261106"></script>
 </body>
 </html>

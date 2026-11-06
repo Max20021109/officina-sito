@@ -852,3 +852,12 @@ document.addEventListener('DOMContentLoaded', () => {
     el.querySelector('span').innerHTML = t;
   } catch (e) { /* resta l'orario scritto */ }
 })();
+
+/* ---------- novembre 2026: video nell'hero delle pagine settore (solo telefono in verticale) ---------- */
+(function () {
+  var v = document.querySelector('.sx-hero__vid');
+  if (!v || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+  var mq = window.matchMedia('(max-width: 760px) and (orientation: portrait)');
+  function prova() { if (mq.matches) { if (!v.getAttribute('src')) { v.src = v.dataset.src; } v.play().catch(function () {}); } else { v.pause(); } }
+  prova(); if (mq.addEventListener) { mq.addEventListener('change', prova); }
+})();
