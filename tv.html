@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autocar Service · TV</title>
+<!-- Vetrina per la TV della sala d'attesa (si apre col browser della TV a schermo intero).
+     Alterna i video dei settori e le pause da 30 s con l'ora esatta, gli orari e il QR.
+     Non serve su Google. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#07080a">
+<style>
+@font-face{font-family:"Inter Tight";src:url(assets/vendor/fonts/inter-tight/inter-tight-latin-wght-normal.woff2) format("woff2-variations"),url(assets/vendor/fonts/inter-tight/inter-tight-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"JBM";src:url(assets/vendor/fonts/jetbrains-mono/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{--rosso:#e3342a;--nero:#07080a}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;cursor:none}
+/* palco 1920x1080 scalato per stare in qualsiasi schermo (alcune TV dichiarano 1280x720) */
+#palco{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:var(--nero);overflow:hidden;
+  font-family:"Inter Tight",system-ui,sans-serif;color:#f4f4f2}
+video{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;background:#000;opacity:0;transition:opacity .6s}
+video.on{opacity:1}
+.pausa{position:absolute;inset:0;opacity:0;transition:opacity .9s;pointer-events:none;
+  background:radial-gradient(900px 700px at 15% 85%,rgba(227,52,42,.20),transparent 70%),radial-gradient(800px 600px at 95% 10%,rgba(227,52,42,.10),transparent 70%),var(--nero)}
+.pausa.on{opacity:1}
+.logo{position:absolute;width:420px;height:auto}
+.eyebrow{display:flex;align-items:center;gap:22px;font-family:"JBM",ui-monospace,monospace;font-size:28px;letter-spacing:.24em;text-transform:uppercase;color:#ff5a50}
+.eyebrow::before{content:"";width:48px;height:4px;background:var(--rosso)}
+.ora{font-weight:600;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:.9}
+.ora .sec{color:var(--rosso)}
+.data{font-size:44px;color:#cfd0d4;text-transform:capitalize}
+.stato{display:inline-flex;align-items:center;gap:16px;padding:16px 30px;border-radius:999px;font-size:34px;font-weight:600;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.stato i{width:16px;height:16px;border-radius:50%;background:#7a7b80}
+.stato.aperto i{background:#2ecc71;box-shadow:0 0 18px #2ecc71}
+.stato.chiuso i{background:var(--rosso)}
+.barra{position:absolute;left:110px;right:110px;bottom:70px;height:4px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.barra b{display:block;height:100%;width:0;background:var(--rosso)}
+.pausa.on .barra b{animation:avanza 30s linear forwards}
+@keyframes avanza{to{width:100%}}
+.firma{position:absolute;right:110px;bottom:24px;font-size:20px;color:rgba(255,255,255,.35)}
+/* pausa ORA */
+#p-ora .logo{left:50%;top:110px;transform:translateX(-50%);width:520px}
+#p-ora .centro{position:absolute;left:0;right:0;top:430px;text-align:center}
+#p-ora .ora{font-size:300px}
+#p-ora .data{margin-top:26px}
+#p-ora .stato{margin-top:34px}
+/* pause ORARI e QR: logo + ora a sinistra, contenuto a destra */
+.sx{position:absolute;left:110px;top:110px;width:720px}
+.sx .logo{position:static;width:440px}
+.sx .ora{font-size:170px;margin-top:70px}
+.sx .data{font-size:36px;margin-top:16px}
+.sx .stato{margin-top:28px;font-size:28px;padding:12px 24px}
+.dx{position:absolute;left:880px;right:110px;top:150px}
+.righe{margin-top:40px}
+.riga{display:flex;justify-content:space-between;align-items:baseline;padding:28px 0;border-bottom:2px solid rgba(255,255,255,.08)}
+.riga span{font-size:38px;color:#b9bac0;white-space:nowrap}
+.riga b{font-size:48px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.riga b.no{color:#77787e}
+.contatti{margin-top:44px;font-size:40px;font-weight:600;line-height:1.5}
+.contatti small{display:block;font-size:30px;font-weight:400;color:#a9aab0}
+#p-qr .dx{display:flex;gap:56px;align-items:center;top:160px}
+.qr{flex:none;width:420px;padding:36px;border-radius:36px;background:#fff;text-align:center;color:#111;font-size:26px;font-weight:600}
+.qr img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.qr .st{color:#f5b400;font-size:36px;letter-spacing:6px;margin:14px 0 4px}
+.qrtesto h2{font-size:76px;font-weight:600;letter-spacing:-.03em;line-height:1;margin:26px 0 22px}
+.qrtesto p{font-size:32px;color:#c7c8cc;line-height:1.4}
+.qrtesto .tr{display:block;width:90px;height:6px;background:var(--rosso);margin:0 0 30px}
+#avvio{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:30px;background:var(--nero);font-size:48px}
+#avvio.on{display:flex}
+#avvio small{font-size:28px;color:#9a9ba0}
+</style>
+</head>
+<body>
+<div id="palco">
+  <video id="v1" muted playsinline preload="auto"></video>
+  <video id="v2" muted playsinline preload="auto"></video>
+
+  <!-- pausa: ora esatta -->
+  <section class="pausa" id="p-ora">
+    <img class="logo" src="assets/img/logo.png" alt="Autocar Service">
+    <div class="centro">
+      <div class="ora js-ora">--:--</div>
+      <div class="data js-data"></div>
+      <div class="stato js-stato"><i></i><span>&nbsp;</span></div>
+    </div>
+    <div class="barra"><b></b></div>
+    <div class="firma">autocar-service.it</div>
+  </section>
+
+  <!-- pausa: orari e contatti -->
+  <section class="pausa" id="p-orari">
+    <div class="sx">
+      <img class="logo" src="assets/img/logo.png" alt="Autocar Service">
+      <div class="ora js-ora">--:--</div>
+      <div class="data js-data"></div>
+      <div class="stato js-stato"><i></i><span>&nbsp;</span></div>
+    </div>
+    <div class="dx">
+      <div class="eyebrow">Orari</div>
+      <div class="righe">
+        <div class="riga"><span>Luned&igrave; &ndash; Venerd&igrave;</span><b>8:00&ndash;12:00 &middot; 14:00&ndash;19:00</b></div>
+        <div class="riga"><span>Sabato</span><b>8:00&ndash;12:00</b></div>
+        <div class="riga"><span>Domenica</span><b class="no">chiuso</b></div>
+      </div>
+      <div class="contatti">Tel. 0165 768675<br>WhatsApp e carro attrezzi 347 856 7108<small>Zona Industriale 9, Saint-Marcel (AO)</small></div>
+    </div>
+    <div class="barra"><b></b></div>
+    <div class="firma">autocar-service.it</div>
+  </section>
+
+  <!-- pausa: QR recensioni / social -->
+  <section class="pausa" id="p-qr">
+    <div class="sx">
+      <img class="logo" src="assets/img/logo.png" alt="Autocar Service">
+      <div class="ora js-ora">--:--</div>
+      <div class="data js-data"></div>
+      <div class="stato js-stato"><i></i><span>&nbsp;</span></div>
+    </div>
+    <div class="dx">
+      <div class="qr"><img src="assets/tv/qr-link.png" alt="QR"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>Inquadra con la fotocamera</div>
+      <div class="qrtesto">
+        <div class="eyebrow">Recensioni su Google</div>
+        <h2>Ti siamo<br>piaciuti?</h2>
+        <span class="tr"></span>
+        <p>Inquadra il QR: recensione, sito, WhatsApp, TikTok e Instagram.</p>
+      </div>
+    </div>
+    <div class="barra"><b></b></div>
+    <div class="firma">Powered by Massimo Franco</div>
+  </section>
+
+  <div id="avvio"><div>Premi <b>OK</b> per avviare</div><small>Autocar Service &middot; vetrina TV</small></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var V = 'assets/tv/';
+  var VER = '?v=1';
+  // scaletta: video del settore e poi pausa da 30 s
+  var SCALETTA = [
+    { v: 'intro.mp4' },
+    { v: 'settore1.mp4' }, { p: 'p-ora' },
+    { v: 'settore2.mp4' }, { p: 'p-orari' },
+    { v: 'settore3.mp4' }, { p: 'p-qr' },
+    { v: 'settore4.mp4' }, { p: 'p-ora' },
+    { v: 'settore5.mp4' }, { p: 'p-orari' },
+    { v: 'settore6.mp4' }, { p: 'p-qr' }
+  ];
+  var PAUSA = 30000;
+  var palco = document.getElementById('palco');
+  var lettori = [document.getElementById('v1'), document.getElementById('v2')];
+  var attivo = 0, i = 0, avviato = Date.now();
+
+  function adatta() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    palco.style.transform = 'scale(' + s + ')';
+    palco.style.left = ((window.innerWidth - 1920 * s) / 2) + 'px';
+    palco.style.top = ((window.innerHeight - 1080 * s) / 2) + 'px';
+  }
+  window.addEventListener('resize', adatta); adatta();
+
+  // ---------- ora esatta, data, aperto/chiuso (ora italiana) ----------
+  function aggiornaOra() {
+    var d = new Date(), g = {};
+    try {
+      new Intl.DateTimeFormat('it-IT', { timeZone: 'Europe/Rome', weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
+        .formatToParts(d).forEach(function (x) { g[x.type] = x.value; });
+    } catch (e) { g = { hour: ('0' + d.getHours()).slice(-2), minute: ('0' + d.getMinutes()).slice(-2), second: ('0' + d.getSeconds()).slice(-2), weekday: '', day: d.getDate(), month: '' }; }
+    var hh = String(g.hour).replace('24', '00');
+    var oraHtml = hh + ':' + g.minute + '<span class="sec">:' + g.second + '</span>';
+    var data = g.weekday + ' ' + g.day + ' ' + g.month;
+    var gi = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'].indexOf(String(g.weekday).toLowerCase());
+    if (gi < 0) { gi = d.getDay(); }
+    var m = parseInt(hh, 10) * 60 + parseInt(g.minute, 10);
+    var feriale = gi >= 1 && gi <= 5, sab = gi === 6;
+    var aperto = (feriale && ((m >= 480 && m < 720) || (m >= 840 && m < 1140))) || (sab && m >= 480 && m < 720);
+    var testo;
+    if (aperto) { testo = 'Aperto ora · fino alle ' + ((sab || m < 720) ? '12:00' : '19:00'); }
+    else if ((feriale || sab) && m < 480) { testo = 'Chiuso · apriamo alle 8:00'; }
+    else if (feriale && m >= 720 && m < 840) { testo = 'Pausa pranzo · riapriamo alle 14:00'; }
+    else if (gi >= 1 && gi <= 4) { testo = 'Chiuso · riapriamo domani alle 8:00'; }
+    else if (gi === 5) { testo = 'Chiuso · riapriamo sabato alle 8:00'; }
+    else { testo = 'Chiuso · riapriamo lunedì alle 8:00'; }
+    Array.prototype.forEach.call(document.querySelectorAll('.js-ora'), function (el) { el.innerHTML = oraHtml; });
+    Array.prototype.forEach.call(document.querySelectorAll('.js-data'), function (el) { el.textContent = data; });
+    Array.prototype.forEach.call(document.querySelectorAll('.js-stato'), function (el) {
+      el.className = 'stato js-stato ' + (aperto ? 'aperto' : 'chiuso'); el.querySelector('span').textContent = testo;
+    });
+  }
+  aggiornaOra(); setInterval(aggiornaOra, 1000);
+
+  // ---------- riproduzione ----------
+  function prossimoVideo(da) {
+    for (var k = 1; k <= SCALETTA.length; k++) { var x = SCALETTA[(da + k) % SCALETTA.length]; if (x.v) { return x.v; } }
+  }
+  function precarica(lettore, nome) {
+    if (lettore.getAttribute('data-n') !== nome) { lettore.setAttribute('data-n', nome); lettore.src = V + nome + VER; lettore.load(); }
+  }
+  function spegniPause() { Array.prototype.forEach.call(document.querySelectorAll('.pausa'), function (p) { p.classList.remove('on'); }); }
+
+  function passo() {
+    var x = SCALETTA[i];
+    if (i === 0 && Date.now() - avviato > 6 * 3600 * 1000) { location.reload(); return; } // ogni 6 ore ricarica (prende gli aggiornamenti)
+    if (x.v) {
+      var l = lettori[attivo], altro = lettori[1 - attivo];
+      precarica(l, x.v);
+      l.currentTime = 0;
+      var pr = l.play();
+      if (pr && pr.catch) { pr.catch(function (e) { if (e && e.name === 'NotAllowedError') { document.getElementById('avvio').classList.add('on'); } }); }
+      l.classList.add('on'); altro.classList.remove('on');
+      setTimeout(spegniPause, 300);
+      precarica(altro, prossimoVideo(i));
+      l.onended = function () { l.onended = null; avanti(); };
+      l.onerror = function () { l.onerror = null; setTimeout(avanti, 1000); };
+      attivo = 1 - attivo;
+    } else {
+      var p = document.getElementById(x.p);
+      var b = p.querySelector('.barra b'); if (b) { b.style.animation = 'none'; void b.offsetWidth; b.style.animation = ''; }
+      p.classList.add('on');
+      setTimeout(function () { lettori.forEach(function (v) { v.classList.remove('on'); }); }, 900);
+      setTimeout(avanti, PAUSA);
+    }
+  }
+  function avanti() { i = (i + 1) % SCALETTA.length; passo(); }
+
+  function avvia() {
+    document.getElementById('avvio').classList.remove('on');
+    var el = document.documentElement, fs = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+    if (fs && !document.fullscreenElement) { try { fs.call(el); } catch (e) {} }
+    var l = lettori[1 - attivo]; if (l.paused && l.src) { l.play().catch(function () {}); }
+  }
+  document.addEventListener('keydown', avvia);
+  document.addEventListener('click', avvia);
+
+  precarica(lettori[0], SCALETTA[0].v);
+  passo();
+})();
+</script>
+</body>
+</html>
