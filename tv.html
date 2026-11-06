@@ -65,6 +65,10 @@ video.on{opacity:1}
 .qrtesto h2{font-size:76px;font-weight:600;letter-spacing:-.03em;line-height:1;margin:26px 0 22px}
 .qrtesto p{font-size:32px;color:#c7c8cc;line-height:1.4}
 .qrtesto .tr{display:block;width:90px;height:6px;background:var(--rosso);margin:0 0 30px}
+.carro{display:flex;gap:56px;align-items:center;top:120px}
+.carro .foto{flex:none;width:420px;height:700px;border-radius:32px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
+.carro .foto img{width:100%;height:100%;object-fit:cover;display:block}
+.num{display:inline-block;white-space:nowrap;margin-top:34px;padding:20px 36px;border-radius:999px;background:var(--rosso);font-size:46px;font-weight:600;font-variant-numeric:tabular-nums}
 #avvio{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:30px;background:var(--nero);font-size:48px}
 #avvio.on{display:flex}
 #avvio small{font-size:28px;color:#9a9ba0}
@@ -129,6 +133,28 @@ video.on{opacity:1}
     <div class="firma">Powered by Massimo Franco</div>
   </section>
 
+  <!-- settore 06: carro attrezzi (schermata fissa con una foto) -->
+  <section class="pausa" id="p-carro">
+    <div class="sx">
+      <img class="logo" src="assets/img/logo.png" alt="Autocar Service">
+      <div class="ora js-ora">--:--</div>
+      <div class="data js-data"></div>
+      <div class="stato js-stato"><i></i><span>&nbsp;</span></div>
+    </div>
+    <div class="dx carro">
+      <div class="foto"><img src="assets/tv/carro.webp" alt="Il carro attrezzi di Autocar Service"></div>
+      <div class="qrtesto">
+        <div class="eyebrow">Servizi 06</div>
+        <h2>Carro<br>attrezzi</h2>
+        <span class="tr"></span>
+        <p>Recuperiamo l&rsquo;auto in panne e la portiamo direttamente in officina.</p>
+        <div class="num">347 856 7108</div>
+      </div>
+    </div>
+    <div class="barra"><b></b></div>
+    <div class="firma">autocar-service.it</div>
+  </section>
+
   <div id="avvio"><div>Premi <b>OK</b> per avviare</div><small>Autocar Service &middot; vetrina TV</small></div>
 </div>
 
@@ -145,7 +171,7 @@ video.on{opacity:1}
     { v: 'settore3.mp4' }, { p: 'p-qr' },
     { v: 'settore4.mp4' }, { p: 'p-ora' },
     { v: 'settore5.mp4' }, { p: 'p-orari' },
-    { v: 'settore6.mp4' }, { p: 'p-qr' }
+    { p: 'p-carro', d: 20000 }, { p: 'p-qr' }
   ];
   var PAUSA = 30000;
   var palco = document.getElementById('palco');
@@ -216,10 +242,10 @@ video.on{opacity:1}
       attivo = 1 - attivo;
     } else {
       var p = document.getElementById(x.p);
-      var b = p.querySelector('.barra b'); if (b) { b.style.animation = 'none'; void b.offsetWidth; b.style.animation = ''; }
-      p.classList.add('on');
+      var dur = x.d || PAUSA; var b = p.querySelector('.barra b'); if (b) { b.style.animation = 'none'; void b.offsetWidth; b.style.animation = 'avanza ' + (dur / 1000) + 's linear forwards'; }
+      spegniPause(); p.classList.add('on');
       setTimeout(function () { lettori.forEach(function (v) { v.classList.remove('on'); }); }, 900);
-      setTimeout(avanti, PAUSA);
+      setTimeout(avanti, dur);
     }
   }
   function avanti() { i = (i + 1) % SCALETTA.length; passo(); }
