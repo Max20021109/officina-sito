@@ -33,11 +33,11 @@ video.on{opacity:1}
 .stato i{width:16px;height:16px;border-radius:50%;background:#7a7b80}
 .stato.aperto i{background:#2ecc71;box-shadow:0 0 18px #2ecc71}
 .stato.chiuso i{background:var(--rosso)}
-.barra{position:absolute;left:110px;right:110px;bottom:70px;height:4px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.barra{position:absolute;left:110px;right:110px;bottom:95px;height:4px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
 .barra b{display:block;height:100%;width:0;background:var(--rosso)}
 .pausa.on .barra b{animation:avanza 30s linear forwards}
 @keyframes avanza{to{width:100%}}
-.firma{position:absolute;right:110px;bottom:24px;font-size:20px;color:rgba(255,255,255,.35)}
+.firma{position:absolute;right:110px;bottom:50px;font-size:20px;color:rgba(255,255,255,.35)}
 /* pausa ORA */
 #p-ora .logo{left:50%;top:110px;transform:translateX(-50%);width:520px}
 #p-ora .centro{position:absolute;left:0;right:0;top:430px;text-align:center}
@@ -65,10 +65,47 @@ video.on{opacity:1}
 .qrtesto h2{font-size:76px;font-weight:600;letter-spacing:-.03em;line-height:1;margin:26px 0 22px}
 .qrtesto p{font-size:32px;color:#c7c8cc;line-height:1.4}
 .qrtesto .tr{display:block;width:90px;height:6px;background:var(--rosso);margin:0 0 30px}
-.carro{display:flex;gap:56px;align-items:center;top:120px}
-.carro .foto{flex:none;width:420px;height:700px;border-radius:32px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
-.carro .foto img{width:100%;height:100%;object-fit:cover;display:block}
+.carro{display:flex;gap:50px;align-items:center;top:110px;left:820px}
+.carro .foto{position:relative;flex:none;width:570px;height:760px;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
+.carro .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.carro .foto .f2{opacity:0;transition:opacity 1.2s}
+#p-carro.due .foto .f2{opacity:1}
 .num{display:inline-block;white-space:nowrap;margin-top:34px;padding:20px 36px;border-radius:999px;background:var(--rosso);font-size:46px;font-weight:600;font-variant-numeric:tabular-nums}
+.galleria{top:80px;left:840px}
+.cornice{position:relative;width:920px;height:690px;border-radius:28px;overflow:hidden;background:#000;box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
+.cornice img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1.2s}
+.cornice img.vis{opacity:1}
+.didascalia{display:flex;align-items:baseline;gap:30px;margin-top:26px;flex-wrap:wrap}
+.didascalia h2{font-size:56px;font-weight:600;letter-spacing:-.03em}
+.didascalia p{flex-basis:100%;font-size:28px;color:#c7c8cc;margin-top:-4px}
+/* schermate a tutto schermo con foto */
+.piena{background:#000}
+.slides,.slides .sl{position:absolute;inset:0}
+.slides .sl{opacity:0;transition:opacity 1.4s;display:flex}
+.slides .sl.vis{opacity:1}
+.slides .sl img{width:100%;height:100%;object-fit:cover;display:block;flex:1;min-width:0}
+.slides .sl.due img{width:50%}
+.slides .sl.due img+img{border-left:6px solid #07080a}
+.velo{position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,8,10,.92) 0%,rgba(7,8,10,.55) 28%,rgba(7,8,10,0) 55%),linear-gradient(180deg,rgba(7,8,10,.55) 0%,rgba(7,8,10,0) 22%)}
+.marchio{position:absolute;left:100px;top:100px;width:300px;height:auto;filter:drop-shadow(0 6px 20px rgba(0,0,0,.7))}
+.titolo{position:absolute;left:110px;bottom:130px;right:110px}
+.titolo h2{font-size:110px;font-weight:600;letter-spacing:-.04em;line-height:1;margin:18px 0 0;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+.titolo .tr{display:block;width:110px;height:7px;background:var(--rosso);margin:26px 0 22px}
+.titolo p{font-size:36px;color:#e2e3e6;max-width:1100px}
+.titolo .num{position:absolute;right:0;bottom:6px;margin:0}
+/* QR */
+#p-qr .marchio{left:110px;top:100px;width:340px}
+.orina{position:absolute;right:110px;top:110px;font-size:64px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.qrsx{position:absolute;left:110px;top:300px;width:880px}
+.qrsx h2{font-size:132px;font-weight:600;letter-spacing:-.045em;line-height:.95;margin-top:24px}
+.qrsx .tr{display:block;width:110px;height:7px;background:var(--rosso);margin:34px 0 28px}
+.qrsx p{font-size:38px;color:#c9cacf;line-height:1.4;max-width:820px}
+.qrsx .soc{display:flex;gap:14px;margin-top:36px}
+.qrsx .soc span{padding:12px 24px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);font-size:26px;color:#e6e6e9}
+.qrdx{position:absolute;right:170px;top:230px;text-align:center}
+.qrbox{width:560px;height:560px;padding:34px;border-radius:40px;background:#fff;box-shadow:0 40px 90px -30px rgba(227,52,42,.45)}
+.qrbox img{width:100%;height:100%;image-rendering:pixelated;display:block}
+.qrdx .st{color:#f5b400;font-size:46px;letter-spacing:10px;margin-top:26px}
 #avvio{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:30px;background:var(--nero);font-size:48px}
 #avvio.on{display:flex}
 #avvio small{font-size:28px;color:#9a9ba0}
@@ -114,45 +151,38 @@ video.on{opacity:1}
 
   <!-- pausa: QR recensioni / social -->
   <section class="pausa" id="p-qr">
-    <div class="sx">
-      <img class="logo" src="assets/img/logo.png" alt="Autocar Service">
-      <div class="ora js-ora">--:--</div>
-      <div class="data js-data"></div>
-      <div class="stato js-stato"><i></i><span>&nbsp;</span></div>
+    <img class="marchio" src="assets/img/logo.png" alt="Autocar Service">
+    <div class="orina"><span class="js-ora">--:--</span></div>
+    <div class="qrsx">
+      <div class="eyebrow">Recensioni su Google</div>
+      <h2>Ti siamo<br>piaciuti?</h2>
+      <span class="tr"></span>
+      <p>Inquadra il codice con la fotocamera: lasciaci una recensione o seguici sui social.</p>
+      <div class="soc"><span>Google</span><span>WhatsApp</span><span>TikTok</span><span>Instagram</span></div>
     </div>
-    <div class="dx">
-      <div class="qr"><img src="assets/tv/qr-link.png" alt="QR"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>Inquadra con la fotocamera</div>
-      <div class="qrtesto">
-        <div class="eyebrow">Recensioni su Google</div>
-        <h2>Ti siamo<br>piaciuti?</h2>
-        <span class="tr"></span>
-        <p>Inquadra il QR: recensione, sito, WhatsApp, TikTok e Instagram.</p>
-      </div>
-    </div>
+    <div class="qrdx"><div class="qrbox"><img src="assets/tv/qr-link.png" alt="QR"></div><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
     <div class="barra"><b></b></div>
     <div class="firma">Powered by Massimo Franco</div>
   </section>
 
-  <!-- settore 06: carro attrezzi (schermata fissa con una foto) -->
-  <section class="pausa" id="p-carro">
-    <div class="sx">
-      <img class="logo" src="assets/img/logo.png" alt="Autocar Service">
-      <div class="ora js-ora">--:--</div>
-      <div class="data js-data"></div>
-      <div class="stato js-stato"><i></i><span>&nbsp;</span></div>
+  <!-- settore 05: tuning e montaggio, foto a tutto schermo -->
+  <section class="pausa piena" id="p-tuning">
+    <div class="slides js-slide">
+      <div class="sl"><img src="assets/tv/tun_stelvio.webp" alt=""></div>
+      <div class="sl due"><img src="assets/tv/tun_fiesta.webp" alt=""><img src="assets/tv/tun_rs6.webp" alt=""></div>
+      <div class="sl due"><img src="assets/tv/tun_911a.webp" alt=""><img src="assets/tv/tun_911b.webp" alt=""></div>
     </div>
-    <div class="dx carro">
-      <div class="foto"><img src="assets/tv/carro.webp" alt="Il carro attrezzi di Autocar Service"></div>
-      <div class="qrtesto">
-        <div class="eyebrow">Servizi 06</div>
-        <h2>Carro<br>attrezzi</h2>
-        <span class="tr"></span>
-        <p>Recuperiamo l&rsquo;auto in panne e la portiamo direttamente in officina.</p>
-        <div class="num">347 856 7108</div>
-      </div>
-    </div>
-    <div class="barra"><b></b></div>
-    <div class="firma">autocar-service.it</div>
+    <div class="velo"></div>
+    <img class="marchio" src="assets/img/logo.png" alt="Autocar Service">
+    <div class="titolo"><div class="eyebrow">Servizi 05</div><h2>Tuning e montaggio</h2><span class="tr"></span><p>Kit, assetti, luci e preparazioni sportive, montati come di fabbrica.</p></div>
+  </section>
+
+  <!-- settore 06: carro attrezzi, una foto a tutto schermo -->
+  <section class="pausa piena" id="p-carro">
+    <div class="slides"><div class="sl vis"><img src="assets/tv/carro_full.webp" alt=""></div></div>
+    <div class="velo"></div>
+    <img class="marchio" src="assets/img/logo.png" alt="Autocar Service">
+    <div class="titolo"><div class="eyebrow">Servizi 06 &middot; Soccorso stradale</div><h2>Carro attrezzi</h2><span class="tr"></span><p>Recuperiamo l&rsquo;auto in panne e la portiamo direttamente in officina.</p><div class="num">347 856 7108</div></div>
   </section>
 
   <div id="avvio"><div>Premi <b>OK</b> per avviare</div><small>Autocar Service &middot; vetrina TV</small></div>
@@ -170,7 +200,7 @@ video.on{opacity:1}
     { v: 'settore2.mp4' }, { p: 'p-orari' },
     { v: 'settore3.mp4' }, { p: 'p-qr' },
     { v: 'settore4.mp4' }, { p: 'p-ora' },
-    { v: 'settore5.mp4' }, { p: 'p-orari' },
+    { p: 'p-tuning', d: 30000 }, { p: 'p-orari' },
     { p: 'p-carro', d: 20000 }, { p: 'p-qr' }
   ];
   var PAUSA = 30000;
@@ -179,7 +209,7 @@ video.on{opacity:1}
   var attivo = 0, i = 0, avviato = Date.now();
 
   function adatta() {
-    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    var s = Math.max(window.innerWidth / 1920, window.innerHeight / 1080);
     palco.style.transform = 'scale(' + s + ')';
     palco.style.left = ((window.innerWidth - 1920 * s) / 2) + 'px';
     palco.style.top = ((window.innerHeight - 1080 * s) / 2) + 'px';
@@ -243,7 +273,10 @@ video.on{opacity:1}
     } else {
       var p = document.getElementById(x.p);
       var dur = x.d || PAUSA; var b = p.querySelector('.barra b'); if (b) { b.style.animation = 'none'; void b.offsetWidth; b.style.animation = 'avanza ' + (dur / 1000) + 's linear forwards'; }
-      spegniPause(); p.classList.add('on');
+      spegniPause(); p.classList.remove('due'); p.classList.add('on');
+      var sl = p.querySelector('.js-slide');
+      if (sl) { var fo = sl.querySelectorAll('.sl'), k = 0; Array.prototype.forEach.call(fo, function (f, j) { f.classList.toggle('vis', j === 0); });
+        var t = setInterval(function () { k++; if (k >= fo.length) { clearInterval(t); return; } Array.prototype.forEach.call(fo, function (f, j) { f.classList.toggle('vis', j === k); }); }, dur / fo.length); }
       setTimeout(function () { lettori.forEach(function (v) { v.classList.remove('on'); }); }, 900);
       setTimeout(avanti, dur);
     }
