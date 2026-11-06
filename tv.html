@@ -112,6 +112,15 @@ video.on{opacity:1}
 #avvio{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:30px;background:var(--nero);font-size:48px}
 #avvio.on{display:flex}
 #avvio small{font-size:28px;color:#9a9ba0}
+
+/* telefono in verticale: video intero al centro + invito a girarlo */
+#gira{display:none}
+body.verticale{cursor:auto}
+body.verticale #gira{display:flex;position:fixed;left:0;right:0;bottom:max(28px,env(safe-area-inset-bottom));flex-direction:column;align-items:center;gap:10px;
+  font:500 15px/1.3 "Inter Tight",system-ui,sans-serif;color:rgba(255,255,255,.75);text-align:center;pointer-events:none}
+#gira svg{width:44px;height:44px;color:#e3342a;animation:gira 2.4s ease-in-out infinite}
+@keyframes gira{0%,20%{transform:rotate(0)}50%,70%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
+body.verticale::before{content:"";position:fixed;inset:0;background:radial-gradient(70% 40% at 50% 50%,rgba(227,52,42,.18),transparent 70%)}
 </style>
 </head>
 <body>
@@ -212,16 +221,23 @@ video.on{opacity:1}
   var attivo = 0, i = 0, avviato = Date.now();
 
   function adatta() {
-    // il palco tiene sempre tutto il contenuto visibile e riempie lo schermo:
-    // se lo schermo e' piu' largo di 16:9 si allarga in larghezza, se e' piu' stretto in altezza
-    var w = window.innerWidth, h = window.innerHeight;
-    var s = Math.min(w / 1920, h / 1080);
-    palco.style.width = (w / s) + 'px';
-    palco.style.height = (h / s) + 'px';
+    // TV e telefono in orizzontale: il palco riempie lo schermo e tiene tutto il contenuto visibile.
+    // Telefono in verticale: il 16:9 sta intero al centro (come YouTube) e sotto compare "gira il telefono".
+    var w = window.innerWidth, h = window.innerHeight, s;
+    var vert = w / h < 1.25;
+    document.body.classList.toggle('verticale', vert);
+    if (vert) {
+      s = w / 1920;
+      palco.style.width = '1920px'; palco.style.height = '1080px';
+      palco.style.left = '0px'; palco.style.top = Math.max(0, (h - 1080 * s) / 2) + 'px';
+    } else {
+      s = Math.min(w / 1920, h / 1080);
+      palco.style.width = (w / s) + 'px'; palco.style.height = (h / s) + 'px';
+      palco.style.left = '0px'; palco.style.top = '0px';
+    }
     palco.style.transform = 'scale(' + s + ')';
-    palco.style.left = '0px'; palco.style.top = '0px';
   }
-  window.addEventListener('resize', adatta); adatta();
+  window.addEventListener('resize', adatta); window.addEventListener('orientationchange', function () { setTimeout(adatta, 300); }); adatta();
 
   // ---------- ora esatta, data, aperto/chiuso (ora italiana) ----------
   function aggiornaOra() {
@@ -293,7 +309,7 @@ video.on{opacity:1}
   function avvia() {
     document.getElementById('avvio').classList.remove('on');
     var el = document.documentElement, fs = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
-    if (fs && !document.fullscreenElement) { try { fs.call(el); } catch (e) {} }
+    if (fs && !document.fullscreenElement) { try { var r = fs.call(el); if (r && r.then) { r.then(function () { if (screen.orientation && screen.orientation.lock) { screen.orientation.lock('landscape').catch(function () {}); } }).catch(function () {}); } } catch (e) {} }
     var l = lettori[1 - attivo]; if (l.paused && l.src) { l.play().catch(function () {}); }
   }
   document.addEventListener('keydown', avvia);
@@ -303,5 +319,6 @@ video.on{opacity:1}
   passo();
 })();
 </script>
+<div id="gira"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>Gira il telefono per vederlo a tutto schermo</div>
 </body>
 </html>
