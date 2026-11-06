@@ -8,6 +8,9 @@
      Alterna i video dei settori e le pause da 30 s con l'ora esatta, gli orari e il QR.
      Non serve su Google. -->
 <meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="theme-color" content="#07080a">
 <style>
 @font-face{font-family:"Inter Tight";src:url(assets/vendor/fonts/inter-tight/inter-tight-latin-wght-normal.woff2) format("woff2-variations"),url(assets/vendor/fonts/inter-tight/inter-tight-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
@@ -18,7 +21,7 @@ html,body{width:100%;height:100%;background:#000;overflow:hidden;cursor:none}
 /* palco 1920x1080 scalato per stare in qualsiasi schermo (alcune TV dichiarano 1280x720) */
 #palco{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:var(--nero);overflow:hidden;
   font-family:"Inter Tight",system-ui,sans-serif;color:#f4f4f2}
-video{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;background:#000;opacity:0;transition:opacity .6s}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;opacity:0;transition:opacity .6s}
 video.on{opacity:1}
 .pausa{position:absolute;inset:0;opacity:0;transition:opacity .9s;pointer-events:none;
   background:radial-gradient(900px 700px at 15% 85%,rgba(227,52,42,.20),transparent 70%),radial-gradient(800px 600px at 95% 10%,rgba(227,52,42,.10),transparent 70%),var(--nero)}
@@ -209,10 +212,14 @@ video.on{opacity:1}
   var attivo = 0, i = 0, avviato = Date.now();
 
   function adatta() {
-    var s = Math.max(window.innerWidth / 1920, window.innerHeight / 1080);
+    // il palco tiene sempre tutto il contenuto visibile e riempie lo schermo:
+    // se lo schermo e' piu' largo di 16:9 si allarga in larghezza, se e' piu' stretto in altezza
+    var w = window.innerWidth, h = window.innerHeight;
+    var s = Math.min(w / 1920, h / 1080);
+    palco.style.width = (w / s) + 'px';
+    palco.style.height = (h / s) + 'px';
     palco.style.transform = 'scale(' + s + ')';
-    palco.style.left = ((window.innerWidth - 1920 * s) / 2) + 'px';
-    palco.style.top = ((window.innerHeight - 1080 * s) / 2) + 'px';
+    palco.style.left = '0px'; palco.style.top = '0px';
   }
   window.addEventListener('resize', adatta); adatta();
 
